@@ -12,8 +12,8 @@ public class Principal extends javax.swing.JFrame {
 
         frmCifrar cifrar = new frmCifrar();
         frmDescifrar descifrar = new frmDescifrar();
-        frmPersonalizar pr = new frmPersonalizar();
-        Principal principal = new Principal();
+        //frmPersonalizar pr = new frmPersonalizar();
+        //Principal principal = new Principal();
 
     public Principal() {
         initComponents();
@@ -21,7 +21,6 @@ public class Principal extends javax.swing.JFrame {
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
         setIconImage(icon);
         //this.setVisible(true);
-        
         
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
@@ -313,8 +312,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCifrarActionPerformed
 
     private void btnCustomizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomizeActionPerformed
-            pr.setVisible(true);
-            principal.setVisible(true);
+            //pr.setVisible(true);
+            //principal.setVisible(true);
             
     }//GEN-LAST:event_btnCustomizeActionPerformed
 
