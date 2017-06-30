@@ -1,5 +1,10 @@
 package Formulario;
 
+import java.awt.FileDialog;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+
 public class frmPersonalizar extends javax.swing.JFrame {
     
     public frmPersonalizar() {
@@ -9,7 +14,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtCripto.setEditable(false);
         txtEncrypted.setEditable(false);        
         rdoOrdenado.setSelected(true);        
-        btnEnviar.setEnabled(false);        
+        btnEnviar.setEnabled(false);  
+        
     }
     
     char[] textComplete = new char[26];
@@ -165,6 +171,25 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }        
     }
     
+    
+    void grabar(){
+            FileDialog da;
+            da = new FileDialog(this,"Lista de Archivos",FileDialog.SAVE);
+            da.show();
+            String file;
+            String directory;
+            file = da.getFile()+".txt";
+            directory = da.getDirectory();
+            
+        try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
+            
+            pw.println(txtEncrypted.getText());
+            JOptionPane.showInternalMessageDialog(null, "Mensaje Guardado");
+        }catch(Exception e){
+            
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -193,6 +218,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtEncrypted = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnDecrypt = new javax.swing.JButton();
@@ -337,7 +363,15 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+
+        btnSave.setText("Guardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 100, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 460, 330));
 
@@ -484,6 +518,10 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtToDecrypt.setText(mensaje);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        grabar();
+    }//GEN-LAST:event_btnSaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -523,6 +561,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnLimpiar3;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
