@@ -383,11 +383,9 @@ public class frmCifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverCMouseExited
 
     private void btnVolverCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCActionPerformed
-      this.dispose();
-      
       Principal prn = new Principal();
       prn.setVisible(true);
-        
+      this.dispose();  
     }//GEN-LAST:event_btnVolverCActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -12,7 +12,7 @@ public class Principal extends javax.swing.JFrame {
 
         frmCifrar cifrar = new frmCifrar();
         frmDescifrar descifrar = new frmDescifrar();
-        //frmPersonalizar pr = new frmPersonalizar();
+        frmPersonalizar pr = new frmPersonalizar();
         //Principal principal = new Principal();
 
     public Principal() {
@@ -312,13 +312,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCifrarActionPerformed
 
     private void btnCustomizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomizeActionPerformed
-            //pr.setVisible(true);
+            pr.setVisible(true);
             //principal.setVisible(true);
             
     }//GEN-LAST:event_btnCustomizeActionPerformed
 
     private void btnDescifrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescifrar1ActionPerformed
-        descifrar.setVisible(true);
+            descifrar.setVisible(true);
             descifrar.setLocationRelativeTo(null) ;
             descifrar.setSize(996,630);
             this.setVisible(false);
