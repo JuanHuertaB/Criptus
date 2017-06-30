@@ -1,170 +1,170 @@
-
 package Formulario;
 
 public class frmPersonalizar extends javax.swing.JFrame {
-
+    
     public frmPersonalizar() {
         
         initComponents();
         txtKeyWord.requestFocus();
         txtCripto.setEditable(false);
-        txtEncrypted.setEditable(false);  
-        rdoOrdenado.setSelected(true);     
-        btnEnviar.setEnabled(false);         
+        txtEncrypted.setEditable(false);        
+        rdoOrdenado.setSelected(true);        
+        btnEnviar.setEnabled(false);        
     }
-
+    
     char[] textComplete = new char[26];
     String abc = "";
-    
+
     //PONER EL ABECEDARIO EN UN ARREGLO
-    String abcInArray(){
+    String abcInArray() {
         String cadena1 = "";
         String cadena2 = "";
         
-        if(rdoOrdenado.isSelected() && rdoLetter.isSelected()){
+        if (rdoOrdenado.isSelected() && rdoLetter.isSelected()) {
             String letter = txtLetter.getText();
             abc = "abcdefghijklmnopqrstuvwxyz";
             
-            for(int i=0;i<abc.length();i++){
-                if(letter.equals(Character.toString(abc.charAt(i)))){
+            for (int i = 0; i < abc.length(); i++) {
+                if (letter.equals(Character.toString(abc.charAt(i)))) {
                     cadena1 = abc.substring(i, abc.length());
                     cadena2 = abc.substring(0, i);
-                    abc=cadena1.concat(cadena2);
+                    abc = cadena1.concat(cadena2);
                 }
-            }  
-        }else if(rdoInverso.isSelected() && rdoLetter.isSelected()){
+            }            
+        } else if (rdoInverso.isSelected() && rdoLetter.isSelected()) {
             String letter = txtLetter.getText();
             abc = "zyxwvutsrqponmlkjihgfedcba";
             
-            for(int j=0;j<abc.length();j++){
-                if(letter.equals(Character.toString(abc.charAt(j)))){
+            for (int j = 0; j < abc.length(); j++) {
+                if (letter.equals(Character.toString(abc.charAt(j)))) {
                     cadena1 = abc.substring(j, abc.length());
                     cadena2 = abc.substring(0, j);
-                    abc=cadena1.concat(cadena2);
+                    abc = cadena1.concat(cadena2);
                 }
             }
-        }else if(rdoOrdenado.isSelected()){
+        } else if (rdoOrdenado.isSelected()) {
             abc = "abcdefghijklmnopqrstuvwxyz";
-        }else{
+        } else {
             abc = "zyxwvutsrqponmlkjihgfedcba";
         }
-             return abc;
-    }  
-    
+        return abc;
+    }
+
     //OBTENEMOS EL TEXTO 
-    String getKeyWord(){
+    String getKeyWord() {
         return txtKeyWord.getText().trim();
     }
-    
+
     //PONEMOS LA PALABRA CLAVE EN UN ARREGLO
-    char[] putInArray(String keyWord){
+    char[] putInArray(String keyWord) {
         char achar[] = keyWord.toCharArray();
         return achar;
-    }  
-    
+    }
+
     //BORRAR LETRAS REPETIDAS
-    char[] deleteRepeted(char[] keyWordInArray){
-       
+    char[] deleteRepeted(char[] keyWordInArray) {
+        
         int longitud = keyWordInArray.length;
         
-        for(int i=0;i<longitud;i++){
-            for(int j=1;j<longitud;j++){
-                if(keyWordInArray[i] == keyWordInArray[j] && i!=j ){                 
-                        keyWordInArray[j] = ' ';
+        for (int i = 0; i < longitud; i++) {
+            for (int j = 1; j < longitud; j++) {
+                if (keyWordInArray[i] == keyWordInArray[j] && i != j) {                    
+                    keyWordInArray[j] = ' ';
                 }
-            }   
+            }            
         }
         return keyWordInArray;
     }
+
     //BORRAR ESPACIOS EN BLANCO
-   char[] deleteSpaces(char[] text){
-       
+    char[] deleteSpaces(char[] text) {
+        
         String cadena = "";
-          for(int i=0;i<text.length;i++){
-             cadena += Character.toString(text[i]);
-          }
-          for(int i=0;i<cadena.length();i++){
-              cadena = cadena.replace(" ", "");
-          }
-          char[] aCaracteres = cadena.toCharArray();
-          
-         return aCaracteres; 
-      }
+        for (int i = 0; i < text.length; i++) {
+            cadena += Character.toString(text[i]);
+        }
+        for (int i = 0; i < cadena.length(); i++) {
+            cadena = cadena.replace(" ", "");
+        }
+        char[] aCaracteres = cadena.toCharArray();
+        
+        return aCaracteres;        
+    }
 
     //COMPLETAR TEXTO CON LAS LETRAS FALTANTES
-       void completarArray(char[] aCharac, String abc){         
+    void completarArray(char[] aCharac, String abc) {
         //System.arraycopy(aCharac, 0, textComplete, 0, aCharac.length);
-            txtCripto.setText("");
-            for(int i=0;i<aCharac.length;i++){
-            for(int j=0;j<abc.length();j++){
-                if(aCharac[i]==abc.charAt(j)){
-                    abc = abc.replace(abc.charAt(j) ,' ');
-                    }
-                 }
-             }
-            char[] abcde = deleteSpaces(putInArray(abc));
-        
-            String cadenaUno="",cadenaDos="",cadenaFinal;
-            for(int i=0;i<abcde.length;i++){
-          cadenaUno += Character.toString(abcde[i]);
+        txtCripto.setText("");
+        for (int i = 0; i < aCharac.length; i++) {
+            for (int j = 0; j < abc.length(); j++) {
+                if (aCharac[i] == abc.charAt(j)) {
+                    abc = abc.replace(abc.charAt(j), ' ');
+                }
             }
+        }
+        char[] abcde = deleteSpaces(putInArray(abc));
         
-             for(int r=0;r<aCharac.length;r++){
-          cadenaDos += Character.toString(aCharac[r]);
-            }
+        String cadenaUno = "", cadenaDos = "", cadenaFinal;
+        for (int i = 0; i < abcde.length; i++) {
+            cadenaUno += Character.toString(abcde[i]);
+        }
         
-            cadenaFinal = cadenaDos.concat(cadenaUno);
-            textComplete = cadenaFinal.toCharArray();
+        for (int r = 0; r < aCharac.length; r++) {
+            cadenaDos += Character.toString(aCharac[r]);
+        }
+        
+        cadenaFinal = cadenaDos.concat(cadenaUno);
+        textComplete = cadenaFinal.toCharArray();
+        
+        for (int i = 0; i < textComplete.length; i++) {
+            txtCripto.append(Character.toString(textComplete[i]));
+        }
+    }
 
-            for(int i=0;i<textComplete.length;i++)
-           txtCripto.append(Character.toString(textComplete[i]));
+    /*--------------------------------------------------------------------------------------------------------*/
+ /*PROCESO DE CIFRADO*/
+    char[] getMessageInArray() {
+        return txtToEncrypt.getText().toCharArray();
+    }
+    
+    char[] getCriptoInArray() {
+        return txtCripto.getText().toCharArray();
+    }
+    
+    void encrypt(char[] mensaje, char[] cripto, char[] llano) {
+        
+        for (int i = 0; i < mensaje.length; i++) {            
+            for (int j = 0; j < llano.length; j++) {                
+                if (mensaje[i] == llano[j]) {
+                    mensaje[i] = cripto[j];                    
+                    j = j + (llano.length - j);                    
+                }
+            }            
+        }        
+        for (int k = 0; k < mensaje.length; k++) {
+            txtEncrypted.append(Character.toString(mensaje[k]));
+        }
+    }
+    
+    char[] getEncripted() {
+        return txtToDecrypt.getText().toCharArray();
+    }
+    
+    void decrypt(char[] message, char[] cripto, char[] abc) {
+        
+        for (int i = 0; i < message.length; i++) {
+            for (int j = 0; j < cripto.length; j++) {
+                if (message[i] == cripto[j]) {
+                    message[i] = abc[j];
+                    j = j + (cripto.length - j);
+                }
             }
-
-/*--------------------------------------------------------------------------------------------------------*/       
-    /*PROCESO DE CIFRADO*/
-       
-       char[] getMessageInArray(){
-           return txtToEncrypt.getText().toCharArray();
-       }
-       
-       char[] getCriptoInArray(){
-           return txtCripto.getText().toCharArray();
-       }
-       
-       void encrypt(char[] mensaje, char[] cripto,char[] llano){
-           
-           for(int i=0;i<mensaje.length;i++){  
-               for(int j=0;j<llano.length;j++){                  
-                   if(mensaje[i] == llano[j] ){
-                       mensaje[i] = cripto[j];                     
-                       j = j+(llano.length-j); 
-                   }
-               }    
-           }          
-           for(int k=0;k<mensaje.length;k++){
-               txtEncrypted.append(Character.toString(mensaje[k]));
-           }
-       }
-
-       char[] getEncripted(){
-            return txtToDecrypt.getText().toCharArray();
-       }
-       
-       void decrypt(char[] message,char[] cripto,char[] abc){
-           
-           for(int i=0;i<message.length;i++){
-               for(int j=0;j<cripto.length;j++){
-                   if(message[i] == cripto[j]){
-                       message[i] = abc[j];
-                       j = j+(cripto.length - j);
-                   }
-               }
-           }
-           for(int k=0;k<message.length;k++){
-               txtDecrypted.append(Character.toString(message[k]));
-           } 
-       }
-
+        }
+        for (int k = 0; k < message.length; k++) {
+            txtDecrypted.append(Character.toString(message[k]));
+        }        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -192,6 +192,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtEncrypted = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnDecrypt = new javax.swing.JButton();
@@ -321,14 +322,22 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 426, 58));
 
         jLabel4.setText("Mensaje Encriptado");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         txtEncrypted.setBackground(new java.awt.Color(204, 204, 204));
         txtEncrypted.setColumns(20);
         txtEncrypted.setRows(5);
         jScrollPane2.setViewportView(txtEncrypted);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 426, 90));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 426, 90));
+
+        jButton1.setText("Enviar a Descifrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 460, 330));
 
@@ -377,38 +386,39 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        
+
         //OBTENEMOS LA PALABRA CLAVE
-        String keyWord = getKeyWord(); 
-        
+        String keyWord = getKeyWord();
+
         /*
         SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
         LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO
-        */
+         */
         char[] keyWordInArray = putInArray(keyWord);
-                          
+        
         char[] finalText = deleteRepeted(keyWordInArray);
         
         char[] textOne = deleteSpaces(finalText);
         
         String abc = abcInArray();
         
-        completarArray(textOne,abc);    
+        completarArray(textOne, abc);        
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtCripto.setText("");
         txtToEncrypt.setText("");
         txtKeyWord.setText("");
+        txtLetter.setText("");
         txtKeyWord.requestFocus();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
-         
+        
         char[] message = getMessageInArray();
         char[] cripto = getCriptoInArray();
         char[] abc = abcInArray().toCharArray();
-         
+        
         encrypt(message, cripto, abc);
     }//GEN-LAST:event_btnEncryptActionPerformed
 
@@ -419,18 +429,18 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCleanDecryptActionPerformed
 
     private void rdoOrdenadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoOrdenadoActionPerformed
-            rdoInverso.setSelected(false);
+        rdoInverso.setSelected(false);
     }//GEN-LAST:event_rdoOrdenadoActionPerformed
 
     private void rdoInversoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoInversoActionPerformed
-            rdoOrdenado.setSelected(false);
+        rdoOrdenado.setSelected(false);
     }//GEN-LAST:event_rdoInversoActionPerformed
 
     private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
         char[] message = getEncripted();
         char[] cripto = getCriptoInArray();
         char[] abc = abcInArray().toCharArray();
-         
+        
         decrypt(message, cripto, abc);
     }//GEN-LAST:event_btnDecryptActionPerformed
 
@@ -440,9 +450,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiar3ActionPerformed
 
     private void rdoLetterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoLetterActionPerformed
+        
 
-        
-        
     }//GEN-LAST:event_rdoLetterActionPerformed
 
     private void txtKeyWordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyTyped
@@ -452,7 +461,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private void txtKeyWordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyReleased
         btnEnviar.setEnabled(true);
         int longitud = txtKeyWord.getText().length();
-        if(longitud  == 0){
+        if (longitud == 0) {
             btnEnviar.setEnabled(false);
         }
     }//GEN-LAST:event_txtKeyWordKeyReleased
@@ -463,18 +472,23 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
     private void rdoLetterMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdoLetterMouseReleased
         
-        
+
     }//GEN-LAST:event_rdoLetterMouseReleased
 
     private void rdoLetterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdoLetterMouseClicked
-       
+        
     }//GEN-LAST:event_rdoLetterMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String mensaje = txtEncrypted.getText();
+        txtToDecrypt.setText(mensaje);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
- 
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -509,6 +523,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnLimpiar3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

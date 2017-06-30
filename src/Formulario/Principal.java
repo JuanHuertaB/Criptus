@@ -1,11 +1,17 @@
 
 package Formulario;
 
+
+import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.Shape;
 import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
+
+
 
 
 public class Principal extends javax.swing.JFrame {
@@ -13,11 +19,13 @@ public class Principal extends javax.swing.JFrame {
         frmCifrar cifrar = new frmCifrar();
         frmDescifrar descifrar = new frmDescifrar();
         frmPersonalizar pr = new frmPersonalizar();
-        //Principal principal = new Principal();
+        
+//Principal principal = new Principal();
 
     public Principal() {
         initComponents();
-        
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 13,13);
+        AWTUtilities.setWindowShape(this,forma);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
         setIconImage(icon);
         //this.setVisible(true);
@@ -40,7 +48,8 @@ public class Principal extends javax.swing.JFrame {
         //EFECTOS BOTON MAXIMIZAR
         //pnlMax.setVisible(true);
         //pnlMax.setBackground(null);
-            
+        
+        
     }
 
 
@@ -58,11 +67,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        pnlCerrar = new javax.swing.JPanel();
-        btnCerrar = new javax.swing.JButton();
         pnlMin = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
+        pnlCerrar = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JButton();
         btnCustomize = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         btnDescifrar1 = new javax.swing.JButton();
@@ -90,14 +99,14 @@ public class Principal extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(0, 39, 53));
+        jPanel2.setBackground(new java.awt.Color(0, 35, 52));
         jPanel2.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Eras Light ITC", 0, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido al Sistema de Ciframiento");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(150, 110, 470, 60);
+        jLabel1.setBounds(140, 130, 510, 60);
 
         btnCifrar.setBackground(new java.awt.Color(0, 39, 53));
         btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
@@ -112,13 +121,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnCifrar);
-        btnCifrar.setBounds(160, 230, 210, 80);
+        btnCifrar.setBounds(160, 270, 220, 80);
 
-        jLabel2.setFont(new java.awt.Font("Eras Light ITC", 1, 30)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("UTP CRIPTO");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(300, 170, 190, 40);
+        jLabel2.setBounds(280, 190, 190, 40);
 
         jPanel3.setBackground(new java.awt.Color(24, 51, 55));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -143,6 +152,35 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setText("UTP CRIPTO");
         jPanel3.add(jLabel5);
         jLabel5.setBounds(350, 10, 70, 16);
+
+        pnlMin.setBackground(new java.awt.Color(204, 204, 204));
+        pnlMin.setLayout(null);
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setLayout(null);
+        pnlMin.add(jPanel6);
+        jPanel6.setBounds(660, 0, 50, 30);
+
+        btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
+        btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904507_remove.png"))); // NOI18N
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinimizarActionPerformed(evt);
+            }
+        });
+        pnlMin.add(btnMinimizar);
+        btnMinimizar.setBounds(0, 0, 50, 30);
+
+        jPanel3.add(pnlMin);
+        pnlMin.setBounds(660, 0, 50, 30);
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,39 +213,10 @@ public class Principal extends javax.swing.JFrame {
         btnCerrar.setBounds(0, 0, 50, 30);
 
         jPanel3.add(pnlCerrar);
-        pnlCerrar.setBounds(700, 0, 50, 30);
-
-        pnlMin.setBackground(new java.awt.Color(204, 204, 204));
-        pnlMin.setLayout(null);
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel6.setLayout(null);
-        pnlMin.add(jPanel6);
-        jPanel6.setBounds(660, 0, 50, 30);
-
-        btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
-        btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904507_remove.png"))); // NOI18N
-        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnMinimizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnMinimizarMouseExited(evt);
-            }
-        });
-        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMinimizarActionPerformed(evt);
-            }
-        });
-        pnlMin.add(btnMinimizar);
-        btnMinimizar.setBounds(0, 0, 50, 30);
-
-        jPanel3.add(pnlMin);
-        pnlMin.setBounds(650, 0, 50, 30);
+        pnlCerrar.setBounds(710, 0, 50, 30);
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(0, 0, 750, 30);
+        jPanel3.setBounds(0, 0, 760, 30);
 
         btnCustomize.setBackground(new java.awt.Color(0, 39, 53));
         btnCustomize.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
@@ -221,11 +230,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnCustomize);
-        btnCustomize.setBounds(500, 330, 240, 40);
+        btnCustomize.setBounds(530, 370, 210, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/utp.png"))); // NOI18N
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(280, 30, 190, 100);
+        jLabel6.setBounds(290, 40, 190, 100);
 
         btnDescifrar1.setBackground(new java.awt.Color(0, 39, 53));
         btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
@@ -240,12 +249,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnDescifrar1);
-        btnDescifrar1.setBounds(390, 230, 210, 80);
+        btnDescifrar1.setBounds(410, 270, 210, 80);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 750, 390);
+        jPanel2.setBounds(0, 0, 760, 420);
 
-        setSize(new java.awt.Dimension(749, 381));
+        setSize(new java.awt.Dimension(758, 418));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -312,9 +321,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCifrarActionPerformed
 
     private void btnCustomizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomizeActionPerformed
-            pr.setVisible(true);
+            //pr.setVisible(true);
             //principal.setVisible(true);
-            
+            frmLogin l = new frmLogin();
+            l.setVisible(true);
     }//GEN-LAST:event_btnCustomizeActionPerformed
 
     private void btnDescifrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescifrar1ActionPerformed
@@ -324,9 +334,8 @@ public class Principal extends javax.swing.JFrame {
             this.setVisible(false);
     }//GEN-LAST:event_btnDescifrar1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

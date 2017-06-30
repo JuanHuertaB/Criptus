@@ -19,6 +19,7 @@ public class frmCifrar extends javax.swing.JFrame {
         //CAMBIAR ICONO DE VENTANA
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
         setIconImage(icon);
+        txtCifrado.setEditable(false);
         //setVisible(true);
         
         
@@ -249,7 +250,7 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(820, 590, 160, 29);
 
-        txtCifrado.setBackground(new java.awt.Color(204, 204, 204));
+        txtCifrado.setBackground(new java.awt.Color(153, 153, 153));
         txtCifrado.setColumns(20);
         txtCifrado.setRows(5);
         jScrollPane2.setViewportView(txtCifrado);
