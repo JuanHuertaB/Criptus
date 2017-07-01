@@ -130,6 +130,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setBounds(280, 190, 190, 40);
 
         jPanel3.setBackground(new java.awt.Color(24, 51, 55));
+        jPanel3.setToolTipText("UTP CRIPTO");
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);

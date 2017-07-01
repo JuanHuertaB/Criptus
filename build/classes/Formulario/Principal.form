@@ -153,6 +153,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="37" green="33" red="18" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="UTP CRIPTO"/>
           </Properties>
           <Events>
             <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jPanel3MouseDragged"/>
