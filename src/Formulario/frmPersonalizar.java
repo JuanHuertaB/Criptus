@@ -22,7 +22,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     String abc = "";
 
     //PONER EL ABECEDARIO EN UN ARREGLO
-    String abcInArray() {
+        String abcInArray() {
         String cadena1 = "";
         String cadena2 = "";
         
