@@ -18,8 +18,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
     }
     
-    char[] textComplete = new char[26];
-    String abc = "";
+    char[] textComplete = new char[26]; //ARREGLO DONDE SE GUARDARÁ EL CRIPTO
+    String abc = ""; //DEFINIMOS EL ALFABETO
 
     //PONER EL ABECEDARIO EN UN ARREGLO
         String abcInArray() {
@@ -56,12 +56,12 @@ public class frmPersonalizar extends javax.swing.JFrame {
         return abc;
     }
 
-    //OBTENEMOS EL TEXTO 
+    //OBTENEMOS LA PALABRA CLAVE 
     String getKeyWord() {
         return txtKeyWord.getText().trim();
     }
 
-    //PONEMOS LA PALABRA CLAVE EN UN ARREGLO
+    //PONER LA PALABRA CLAVE EN UN ARREGLO
     char[] putInArray(String keyWord) {
         char achar[] = keyWord.toCharArray();
         return achar;
@@ -128,7 +128,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }
 
     /*--------------------------------------------------------------------------------------------------------*/
- /*PROCESO DE CIFRADO*/
+    /*-------------------------------------------------PROCESO DE CIFRADO---------------------------------------------*/
+    
     char[] getMessageInArray() {
         return txtToEncrypt.getText().toCharArray();
     }
@@ -170,11 +171,9 @@ public class frmPersonalizar extends javax.swing.JFrame {
             txtDecrypted.append(Character.toString(message[k]));
         }        
     }
-    
-    
     void grabar(){
             FileDialog da;
-            da = new FileDialog(this,"Lista de Archivos",FileDialog.SAVE);
+            da = new FileDialog(this,"Guardar como",FileDialog.SAVE);
             da.show();
             String file;
             String directory;
@@ -183,7 +182,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
             
         try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
             
-            pw.println(txtEncrypted.getText());
+            pw.println(txtEncrypted.getText().trim());
             JOptionPane.showInternalMessageDialog(null, "Mensaje Guardado");
         }catch(Exception e){
             
@@ -420,23 +419,15 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
-        //OBTENEMOS LA PALABRA CLAVE
-        String keyWord = getKeyWord();
-
-        /*
-        SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
-        LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO
-         */
+        
+        String keyWord = getKeyWord();//OBTENEMOS LA PALABRA CLAVE
+        /*SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
+        LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO*/
         char[] keyWordInArray = putInArray(keyWord);
-        
-        char[] finalText = deleteRepeted(keyWordInArray);
-        
-        char[] textOne = deleteSpaces(finalText);
-        
-        String abc = abcInArray();
-        
-        completarArray(textOne, abc);        
+        char[] finalText = deleteRepeted(keyWordInArray);//BORRAMOS LOS CARACTERES REPETIDOS DE LA PALABRA CLAVE
+        char[] textOne = deleteSpaces(finalText);//BORRAR ESPACIOS VACIOS DESPUES DE ELIMINAR LAS REPETICIONES
+        String abc = abcInArray();//OBTENEMOS EL ALFABETO
+        completarArray(textOne, abc); //INGRESAMOS LOS CARACTERES FALTANTES PARA OBTENER EL CRIPTO       
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
