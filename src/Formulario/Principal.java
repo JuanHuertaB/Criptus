@@ -99,7 +99,7 @@ public class Principal extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(0, 35, 52));
+        jPanel2.setBackground(new java.awt.Color(0, 38, 56));
         jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N

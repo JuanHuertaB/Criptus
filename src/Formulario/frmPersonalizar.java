@@ -130,11 +130,70 @@ public class frmPersonalizar extends javax.swing.JFrame {
     /*--------------------------------------------------------------------------------------------------------*/
     /*-------------------------------------------------PROCESO DE CIFRADO---------------------------------------------*/
     
-    char[] getMessageInArray() {
-        return txtToEncrypt.getText().toCharArray();
+    String findNumbers(String msj){
+        for(int i=0;i<msj.length();i++){
+            String cadA;
+            String cadB;
+           switch(msj.charAt(i)){
+               case '0':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("cero"+cadB); break; 
+               case '1': 
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("uno"+cadB); break; 
+               case '2':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("dos"+cadB); break; 
+               case '3':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("tres"+cadB); break; 
+               case '4':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("cuatro"+cadB); break; 
+               case '5':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("cinco"+cadB); break; 
+               case '6':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("seis"+cadB); break; 
+               case '7':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("siete"+cadB); break; 
+               case '8':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("ocho"+cadB); break; 
+               case '9':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("nueve"+cadB); break; 
+              
+                
+               default: System.out.println("no sucedio ningún caso");
+               for(int k=0;k<msj.length();k++){
+                   System.out.println(msj.charAt(i));
+               }
+           }
+        }
+        return msj;  
     }
     
-    char[] getCriptoInArray() {
+    String getMessage() {
+        return txtToEncrypt.getText();
+    }
+    
+    char[] putMessageInArray(String mensaje){
+        return mensaje.toCharArray();
+    }
+    char[] putCriptoInArray() {
         return txtCripto.getText().toCharArray();
     }
     
@@ -439,12 +498,13 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
-        
-        char[] message = getMessageInArray();
-        char[] cripto = getCriptoInArray();
+        txtEncrypted.setText("");
+        String message = getMessage();
+        char[] msgInArray = findNumbers(message).toCharArray();
+        char[] cripto = putCriptoInArray();
         char[] abc = abcInArray().toCharArray();
         
-        encrypt(message, cripto, abc);
+        encrypt(msgInArray, cripto, abc);
     }//GEN-LAST:event_btnEncryptActionPerformed
 
     private void btnCleanDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanDecryptActionPerformed
@@ -462,8 +522,9 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_rdoInversoActionPerformed
 
     private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
+        txtDecrypted.setText("");
         char[] message = getEncripted();
-        char[] cripto = getCriptoInArray();
+        char[] cripto = putCriptoInArray();
         char[] abc = abcInArray().toCharArray();
         
         decrypt(message, cripto, abc);
