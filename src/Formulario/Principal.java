@@ -16,12 +16,7 @@ import java.awt.geom.RoundRectangle2D;
 
 public class Principal extends javax.swing.JFrame {
 
-        frmCifrar cifrar = new frmCifrar();
-        frmDescifrar descifrar = new frmDescifrar();
-        frmPersonalizar pr = new frmPersonalizar();
-        
-//Principal principal = new Principal();
-
+    
     public Principal() {
         initComponents();
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 13,13);
@@ -32,7 +27,6 @@ public class Principal extends javax.swing.JFrame {
         
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
-        //btnMaximizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
 
         
@@ -44,10 +38,7 @@ public class Principal extends javax.swing.JFrame {
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
         pnlMin.setBackground(null);
-        
-        //EFECTOS BOTON MAXIMIZAR
-        //pnlMax.setVisible(true);
-        //pnlMax.setBackground(null);
+
         
         
     }
@@ -99,7 +90,7 @@ public class Principal extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(0, 38, 56));
+        jPanel2.setBackground(new java.awt.Color(0, 49, 61));
         jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
@@ -129,7 +120,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(280, 190, 190, 40);
 
-        jPanel3.setBackground(new java.awt.Color(24, 51, 55));
+        jPanel3.setBackground(new java.awt.Color(0, 61, 60));
         jPanel3.setToolTipText("UTP CRIPTO");
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -178,7 +169,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         pnlMin.add(btnMinimizar);
-        btnMinimizar.setBounds(0, 0, 50, 30);
+        btnMinimizar.setBounds(0, 0, 49, 30);
 
         jPanel3.add(pnlMin);
         pnlMin.setBounds(660, 0, 50, 30);
@@ -315,6 +306,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlCerrarMouseEntered
 
     private void btnCifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCifrarActionPerformed
+            
+        frmCifrar cifrar = new frmCifrar();
             cifrar.setVisible(true);
             cifrar.setLocationRelativeTo(null) ;
             cifrar.setSize(996,630);
@@ -322,13 +315,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCifrarActionPerformed
 
     private void btnCustomizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomizeActionPerformed
-            //pr.setVisible(true);
-            //principal.setVisible(true);
+ 
             frmLogin l = new frmLogin();
             l.setVisible(true);
     }//GEN-LAST:event_btnCustomizeActionPerformed
 
     private void btnDescifrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescifrar1ActionPerformed
+            frmDescifrar descifrar = new frmDescifrar();
             descifrar.setVisible(true);
             descifrar.setLocationRelativeTo(null) ;
             descifrar.setSize(996,630);

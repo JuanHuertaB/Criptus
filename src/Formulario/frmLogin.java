@@ -40,7 +40,7 @@ public class frmLogin extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 38, 56));
+        jPanel1.setBackground(new java.awt.Color(0, 58, 68));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Eras Light ITC", 0, 14)); // NOI18N
@@ -80,7 +80,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 390, 220));
 
-        jPanel2.setBackground(new java.awt.Color(0, 38, 56));
+        jPanel2.setBackground(new java.awt.Color(0, 47, 52));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel2MouseDragged(evt);
