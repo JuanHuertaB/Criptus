@@ -2,13 +2,14 @@
 package Formulario;
 
 import com.sun.awt.AWTUtilities;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.JOptionPane;
+
 
 public class frmLogin extends javax.swing.JFrame {
 
@@ -19,6 +20,12 @@ public class frmLogin extends javax.swing.JFrame {
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 13,13);
         AWTUtilities.setWindowShape(this,forma);
         setLocationRelativeTo(null);
+        
+        txtUsuario.requestFocus();
+        btnCerrarLogin.setContentAreaFilled(false);
+        pnlCerrarLogin.setBackground(new Color(102,0,0));
+        lblLogin.setVisible(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -33,7 +40,10 @@ public class frmLogin extends javax.swing.JFrame {
         txtPsw = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        lblLogin = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        pnlCerrarLogin = new javax.swing.JPanel();
+        btnCerrarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesión");
@@ -43,12 +53,12 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 58, 68));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Eras Light ITC", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 63, -1));
 
-        jLabel2.setFont(new java.awt.Font("Eras Light ITC", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
@@ -60,7 +70,7 @@ public class frmLogin extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 90, 30));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 90, 30));
 
         txtUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 200, 25));
@@ -69,14 +79,24 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel1.add(txtPsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 25));
         txtPsw.getAccessibleContext().setAccessibleName("");
 
-        jLabel3.setFont(new java.awt.Font("Eras Light ITC", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Iniciar Sesión");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 110, 32));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 120, 32));
 
         jButton1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
         jButton1.setText("Cancelar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 90, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 90, 30));
+
+        lblLogin.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(153, 153, 153));
+        lblLogin.setText("* Usuario o contraseña incorrecta");
+        jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 180, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 390, 220));
 
@@ -91,17 +111,39 @@ public class frmLogin extends javax.swing.JFrame {
                 jPanel2MousePressed(evt);
             }
         });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
+        pnlCerrarLogin.setBackground(new java.awt.Color(204, 0, 0));
+        pnlCerrarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlCerrarLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlCerrarLoginMouseExited(evt);
+            }
+        });
+        pnlCerrarLogin.setLayout(null);
+
+        btnCerrarLogin.setBackground(new java.awt.Color(102, 0, 0));
+        btnCerrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904441_close.png"))); // NOI18N
+        btnCerrarLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
+        btnCerrarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarLoginMouseExited(evt);
+            }
+        });
+        btnCerrarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarLoginActionPerformed(evt);
+            }
+        });
+        pnlCerrarLogin.add(btnCerrarLogin);
+        btnCerrarLogin.setBounds(0, 0, 30, 20);
+
+        jPanel2.add(pnlCerrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 30, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 20));
 
@@ -112,18 +154,19 @@ public class frmLogin extends javax.swing.JFrame {
         String usr = txtUsuario.getText();
         String pass = txtPsw.getText();
         frmPersonalizar p = new frmPersonalizar();
-        Principal pr = new Principal();
+        Principal prin = new Principal();
+        
         
         if("admin".equals(usr) && "123".equals(pass)){
             p.setVisible(true);
-            this.dispose();
-           
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
+            prin.dispose();
+            this.dispose();    
+        }else
+        {
+            lblLogin.setVisible(true);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-    
+
     private int x;
     private int y;
     
@@ -138,6 +181,32 @@ public class frmLogin extends javax.swing.JFrame {
         x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+        Principal prin = new Principal();
+        prin.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCerrarLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarLoginMouseEntered
+        pnlCerrarLogin.setBackground(Color.red);
+    }//GEN-LAST:event_btnCerrarLoginMouseEntered
+
+    private void btnCerrarLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarLoginMouseExited
+        pnlCerrarLogin.setBackground(new Color(102,0,0)); 
+    }//GEN-LAST:event_btnCerrarLoginMouseExited
+
+    private void btnCerrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarLoginActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarLoginActionPerformed
+
+    private void pnlCerrarLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarLoginMouseEntered
+
+    }//GEN-LAST:event_pnlCerrarLoginMouseEntered
+
+    private void pnlCerrarLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarLoginMouseExited
+
+    }//GEN-LAST:event_pnlCerrarLoginMouseExited
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -172,6 +241,7 @@ public class frmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarLogin;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -179,6 +249,8 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JPanel pnlCerrarLogin;
     private javax.swing.JPasswordField txtPsw;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

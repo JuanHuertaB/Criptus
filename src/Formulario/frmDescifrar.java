@@ -29,7 +29,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
-        btnMaximizar.setContentAreaFilled(false);
+       // btnMaximizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
         btnVolverC.setContentAreaFilled(false);
 
@@ -44,8 +44,8 @@ public class frmDescifrar extends javax.swing.JFrame {
         pnlMin.setBackground(null);
         
         //EFECTOS BOTON MAXIMIZAR
-        pnlMax.setVisible(true);
-        pnlMax.setBackground(null);
+        //pnlMax.setVisible(true);
+        //pnlMax.setBackground(null);
     }
 
     /**
@@ -63,9 +63,6 @@ public class frmDescifrar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         pnlCerrar = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JButton();
-        pnlMax = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        btnMaximizar = new javax.swing.JButton();
         pnlMin = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
@@ -106,9 +103,9 @@ public class frmDescifrar extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("UTP CRIPTO - DESCIFRAR");
+        jLabel5.setText("CRIPTO - DESCIFRAR");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(410, 10, 140, 16);
+        jLabel5.setBounds(440, 10, 100, 16);
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -143,35 +140,6 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel3.add(pnlCerrar);
         pnlCerrar.setBounds(950, 0, 50, 30);
 
-        pnlMax.setBackground(new java.awt.Color(204, 204, 204));
-        pnlMax.setLayout(null);
-
-        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel8.setLayout(null);
-        pnlMax.add(jPanel8);
-        jPanel8.setBounds(660, 0, 50, 30);
-
-        btnMaximizar.setBackground(new java.awt.Color(12, 23, 30));
-        btnMaximizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904378_check-box-outline-blank.png"))); // NOI18N
-        btnMaximizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnMaximizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnMaximizarMouseExited(evt);
-            }
-        });
-        btnMaximizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMaximizarActionPerformed(evt);
-            }
-        });
-        pnlMax.add(btnMaximizar);
-        btnMaximizar.setBounds(0, 0, 50, 30);
-
-        jPanel3.add(pnlMax);
-        pnlMax.setBounds(900, 0, 50, 30);
-
         pnlMin.setBackground(new java.awt.Color(204, 204, 204));
         pnlMin.setLayout(null);
 
@@ -199,7 +167,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         btnMinimizar.setBounds(0, 0, 50, 30);
 
         jPanel3.add(pnlMin);
-        pnlMin.setBounds(850, 0, 50, 30);
+        pnlMin.setBounds(900, 0, 50, 30);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1000, 30);
@@ -260,7 +228,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(204, 204, 204));
         jButton2.setText("Limpiar Campos");
         jPanel1.add(jButton2);
-        jButton2.setBounds(820, 590, 160, 27);
+        jButton2.setBounds(820, 590, 160, 30);
 
         jButton3.setBackground(new java.awt.Color(0, 21, 29));
         jButton3.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
@@ -316,22 +284,6 @@ public class frmDescifrar extends javax.swing.JFrame {
     private void pnlCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarMouseExited
 
     }//GEN-LAST:event_pnlCerrarMouseExited
-
-    private void btnMaximizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizarMouseEntered
-        btnMaximizar.setContentAreaFilled(false);
-        pnlMax.setVisible(true);
-        pnlMax.setBackground(Color.gray);
-    }//GEN-LAST:event_btnMaximizarMouseEntered
-
-    private void btnMaximizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizarMouseExited
-        btnMaximizar.setContentAreaFilled(false);
-        pnlMax.setVisible(true);
-        pnlMax.setBackground(null);
-    }//GEN-LAST:event_btnMaximizarMouseExited
-
-    private void btnMaximizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaximizarActionPerformed
-
-    }//GEN-LAST:event_btnMaximizarActionPerformed
 
     private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
         btnMinimizar.setContentAreaFilled(false);
@@ -415,7 +367,6 @@ public class frmDescifrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnMaximizar;
     private javax.swing.JButton btnMinimizar;
     private javax.swing.JButton btnVolverC;
     private javax.swing.JButton jButton2;
@@ -428,11 +379,9 @@ public class frmDescifrar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel pnlCerrar;
-    private javax.swing.JPanel pnlMax;
     private javax.swing.JPanel pnlMin;
     private javax.swing.JPanel pnlVolverC;
     private javax.swing.JTextArea txtCifrado;
