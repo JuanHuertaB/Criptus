@@ -26,6 +26,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
         btnEncrypt.setEnabled(false);
         txtLetter.setEnabled(false);
         btnSendToDecrypt.setEnabled(false);
+        btnSaveDecrypted.setEnabled(false);
+        btnCleanDecrypted.setEnabled(false);
        
         
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
