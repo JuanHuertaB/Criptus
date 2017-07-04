@@ -17,16 +17,10 @@ public class Principal extends javax.swing.JFrame {
         
         initComponents();
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
-        //Shape pnl1 = new RoundRectangle2D.Double(0, 0, pnlCifrar.getBounds().width, pnlCifrar.getBounds().height, 13,13);
-        //Shape pnl2 = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 13,13);
         
         AWTUtilities.setWindowShape(this,forma);
-        
-        //AWTUtilities.setWindowShape(pnlCifrar,pnl1);
-        //AWTUtilities.setWindowShape(this,forma);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
         setIconImage(icon);
-        //this.setVisible(true);
         
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
@@ -35,12 +29,9 @@ public class Principal extends javax.swing.JFrame {
         btnDescifrar1.setContentAreaFilled(false);
         btnCustomize.setContentAreaFilled(false);
         
-
-        
         //EFECTOS INICIALES EN EL BOTON CERRAR
         pnlCerrar.setVisible(true);
         pnlCerrar.setBackground(new Color(42,0,0));
- 
         
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
@@ -48,12 +39,7 @@ public class Principal extends javax.swing.JFrame {
         
         pnlCifrar.setBackground(new Color(0, 76, 91));
         pnlDecifrar.setBackground(new Color(0, 76, 91));
-        pnlPersonalizar.setBackground(new Color(0, 76, 91));
-
-        
-        
-        
-        
+        pnlPersonalizar.setBackground(new Color(0, 76, 91));    
     }
     
     @SuppressWarnings("unchecked")
@@ -333,8 +319,8 @@ public class Principal extends javax.swing.JFrame {
         this.setExtendedState(ICONIFIED); //Minimizar ventana
     }//GEN-LAST:event_btnMinimizarActionPerformed
     
-    private int x;
-    private int y;
+        private int x;
+        private int y;
     
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
         //OBTENER LA POSICIÓN DEL FRAME

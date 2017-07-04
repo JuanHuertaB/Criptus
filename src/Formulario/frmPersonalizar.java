@@ -374,7 +374,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel1.add(rdoInverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 70, -1));
 
         btnEnviar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnEnviar.setForeground(new java.awt.Color(255, 255, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -384,7 +383,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 140, 90, -1));
 
         btnLimpiar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,7 +437,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, -1));
 
         btnEncrypt.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnEncrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnEncrypt.setText("Enviar");
         btnEncrypt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,7 +446,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel2.add(btnEncrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 113, -1));
 
         btnCleanEncrypt.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnCleanEncrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnCleanEncrypt.setText("Limpiar");
         btnCleanEncrypt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,7 +483,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 180, 410, 90));
 
         btnSendToDecrypt.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnSendToDecrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnSendToDecrypt.setText("Enviar a Descifrar");
         btnSendToDecrypt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -497,7 +492,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel2.add(btnSendToDecrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
         btnSave.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Guardar texto");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -518,7 +512,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, -1));
 
         btnDecrypt.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnDecrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnDecrypt.setText("Enviar");
         btnDecrypt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -528,7 +521,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel3.add(btnDecrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 113, -1));
 
         btnCleanDecrypt.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnCleanDecrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnCleanDecrypt.setText("Limpiar");
         btnCleanDecrypt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -561,7 +553,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 426, 90));
 
         btnSaveDecrypted.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnSaveDecrypted.setForeground(new java.awt.Color(255, 255, 255));
         btnSaveDecrypted.setText("Guardar texto");
         btnSaveDecrypted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -571,7 +562,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel3.add(btnSaveDecrypted, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 110, -1));
 
         btnCleanDecrypted.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnCleanDecrypted.setForeground(new java.awt.Color(255, 255, 255));
         btnCleanDecrypted.setText("Limpiar");
         btnCleanDecrypted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

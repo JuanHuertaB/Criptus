@@ -15,10 +15,6 @@ import java.awt.Toolkit;
  * @author JuanCarlos
  */
 public class frmDescifrar extends javax.swing.JFrame {
-
-    //frmCifrar cifrar = new frmCifrar();
-    //frmDescifrar descifrar = new frmDescifrar();
-    //Principal prin = new Principal();
     
     public frmDescifrar() {
         initComponents();
@@ -29,7 +25,6 @@ public class frmDescifrar extends javax.swing.JFrame {
         
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
-       // btnMaximizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
         btnVolverC.setContentAreaFilled(false);
 
@@ -42,10 +37,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
         pnlMin.setBackground(null);
-        
-        //EFECTOS BOTON MAXIMIZAR
-        //pnlMax.setVisible(true);
-        //pnlMax.setBackground(null);
+
     }
 
     /**
