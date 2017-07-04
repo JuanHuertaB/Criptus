@@ -1,8 +1,13 @@
 package Formulario;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Color;
 import java.awt.FileDialog;
 import java.awt.Image;
+import java.awt.MouseInfo;
+import java.awt.Shape;
 import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
@@ -28,9 +33,16 @@ public class frmPersonalizar extends javax.swing.JFrame {
         btnSendToDecrypt.setEnabled(false);
         btnSaveDecrypted.setEnabled(false);
         btnCleanDecrypted.setEnabled(false);
-       
         
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
+        btnMinimizar.setContentAreaFilled(false);
+        btnCerrar.setContentAreaFilled(false);
+        pnlCerrar.setBackground(new Color(42,0,0));
+        pnlMin.setBackground(null);
+       
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
+        AWTUtilities.setWindowShape(this,forma);
+        
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
         setIconImage(icon);
         
     }
@@ -316,11 +328,21 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtDecrypted = new javax.swing.JTextArea();
         btnSaveDecrypted = new javax.swing.JButton();
         btnCleanDecrypted = new javax.swing.JButton();
+        btnVolverP = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        pnlMin = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        btnMinimizar = new javax.swing.JButton();
+        pnlCerrar = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personalizar");
         setBackground(new java.awt.Color(35, 86, 104));
         setName("Personalizar"); // NOI18N
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(7, 64, 77));
@@ -427,7 +449,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel1.add(rdoLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
 
-        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 850, 190));
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 850, 190));
 
         jPanel2.setBackground(new java.awt.Color(0, 54, 67));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -506,7 +528,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 110, -1));
 
-        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 490, 320));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 480, 320));
 
         jPanel3.setBackground(new java.awt.Color(0, 54, 67));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -580,9 +602,105 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel3.add(btnCleanDecrypted, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 100, -1));
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 480, 320));
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 480, 320));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 550));
+        btnVolverP.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        btnVolverP.setText("Volver");
+        btnVolverP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverPActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnVolverP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(24, 51, 55));
+        jPanel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel5MouseDragged(evt);
+            }
+        });
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel5MousePressed(evt);
+            }
+        });
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Neptune.png"))); // NOI18N
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 30));
+
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 10)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel9.setText("CRIPTO - CIFRAR");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 80, 16));
+
+        pnlMin.setBackground(new java.awt.Color(204, 204, 204));
+        pnlMin.setLayout(null);
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setLayout(null);
+        pnlMin.add(jPanel6);
+        jPanel6.setBounds(660, 0, 50, 30);
+
+        btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
+        btnMinimizar.setFont(new java.awt.Font("Eras Medium ITC", 0, 40)); // NOI18N
+        btnMinimizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnMinimizar.setText("-");
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinimizarActionPerformed(evt);
+            }
+        });
+        pnlMin.add(btnMinimizar);
+        btnMinimizar.setBounds(0, 0, 50, 30);
+
+        jPanel5.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, 50, 30));
+
+        pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
+        pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlCerrarMouseExited(evt);
+            }
+        });
+        pnlCerrar.setLayout(null);
+
+        btnCerrar.setBackground(new java.awt.Color(102, 0, 0));
+        btnCerrar.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setText("X");
+        btnCerrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseExited(evt);
+            }
+        });
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        pnlCerrar.add(btnCerrar);
+        btnCerrar.setBounds(0, 0, 50, 30);
+
+        jPanel5.add(pnlCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 50, 30));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 30));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 590));
 
         pack();
         setLocationRelativeTo(null);
@@ -737,6 +855,66 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEncryptedKeyReleased
 
+    private void btnVolverPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverPActionPerformed
+        Principal prin = new Principal();
+        prin.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnVolverPActionPerformed
+
+    private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
+        btnMinimizar.setContentAreaFilled(false);
+        pnlMin.setVisible(true);
+        pnlMin.setBackground(Color.gray);
+    }//GEN-LAST:event_btnMinimizarMouseEntered
+
+    private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
+        btnMinimizar.setContentAreaFilled(false);
+        pnlMin.setVisible(true);
+        pnlMin.setBackground(null);
+    }//GEN-LAST:event_btnMinimizarMouseExited
+
+    private void btnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizarActionPerformed
+        this.setExtendedState(ICONIFIED); //Minimizar ventana
+    }//GEN-LAST:event_btnMinimizarActionPerformed
+
+    private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
+        pnlCerrar.setVisible(true);
+        pnlCerrar.setBackground(Color.red);
+    }//GEN-LAST:event_btnCerrarMouseEntered
+
+    private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
+        pnlCerrar.setBackground(new Color(42,0,0));
+        btnCerrar.setVisible(true);
+    }//GEN-LAST:event_btnCerrarMouseExited
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        //frmCripto.setDefaultCloseOperation(frmCripto.EXIT_ON_CLOSE);
+        System.exit(0);
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void pnlCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarMouseEntered
+
+    }//GEN-LAST:event_pnlCerrarMouseEntered
+
+    private void pnlCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarMouseExited
+
+    }//GEN-LAST:event_pnlCerrarMouseExited
+        private int x;
+        private int y;
+        
+    private void jPanel5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseDragged
+        //MODIFICAR LA POSICION DEL FRAME
+        java.awt.Point point = MouseInfo.getPointerInfo().getLocation();
+        setLocation(point.x - x , point.y-y);
+    }//GEN-LAST:event_jPanel5MouseDragged
+
+    private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
+        //OBTENER LA POSICIÓN DEL FRAME
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jPanel5MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -770,6 +948,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCleanDecrypt;
     private javax.swing.JButton btnCleanDecrypted;
     private javax.swing.JButton btnCleanEncrypt;
@@ -777,26 +956,34 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JButton btnEncrypt;
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnMinimizar;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSaveDecrypted;
     private javax.swing.JButton btnSendToDecrypt;
+    private javax.swing.JButton btnVolverP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel pnlCerrar;
+    private javax.swing.JPanel pnlMin;
     private javax.swing.JRadioButton rdoInverso;
     private javax.swing.JRadioButton rdoLetter;
     private javax.swing.JRadioButton rdoOrdenado;
