@@ -17,15 +17,11 @@ public class Principal extends javax.swing.JFrame {
         
         initComponents();
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
-<<<<<<< HEAD
-        
-        AWTUtilities.setWindowShape(this,forma);
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
-=======
+
         AWTUtilities.setWindowShape(this,forma);
 
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
->>>>>>> d963e2d9f7eeaf201934f29cb58fc46b0be712b6
+
         setIconImage(icon);
         
         //BOTONES TRANSPARENTES
@@ -45,7 +41,9 @@ public class Principal extends javax.swing.JFrame {
         
         pnlCifrar.setBackground(new Color(0, 76, 91));
         pnlDecifrar.setBackground(new Color(0, 76, 91));
-        pnlPersonalizar.setBackground(new Color(0, 76, 91));    
+        pnlPersonalizar.setBackground(new Color(0, 76, 91));
+        
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -226,14 +224,18 @@ public class Principal extends javax.swing.JFrame {
         pnlCifrar.setLayout(pnlCifrarLayout);
         pnlCifrarLayout.setHorizontalGroup(
             pnlCifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCifrar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCifrarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCifrar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlCifrarLayout.setVerticalGroup(
             pnlCifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCifrar, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCifrarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCifrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, -1));
+        jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 200, 80));
 
         btnDescifrar1.setBackground(new java.awt.Color(0, 39, 53));
         btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N

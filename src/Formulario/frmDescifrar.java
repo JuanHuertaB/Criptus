@@ -42,16 +42,9 @@ public class frmDescifrar extends javax.swing.JFrame {
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
         pnlMin.setBackground(null);
-<<<<<<< HEAD
-
-=======
         
         lblAtrasDescifrar.setForeground(Color.gray);
-        
-        //EFECTOS BOTON MAXIMIZAR
-        //pnlMax.setVisible(true);
-        //pnlMax.setBackground(null);
->>>>>>> d963e2d9f7eeaf201934f29cb58fc46b0be712b6
+
     }
 
     /**

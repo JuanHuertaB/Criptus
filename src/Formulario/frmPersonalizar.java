@@ -51,7 +51,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     String abc = ""; //DEFINIMOS EL ALFABETO
 
     //PONER EL ABECEDARIO EN UN ARREGLO
-        String abcInArray() {
+    String abcInArray() {
         String cadena1 = "";
         String cadena2 = "";
         
@@ -699,8 +699,10 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         
         String keyWord = getKeyWord();//OBTENEMOS LA PALABRA CLAVE
+        
         /*SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
         LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO*/
+        
         char[] keyWordInArray = putInArray(keyWord);
         char[] finalText = deleteRepeted(keyWordInArray);//BORRAMOS LOS CARACTERES REPETIDOS DE LA PALABRA CLAVE
         char[] textOne = deleteSpaces(finalText);//BORRAR ESPACIOS VACIOS DESPUES DE ELIMINAR LAS REPETICIONES
