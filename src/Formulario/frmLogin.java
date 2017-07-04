@@ -15,7 +15,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     public frmLogin() {
         initComponents();
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
         setIconImage(icon);
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 13,13);
         AWTUtilities.setWindowShape(this,forma);
@@ -125,7 +125,9 @@ public class frmLogin extends javax.swing.JFrame {
         pnlCerrarLogin.setLayout(null);
 
         btnCerrarLogin.setBackground(new java.awt.Color(102, 0, 0));
-        btnCerrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904441_close.png"))); // NOI18N
+        btnCerrarLogin.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        btnCerrarLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrarLogin.setText("X");
         btnCerrarLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
         btnCerrarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

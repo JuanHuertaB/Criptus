@@ -17,9 +17,15 @@ public class Principal extends javax.swing.JFrame {
         
         initComponents();
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
+<<<<<<< HEAD
         
         AWTUtilities.setWindowShape(this,forma);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/triangle.png"));
+=======
+        AWTUtilities.setWindowShape(this,forma);
+
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
+>>>>>>> d963e2d9f7eeaf201934f29cb58fc46b0be712b6
         setIconImage(icon);
         
         //BOTONES TRANSPARENTES
@@ -93,7 +99,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(7, 64, 77));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 32, 54), 1, true)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 67, 86), 1, true)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
@@ -120,8 +126,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/triangle02.png"))); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 0, 20, 30));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Neptune.png"))); // NOI18N
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 30));
 
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 10)); // NOI18N
@@ -138,7 +144,9 @@ public class Principal extends javax.swing.JFrame {
         jPanel6.setBounds(660, 0, 50, 30);
 
         btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
-        btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904507_remove.png"))); // NOI18N
+        btnMinimizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 36)); // NOI18N
+        btnMinimizar.setForeground(new java.awt.Color(204, 204, 204));
+        btnMinimizar.setText("-");
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseEntered(evt);
@@ -155,7 +163,7 @@ public class Principal extends javax.swing.JFrame {
         pnlMin.add(btnMinimizar);
         btnMinimizar.setBounds(0, 0, 50, 30);
 
-        jPanel3.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 50, 28));
+        jPanel3.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 50, 30));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,8 +176,10 @@ public class Principal extends javax.swing.JFrame {
         });
         pnlCerrar.setLayout(null);
 
-        btnCerrar.setBackground(new java.awt.Color(102, 0, 0));
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1496904441_close.png"))); // NOI18N
+        btnCerrar.setBackground(new java.awt.Color(126, 0, 0));
+        btnCerrar.setFont(new java.awt.Font("Microsoft JhengHei", 1, 16)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setText("X");
         btnCerrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -187,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
         pnlCerrar.add(btnCerrar);
         btnCerrar.setBounds(0, 0, 50, 30);
 
-        jPanel3.add(pnlCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 50, 29));
+        jPanel3.add(pnlCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 50, 30));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 770, -1));
 
@@ -294,7 +304,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCustomize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, -1));
+        jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 51, 51));
@@ -302,11 +312,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 10, 80));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/utp.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 70));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 70));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 420));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 410));
 
-        setSize(new java.awt.Dimension(760, 417));
+        setSize(new java.awt.Dimension(760, 410));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -375,9 +385,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCifrarActionPerformed
 
     private void btnCustomizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomizeActionPerformed
-            this.dispose();
+            
             frmLogin l = new frmLogin();
             l.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_btnCustomizeActionPerformed
 
     private void btnDescifrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescifrar1ActionPerformed
