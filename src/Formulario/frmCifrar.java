@@ -11,10 +11,6 @@ import java.awt.geom.RoundRectangle2D;
 
 public class frmCifrar extends javax.swing.JFrame {
 
-    //Principal prin = new Principal();
-    //frmCifrar cifrar = new frmCifrar();
-    //frmDescifrar descifrar = new frmDescifrar();
-    
     
     public frmCifrar() {
         initComponents();
@@ -45,10 +41,6 @@ public class frmCifrar extends javax.swing.JFrame {
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
         pnlMin.setBackground(null);
-        
-        //EFECTOS BOTON MAXIMIZAR
-       // pnlMax.setVisible(true);
-        //pnlMax.setBackground(null);
         
         //EFECTOS BOTON VOLVER
         //pnlVolverC.setVisible(true);
@@ -124,9 +116,10 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel6.setBounds(660, 0, 50, 30);
 
         btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
-        btnMinimizar.setFont(new java.awt.Font("Eras Medium ITC", 0, 40)); // NOI18N
+        btnMinimizar.setFont(new java.awt.Font("Microsoft JhengHei", 0, 36)); // NOI18N
         btnMinimizar.setForeground(new java.awt.Color(255, 255, 255));
         btnMinimizar.setText("-");
+        btnMinimizar.setBorder(null);
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseEntered(evt);
@@ -141,7 +134,7 @@ public class frmCifrar extends javax.swing.JFrame {
             }
         });
         pnlMin.add(btnMinimizar);
-        btnMinimizar.setBounds(0, 0, 44, 30);
+        btnMinimizar.setBounds(0, 0, 50, 30);
 
         jPanel3.add(pnlMin);
         pnlMin.setBounds(900, 0, 50, 30);
@@ -158,7 +151,7 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlCerrar.setLayout(null);
 
         btnCerrar.setBackground(new java.awt.Color(102, 0, 0));
-        btnCerrar.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
+        btnCerrar.setFont(new java.awt.Font("Microsoft JhengHei", 1, 16)); // NOI18N
         btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("X");
         btnCerrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
@@ -186,15 +179,15 @@ public class frmCifrar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Eras Light ITC", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("Mensaje Cifrado");
+        jLabel1.setText("Este es el mensaje cifrado");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 370, 200, 30);
+        jLabel1.setBounds(100, 370, 270, 30);
 
         jLabel2.setFont(new java.awt.Font("Eras Light ITC", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Ingrese el mensaje");
+        jLabel2.setText("Ingrese el mensaje que desea cifrar");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(90, 80, 220, 40);
+        jLabel2.setBounds(90, 80, 360, 40);
 
         jButton1.setBackground(new java.awt.Color(0, 21, 29));
         jButton1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
@@ -211,8 +204,10 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(100, 410, 820, 140);
 
-        txtMensaje.setBackground(new java.awt.Color(204, 204, 204));
+        txtMensaje.setBackground(new java.awt.Color(0, 41, 60));
         txtMensaje.setColumns(20);
+        txtMensaje.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        txtMensaje.setForeground(new java.awt.Color(255, 255, 255));
         txtMensaje.setRows(5);
         jScrollPane3.setViewportView(txtMensaje);
 
@@ -241,11 +236,21 @@ public class frmCifrar extends javax.swing.JFrame {
         lblAtrasCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         lblAtrasCifrar.setForeground(new java.awt.Color(255, 255, 255));
         lblAtrasCifrar.setText("Volver");
+        lblAtrasCifrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAtrasCifrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAtrasCifrarMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblAtrasCifrarMouseReleased(evt);
+            }
+        });
         jPanel1.add(lblAtrasCifrar);
-        lblAtrasCifrar.setBounds(40, 45, 34, 20);
+        lblAtrasCifrar.setBounds(40, 40, 40, 30);
 
         btnVolverC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1499157285_Left_arrow.png"))); // NOI18N
-        btnVolverC.setIconTextGap(0);
         btnVolverC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnVolverCMouseEntered(evt);
@@ -307,7 +312,7 @@ public class frmCifrar extends javax.swing.JFrame {
     private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
         btnMinimizar.setContentAreaFilled(false);
         pnlMin.setVisible(true);
-        pnlMin.setBackground(Color.gray);
+        pnlMin.setBackground(new Color(12,23,30));
     }//GEN-LAST:event_btnMinimizarMouseEntered
 
     private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
@@ -335,10 +340,27 @@ public class frmCifrar extends javax.swing.JFrame {
         y = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void lblAtrasCifrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasCifrarMouseEntered
+        lblAtrasCifrar.setForeground(Color.white);
+    }//GEN-LAST:event_lblAtrasCifrarMouseEntered
+
+    private void lblAtrasCifrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasCifrarMouseExited
+        lblAtrasCifrar.setForeground(Color.gray);
+    }//GEN-LAST:event_lblAtrasCifrarMouseExited
+
+    private void lblAtrasCifrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasCifrarMouseReleased
+        Principal prn = new Principal();
+        prn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblAtrasCifrarMouseReleased
+
     private void btnVolverCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverCMouseEntered
         //pnlVolverC.setBackground(Color.gray);
-       lblAtrasCifrar.setForeground(Color.white);
-        
+        lblAtrasCifrar.setForeground(Color.white);
     }//GEN-LAST:event_btnVolverCMouseEntered
 
     private void btnVolverCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverCMouseExited
@@ -347,14 +369,10 @@ public class frmCifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverCMouseExited
 
     private void btnVolverCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCActionPerformed
-      Principal prn = new Principal();
-      prn.setVisible(true);
-      this.dispose();  
+        Principal prn = new Principal();
+        prn.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnVolverCActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

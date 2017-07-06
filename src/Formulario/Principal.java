@@ -33,7 +33,7 @@ public class Principal extends javax.swing.JFrame {
         
         //EFECTOS INICIALES EN EL BOTON CERRAR
         pnlCerrar.setVisible(true);
-        pnlCerrar.setBackground(new Color(42,0,0));
+        pnlCerrar.setBackground(null);
         
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
@@ -59,11 +59,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        pnlCerrar = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JButton();
         pnlMin = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
-        pnlCerrar = new javax.swing.JPanel();
-        btnCerrar = new javax.swing.JButton();
         pnlCifrar = new javax.swing.JPanel();
         btnCifrar = new javax.swing.JButton();
         pnlDecifrar = new javax.swing.JPanel();
@@ -97,18 +97,18 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(7, 64, 77));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 67, 86), 1, true)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 29, 48), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Sistema de Ciframiento");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 320, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 320, 60));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("UTP CRIPTO");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, 40));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(0, 55, 59));
         jPanel3.setToolTipText("UTP CRIPTO");
@@ -125,43 +125,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Neptune.png"))); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 30));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText(" CRIPTO");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 40, 16));
-
-        pnlMin.setBackground(new java.awt.Color(204, 204, 204));
-        pnlMin.setLayout(null);
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel6.setLayout(null);
-        pnlMin.add(jPanel6);
-        jPanel6.setBounds(660, 0, 50, 30);
-
-        btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
-        btnMinimizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 36)); // NOI18N
-        btnMinimizar.setForeground(new java.awt.Color(204, 204, 204));
-        btnMinimizar.setText("-");
-        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnMinimizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnMinimizarMouseExited(evt);
-            }
-        });
-        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMinimizarActionPerformed(evt);
-            }
-        });
-        pnlMin.add(btnMinimizar);
-        btnMinimizar.setBounds(0, 0, 50, 30);
-
-        jPanel3.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 50, 30));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 40, 16));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -195,9 +165,40 @@ public class Principal extends javax.swing.JFrame {
         pnlCerrar.add(btnCerrar);
         btnCerrar.setBounds(0, 0, 50, 30);
 
-        jPanel3.add(pnlCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 50, 30));
+        jPanel3.add(pnlCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 50, 30));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 770, -1));
+        pnlMin.setBackground(new java.awt.Color(204, 204, 204));
+        pnlMin.setLayout(null);
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setLayout(null);
+        pnlMin.add(jPanel6);
+        jPanel6.setBounds(660, 0, 50, 30);
+
+        btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
+        btnMinimizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 36)); // NOI18N
+        btnMinimizar.setForeground(new java.awt.Color(204, 204, 204));
+        btnMinimizar.setText("-");
+        btnMinimizar.setBorder(null);
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinimizarActionPerformed(evt);
+            }
+        });
+        pnlMin.add(btnMinimizar);
+        btnMinimizar.setBounds(0, 0, 50, 30);
+
+        jPanel3.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 50, 30));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
 
         btnCifrar.setBackground(new java.awt.Color(0, 39, 53));
         btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
@@ -235,7 +236,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCifrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 200, 80));
+        jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 200, 80));
 
         btnDescifrar1.setBackground(new java.awt.Color(0, 39, 53));
         btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N
@@ -262,14 +263,18 @@ public class Principal extends javax.swing.JFrame {
         pnlDecifrar.setLayout(pnlDecifrarLayout);
         pnlDecifrarLayout.setHorizontalGroup(
             pnlDecifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDescifrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDecifrarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnDescifrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlDecifrarLayout.setVerticalGroup(
             pnlDecifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDescifrar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDecifrarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnDescifrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlDecifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
+        jPanel2.add(pnlDecifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, 80));
 
         btnCustomize.setBackground(new java.awt.Color(0, 39, 53));
         btnCustomize.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
@@ -295,9 +300,9 @@ public class Principal extends javax.swing.JFrame {
         pnlPersonalizar.setLayout(pnlPersonalizarLayout);
         pnlPersonalizarLayout.setHorizontalGroup(
             pnlPersonalizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPersonalizarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCustomize, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlPersonalizarLayout.createSequentialGroup()
+                .addComponent(btnCustomize, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlPersonalizarLayout.setVerticalGroup(
             pnlPersonalizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,19 +311,19 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCustomize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
+        jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 210, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 51, 51));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 10, 80));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 20, 80));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/utp.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 70));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 70));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 410));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 460));
 
-        setSize(new java.awt.Dimension(760, 410));
+        setSize(new java.awt.Dimension(870, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -349,7 +354,7 @@ public class Principal extends javax.swing.JFrame {
     private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
         btnMinimizar.setContentAreaFilled(false);
         pnlMin.setVisible(true);
-        pnlMin.setBackground(Color.gray);
+        pnlMin.setBackground(new Color(12,23,30));
     }//GEN-LAST:event_btnMinimizarMouseEntered
 
     private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
@@ -365,7 +370,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarMouseEntered
 
     private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
-        pnlCerrar.setBackground(new Color(42,0,0));
+        pnlCerrar.setBackground(null);
         btnCerrar.setVisible(true);
     }//GEN-LAST:event_btnCerrarMouseExited
 

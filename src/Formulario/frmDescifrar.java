@@ -153,6 +153,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         btnMinimizar.setFont(new java.awt.Font("Eras Light ITC", 0, 48)); // NOI18N
         btnMinimizar.setForeground(new java.awt.Color(255, 255, 255));
         btnMinimizar.setText("-");
+        btnMinimizar.setBorder(null);
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseEntered(evt);
@@ -167,7 +168,7 @@ public class frmDescifrar extends javax.swing.JFrame {
             }
         });
         pnlMin.add(btnMinimizar);
-        btnMinimizar.setBounds(0, 0, 46, 30);
+        btnMinimizar.setBounds(0, 0, 50, 30);
 
         jPanel3.add(pnlMin);
         pnlMin.setBounds(900, 0, 50, 30);
@@ -175,27 +176,28 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1000, 30);
 
-        jLabel2.setFont(new java.awt.Font("Eras Light ITC", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Mensaje Cifrado");
+        jLabel2.setText("Ingrese el mensaje que desea descifrar");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 60, 190, 40);
+        jLabel2.setBounds(90, 60, 430, 40);
 
-        jLabel1.setFont(new java.awt.Font("Eras Light ITC", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("Mensaje Original");
+        jLabel1.setText("Este es el mensaje descifrado");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(60, 330, 200, 28);
+        jLabel1.setBounds(90, 330, 340, 32);
 
-        txtNoCifrado.setBackground(new java.awt.Color(204, 204, 204));
+        txtNoCifrado.setBackground(new java.awt.Color(0, 41, 60));
         txtNoCifrado.setColumns(20);
+        txtNoCifrado.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
         txtNoCifrado.setRows(5);
         jScrollPane2.setViewportView(txtNoCifrado);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(100, 100, 820, 170);
 
-        txtCifrado.setBackground(new java.awt.Color(204, 204, 204));
+        txtCifrado.setBackground(new java.awt.Color(153, 153, 153));
         txtCifrado.setColumns(20);
         txtCifrado.setRows(5);
         jScrollPane1.setViewportView(txtCifrado);
@@ -302,7 +304,7 @@ public class frmDescifrar extends javax.swing.JFrame {
     private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
         btnMinimizar.setContentAreaFilled(false);
         pnlMin.setVisible(true);
-        pnlMin.setBackground(Color.gray);
+        pnlMin.setBackground(new Color(12,23,30));
     }//GEN-LAST:event_btnMinimizarMouseEntered
 
     private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited

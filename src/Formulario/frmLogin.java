@@ -46,7 +46,6 @@ public class frmLogin extends javax.swing.JFrame {
         btnCerrarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Iniciar Sesión");
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -185,9 +184,9 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
         Principal prin = new Principal();
         prin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCerrarLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarLoginMouseEntered
@@ -199,6 +198,8 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarLoginMouseExited
 
     private void btnCerrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarLoginActionPerformed
+        Principal prin = new Principal();
+        prin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCerrarLoginActionPerformed
 
