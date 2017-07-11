@@ -127,6 +127,7 @@ public class frmLogin extends javax.swing.JFrame {
         btnCerrarLogin.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         btnCerrarLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarLogin.setText("X");
+        btnCerrarLogin.setToolTipText("Cerrar");
         btnCerrarLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
         btnCerrarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

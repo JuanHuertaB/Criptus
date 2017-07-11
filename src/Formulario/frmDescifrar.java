@@ -32,6 +32,9 @@ public class frmDescifrar extends javax.swing.JFrame {
         btnMinimizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
         btnVolverC.setContentAreaFilled(false);
+        btnDecrypt.setContentAreaFilled(false);
+        btnSaveDecrypted.setContentAreaFilled(false);
+        btnClear.setContentAreaFilled(false);
 
         
         //EFECTOS INICIALES EN EL BOTON CERRAR
@@ -44,6 +47,10 @@ public class frmDescifrar extends javax.swing.JFrame {
         pnlMin.setBackground(null);
         
         lblAtrasDescifrar.setForeground(Color.gray);
+        
+        pnlDecrypt.setBackground(new Color(0, 39, 51));
+        pnlClear.setBackground(new Color(0, 39, 51));
+        pnlSave.setBackground(new Color(0, 39, 51));
 
     }
 
@@ -71,11 +78,14 @@ public class frmDescifrar extends javax.swing.JFrame {
         txtNoCifrado = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtCifrado = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         btnVolverC = new javax.swing.JButton();
         lblAtrasDescifrar = new javax.swing.JLabel();
+        pnlDecrypt = new javax.swing.JPanel();
+        btnDecrypt = new javax.swing.JButton();
+        pnlSave = new javax.swing.JPanel();
+        btnSaveDecrypted = new javax.swing.JButton();
+        pnlClear = new javax.swing.JPanel();
+        btnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -121,6 +131,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         btnCerrar.setFont(new java.awt.Font("Eras Light ITC", 1, 20)); // NOI18N
         btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("X");
+        btnCerrar.setToolTipText("Cerrar");
         btnCerrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -153,6 +164,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         btnMinimizar.setFont(new java.awt.Font("Eras Light ITC", 0, 48)); // NOI18N
         btnMinimizar.setForeground(new java.awt.Color(255, 255, 255));
         btnMinimizar.setText("-");
+        btnMinimizar.setToolTipText("Minimizar");
         btnMinimizar.setBorder(null);
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -205,27 +217,6 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(100, 370, 820, 180);
 
-        jButton2.setBackground(new java.awt.Color(0, 21, 29));
-        jButton2.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 204, 204));
-        jButton2.setText("Limpiar Campos");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(820, 590, 160, 30);
-
-        jButton3.setBackground(new java.awt.Color(0, 21, 29));
-        jButton3.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(204, 204, 204));
-        jButton3.setText("Guardar Mensaje");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(420, 570, 160, 40);
-
-        jButton4.setBackground(new java.awt.Color(0, 21, 29));
-        jButton4.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(204, 204, 204));
-        jButton4.setText("Descifrar Mensaje");
-        jPanel1.add(jButton4);
-        jButton4.setBounds(410, 280, 170, 40);
-
         btnVolverC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1499157285_Left_arrow.png"))); // NOI18N
         btnVolverC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -259,6 +250,99 @@ public class frmDescifrar extends javax.swing.JFrame {
         });
         jPanel1.add(lblAtrasDescifrar);
         lblAtrasDescifrar.setBounds(40, 40, 40, 30);
+
+        btnDecrypt.setBackground(new java.awt.Color(0, 21, 29));
+        btnDecrypt.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
+        btnDecrypt.setForeground(new java.awt.Color(204, 204, 204));
+        btnDecrypt.setText("Descifrar Mensaje");
+        btnDecrypt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDecryptMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDecryptMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlDecryptLayout = new javax.swing.GroupLayout(pnlDecrypt);
+        pnlDecrypt.setLayout(pnlDecryptLayout);
+        pnlDecryptLayout.setHorizontalGroup(
+            pnlDecryptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDecryptLayout.createSequentialGroup()
+                .addComponent(btnDecrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+        );
+        pnlDecryptLayout.setVerticalGroup(
+            pnlDecryptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDecryptLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnDecrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(pnlDecrypt);
+        pnlDecrypt.setBounds(410, 280, 160, 40);
+
+        btnSaveDecrypted.setBackground(new java.awt.Color(0, 21, 29));
+        btnSaveDecrypted.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
+        btnSaveDecrypted.setForeground(new java.awt.Color(204, 204, 204));
+        btnSaveDecrypted.setText("Guardar Mensaje");
+        btnSaveDecrypted.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSaveDecryptedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSaveDecryptedMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlSaveLayout = new javax.swing.GroupLayout(pnlSave);
+        pnlSave.setLayout(pnlSaveLayout);
+        pnlSaveLayout.setHorizontalGroup(
+            pnlSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSaveLayout.createSequentialGroup()
+                .addComponent(btnSaveDecrypted, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlSaveLayout.setVerticalGroup(
+            pnlSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSaveLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSaveDecrypted, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(pnlSave);
+        pnlSave.setBounds(410, 570, 160, 40);
+
+        btnClear.setBackground(new java.awt.Color(0, 21, 29));
+        btnClear.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(204, 204, 204));
+        btnClear.setText("Limpiar Campos");
+        btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnClearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnClearMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlClearLayout = new javax.swing.GroupLayout(pnlClear);
+        pnlClear.setLayout(pnlClearLayout);
+        pnlClearLayout.setHorizontalGroup(
+            pnlClearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlClearLayout.createSequentialGroup()
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnlClearLayout.setVerticalGroup(
+            pnlClearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlClearLayout.createSequentialGroup()
+                .addComponent(btnClear)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(pnlClear);
+        pnlClear.setBounds(810, 580, 160, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -361,6 +445,30 @@ public class frmDescifrar extends javax.swing.JFrame {
         lblAtrasDescifrar.setForeground(Color.gray);
     }//GEN-LAST:event_lblAtrasDescifrarMouseExited
 
+    private void btnDecryptMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDecryptMouseEntered
+        pnlDecrypt.setBackground(new Color(7, 97, 104));
+    }//GEN-LAST:event_btnDecryptMouseEntered
+
+    private void btnSaveDecryptedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveDecryptedMouseEntered
+        pnlSave.setBackground(new Color(7, 97, 104));
+    }//GEN-LAST:event_btnSaveDecryptedMouseEntered
+
+    private void btnClearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseEntered
+        pnlClear.setBackground(new Color(7, 97, 104));
+    }//GEN-LAST:event_btnClearMouseEntered
+
+    private void btnDecryptMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDecryptMouseExited
+        pnlDecrypt.setBackground(new Color(0, 39, 51));
+    }//GEN-LAST:event_btnDecryptMouseExited
+
+    private void btnSaveDecryptedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveDecryptedMouseExited
+        pnlSave.setBackground(new Color(0, 39, 51));
+    }//GEN-LAST:event_btnSaveDecryptedMouseExited
+
+    private void btnClearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseExited
+        pnlClear.setBackground(new Color(0, 39, 51));
+    }//GEN-LAST:event_btnClearMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -398,11 +506,11 @@ public class frmDescifrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnDecrypt;
     private javax.swing.JButton btnMinimizar;
+    private javax.swing.JButton btnSaveDecrypted;
     private javax.swing.JButton btnVolverC;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -414,7 +522,10 @@ public class frmDescifrar extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAtrasDescifrar;
     private javax.swing.JPanel pnlCerrar;
+    private javax.swing.JPanel pnlClear;
+    private javax.swing.JPanel pnlDecrypt;
     private javax.swing.JPanel pnlMin;
+    private javax.swing.JPanel pnlSave;
     private javax.swing.JTextArea txtCifrado;
     private javax.swing.JTextArea txtNoCifrado;
     // End of variables declaration//GEN-END:variables
