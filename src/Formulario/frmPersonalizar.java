@@ -57,7 +57,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         String aBC = ""; //DEFINIMOS EL ALFABETO EN MAYUSCULAS
 
         //CREANDO LA ESTRUCTURA DEL ALFABETO
-        String alphabetMin() {
+        String alphabet() {
         
         String cadena1 ;
         String cadena2 ;
@@ -792,7 +792,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
         char[] finalText = deleteRepeted(keyWordInArray);//BORRAMOS LOS CARACTERES REPETIDOS DE LA PALABRA CLAVE
         char[] textOne = deleteSpaces(finalText);//BORRAR ESPACIOS VACIOS DESPUES DE ELIMINAR LAS REPETICIONES
-        String abc = alphabetMin();//OBTENEMOS EL ALFABETO EN MINUSCULAS
+        String abc = alphabet();//OBTENEMOS EL ALFABETO EN MINUSCULAS
         //String aBC = alphabetMay();//OBTENEMOS EL ALFABETO EN MAYUSCULAS
         completarArray(textOne, abc); //INGRESAMOS LOS CARACTERES FALTANTES PARA OBTENER EL CRIPTO     
  
@@ -811,7 +811,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         String message = getMessage();
         char[] msgInArray = findNumbers(message).toCharArray();
         char[] cripto = putCriptoInArray();
-        char[] abc = alphabetMin().toCharArray();
+        char[] abc = alphabet().toCharArray();
         
         encrypt(msgInArray, cripto, abc);
         
@@ -831,7 +831,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtDecrypted.setText("");
         char[] message = getEncripted();
         char[] cripto = putCriptoInArray();
-        char[] abc = alphabetMin().toCharArray();
+        char[] abc = alphabet().toCharArray();
         
         decrypt(message, cripto, abc);
         
