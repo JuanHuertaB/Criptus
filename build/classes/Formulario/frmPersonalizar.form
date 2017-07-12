@@ -183,7 +183,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Elegir letra inicial del la comparaci&#xf3;n"/>
+                <Property name="text" type="java.lang.String" value="Elegir letra inicial de comparaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rdoLetterMouseClicked"/>
@@ -279,7 +279,7 @@
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
+                  <Font name="Microsoft JhengHei" size="11" style="2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="*Solo minusculas"/>
               </Properties>
@@ -908,7 +908,7 @@
         <Component class="javax.swing.JSeparator" name="jSeparator2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="320" width="1080" height="10"/>
+              <AbsoluteConstraints x="50" y="322" width="1080" height="10"/>
             </Constraint>
           </Constraints>
         </Component>

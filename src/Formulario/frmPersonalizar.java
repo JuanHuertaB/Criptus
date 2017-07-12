@@ -1,3 +1,4 @@
+
 package Formulario;
 
 import com.sun.awt.AWTUtilities;
@@ -57,7 +58,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         String aBC = ""; //DEFINIMOS EL ALFABETO EN MAYUSCULAS
 
         //CREANDO LA ESTRUCTURA DEL ALFABETO
-        String alphabetMin() {
+        String alphabet() {
         
         String cadena1 ;
         String cadena2 ;
@@ -94,6 +95,16 @@ public class frmPersonalizar extends javax.swing.JFrame {
         return abc;
     }
 
+        void desordenar(char[] abc){
+            int der = Integer.parseInt(txtDerecha.getText());
+            int izq = Integer.parseInt(txtIzquierda.getText());
+            char temp[] = new char[26];
+            
+            for(int i = der;i<abc.length;i=i+2){
+                temp[i]=abc[i];
+            }
+        }
+        
     //OBTENEMOS LA PALABRA CLAVE 
     String getKeyWord() {
         return txtKeyWord.getText().trim();
@@ -233,6 +244,10 @@ public class frmPersonalizar extends javax.swing.JFrame {
                    cadA= msj.substring(0,i);
                    cadB= msj.substring(i+1,msj.length());
                    msj = cadA.concat("punto y coma"+cadB); break;
+               case '-':
+                   cadA= msj.substring(0,i);
+                   cadB= msj.substring(i+1,msj.length());
+                   msj = cadA.concat("guion"+cadB); break;
     
            }
         }
@@ -433,7 +448,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
         rdoLetter.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         rdoLetter.setForeground(new java.awt.Color(255, 255, 255));
-        rdoLetter.setText("Elegir letra inicial del la comparación");
+        rdoLetter.setText("Elegir letra inicial de comparación");
         rdoLetter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rdoLetterMouseClicked(evt);
@@ -471,7 +486,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         rdoSaltos.setText("Incluir saltos");
         jPanel1.add(rdoSaltos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 210, -1));
 
-        jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 2, 11)); // NOI18N
         jLabel14.setText("*Solo minusculas");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 115, 90, 20));
 
@@ -754,7 +769,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("ZONA DE PRUEBAS");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 140, 30));
-        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 1080, 10));
+        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 322, 1080, 10));
 
         btnEnviar.setBackground(new java.awt.Color(0, 51, 51));
         btnEnviar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
@@ -792,7 +807,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
         char[] finalText = deleteRepeted(keyWordInArray);//BORRAMOS LOS CARACTERES REPETIDOS DE LA PALABRA CLAVE
         char[] textOne = deleteSpaces(finalText);//BORRAR ESPACIOS VACIOS DESPUES DE ELIMINAR LAS REPETICIONES
-        String abc = alphabetMin();//OBTENEMOS EL ALFABETO EN MINUSCULAS
+        String abc = alphabet();//OBTENEMOS EL ALFABETO EN MINUSCULAS
         //String aBC = alphabetMay();//OBTENEMOS EL ALFABETO EN MAYUSCULAS
         completarArray(textOne, abc); //INGRESAMOS LOS CARACTERES FALTANTES PARA OBTENER EL CRIPTO     
  
@@ -811,7 +826,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         String message = getMessage();
         char[] msgInArray = findNumbers(message).toCharArray();
         char[] cripto = putCriptoInArray();
-        char[] abc = alphabetMin().toCharArray();
+        char[] abc = alphabet().toCharArray();
         
         encrypt(msgInArray, cripto, abc);
         
@@ -831,7 +846,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtDecrypted.setText("");
         char[] message = getEncripted();
         char[] cripto = putCriptoInArray();
-        char[] abc = alphabetMin().toCharArray();
+        char[] abc = alphabet().toCharArray();
         
         decrypt(message, cripto, abc);
         
