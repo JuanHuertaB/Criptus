@@ -11,20 +11,21 @@ import java.awt.geom.RoundRectangle2D;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
+import javax.xml.ws.Service;
 
 public class frmPersonalizar extends javax.swing.JFrame {
     
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public frmPersonalizar() {
         
         initComponents();
         
-        txtKeyWord.requestFocus();
+        txtKeyWord.requestFocus();//El campo para la palabra clave está seleccionada por defecto       
+        txtCripto.setEditable(false);//Deshabilitar la edición del cripto
+        txtEncrypted.setEditable(false);//Deshabilitar la edición del mensaje cifrado
+        txtLetter.setEnabled(false);//Esta deshabilitado por defecto. Se activa si se selecciona su boton asociado.(rdoLetter)       
         
-        txtCripto.setEditable(false);//DESHABILITAR LA EDICIÓN DEL CRIPTO
-        txtEncrypted.setEditable(false);//DESHABILITAR LA EDICIÓN DEL TEXTO ENCRIPTADO
-        txtLetter.setEnabled(false);//ESTA DESHABILITADO AL PRINCIPIO. SE ACTIVA SU EDICIÓN SI SE SELECCIONA EL BOTON RELACIONADO (rdoLetter)       
-        
-        //DESHABILITAR BOTONES AL INICIAR
+        //Deshabilitar botones al iniciar
         btnEnviar.setEnabled(false);
         btnLimpiar.setEnabled(false);
         btnCleanEncrypt.setEnabled(false);
@@ -35,79 +36,71 @@ public class frmPersonalizar extends javax.swing.JFrame {
         btnSendToDecrypt.setEnabled(false);
         btnSaveDecrypted.setEnabled(false);
         
-        rdoOrdenado.setSelected(true);//POR DEFECTO DEBE USAR EL ALFABETO ORDENADO
+        rdoOrdenado.setSelected(true);//Por defecto se usa el alfabeto ordenado
         
-        //BOTONES CERRAR Y MINIMIZAR TRANSPARENTES
+        //Transparencia en los botones y paneles
         btnMinimizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
         pnlCerrar.setBackground(null);
         pnlMin.setBackground(null);
        
-        //VENTANAS CON BORDER REDONDEADOS 
+        //Ventanas con bordes redondeados 
+        @SuppressWarnings("OverridableMethodCallInConstructor")
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
         AWTUtilities.setWindowShape(this,forma);
         
-        //ICONO DE LAS VENTANAS
+        //Icono de las ventanas.
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
-        setIconImage(icon);
-    }
+        setIconImage(icon); 
+        }
     
-        char[] textComplete = new char[27]; //ARREGLO DONDE SE GUARDARÁ EL CRIPTO
-        String abc = ""; //DEFINIMOS EL ALFABETO EN minusculas
-        String aBC = ""; //DEFINIMOS EL ALFABETO EN MAYUSCULAS
+        char[] textComplete = new char[27]; //Arreglo donde se guardará el cripto.
+        String abc = ""; //Cadena donde se guardará el alfabeto.
 
-        //CREANDO LA ESTRUCTURA DEL ALFABETO
-        String alphabet() {
+        //A través de este método se determina el tipo de alfabeto.
+        String alphabet(){
         
-        String cadena1 ;
-        String cadena2 ;
-        
-        if (rdoOrdenado.isSelected() && rdoLetter.isSelected()) {
-            String letter = txtLetter.getText();
+            String cadena1,cadena2;
+            String letter = txtLetter.getText();//Obtenemos la letra inicial.
+        //Si el albafeto es ordenado y empieza por una letra en específico.
+            if (rdoOrdenado.isSelected() && rdoLetter.isSelected()) {
             abc = "abcdefghijklmnñopqrstuvwxyz";
-
-            for (int i = 0; i < abc.length(); i++) {
+             for (int i = 0; i < abc.length(); i++) {
                 if (letter.equals(Character.toString(abc.charAt(i)))) {
                     cadena1 = abc.substring(i, abc.length());
                     cadena2 = abc.substring(0, i);
                     abc = cadena1.concat(cadena2);
                 }
-            }            
-        } else if (rdoInverso.isSelected() && rdoLetter.isSelected()) {
-            String letter = txtLetter.getText();
+              }            
+            } //Si el albafeto es inverso y empieza por una letra en específico.
+          else if (rdoInverso.isSelected() && rdoLetter.isSelected()) {
             abc = "zyxwvutsrqpoñnmlkjihgfedcba";
-
             for (int j = 0; j < abc.length(); j++) {
                 if (letter.equals(Character.toString(abc.charAt(j)))) {
                     cadena1 = abc.substring(j, abc.length());
                     cadena2 = abc.substring(0, j);
                     abc = cadena1.concat(cadena2);
+                  }
+               }
+            }//Si solo se elige un alfabeto ordenado.
+          else if (rdoOrdenado.isSelected()) {
+                   abc = "abcdefghijklmnñopqrstuvwxyz";
+           }//Si solo se elige un alfabeto inverso.
+           else {
+                   abc = "zyxwvutsrqpoñnmlkjihgfedcba";
                 }
-            }
-        } else if (rdoOrdenado.isSelected()) {
-            abc = "abcdefghijklmnñopqrstuvwxyz";
-            
-        } else {
-            abc = "zyxwvutsrqpoñnmlkjihgfedcba";
-           
-        }
         return abc;
     }
-
-    //OBTENEMOS LA PALABRA CLAVE 
-    String getKeyWord() {
-        return txtKeyWord.getText().trim();
-    }
-
-    //PONER LA PALABRA CLAVE EN UN ARREGLO
-    char[] putInArray(String keyWord) {
-        char achar[] = keyWord.toCharArray();
-        return achar;
-    }
-
-    //BORRAR LETRAS REPETIDAS
-    char[] deleteRepeted(char[] keyWordInArray) {
+  
+        //Obtenemos la palabra clave y la ingresa a un arreglo.
+    char[] getKeyWord() {
+           String keyWord = txtKeyWord.getText().trim();
+           char[] kwInArray = keyWord.toCharArray();
+         return kwInArray;
+        }
         
+    //Borrar letras repetidas de la plabra clave. 
+    char[] deleteRepeted(char[] keyWordInArray) {
         int longitud = keyWordInArray.length;
         
         for (int i = 0; i < longitud; i++) {
@@ -119,60 +112,68 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         return keyWordInArray;
     }
-
-    //BORRAR ESPACIOS EN BLANCO
-    char[] deleteSpaces(char[] text) {
+    
+    //Borrar espacios vacios de la palabra clave.
+    char[] deleteSpaces(char[] keyWord) {
         
         String cadena = "";
-        for (int i = 0; i < text.length; i++) {
-            cadena += Character.toString(text[i]);
+        //Convertir la palabra clave en cadena.
+        for (int i = 0; i < keyWord.length; i++) {
+            cadena += Character.toString(keyWord[i]);
         }
+        //Eliminamos los espacios vacios.
         for (int i = 0; i < cadena.length(); i++) {
             cadena = cadena.replace(" ", "");
         }
-        char[] aCaracteres = cadena.toCharArray();
+        //La palabra clave limpia(sin espacios en blanco) es ingresada a un arreglo.
+        char[] keyWordFinal = cadena.toCharArray();
         
-        return aCaracteres;        
+       return keyWordFinal;        
     }
 
-    //COMPLETAR TEXTO CON LAS LETRAS FALTANTES
-    void completarArray(char[] aCharac, String abc) {
+    //Completar crpto con las letras faltantes.
+    void completarArray(char[] keyWord, String abc) {
         //System.arraycopy(aCharac, 0, textComplete, 0, aCharac.length);
+        txtCripto.setText("");//Si se genera un nuevo cripto, el anterior es reemplazado.
         
-        txtCripto.setText("");//SI SE GENERA UN NUEVO CRIPTO, ESTE REEMPLAZARÁ AL ANTERIOR
-        for (int i = 0; i < aCharac.length; i++) {
+        //Reemplaza las repeticiones por espacios vacios en el alfabeto(abc) comparandolo con la palabra clave(keyWord).
+        for (int i = 0; i < keyWord.length; i++) {
             for (int j = 0; j < abc.length(); j++) {
-                if (aCharac[i] == abc.charAt(j)) {
-                    abc = abc.replace(abc.charAt(j), ' ');
-                }else if(aCharac[i] == abc.charAt(j)){
+                if (keyWord[i] == abc.charAt(j)) {
                     abc = abc.replace(abc.charAt(j), ' ');
                 }
             }
         }
-        char[] abcDE = deleteSpaces(putInArray(abc));
         
-        String crypt;
-        String minUno = "", minDos = "";
-        for (int i = 0; i < abcDE.length; i++) {
-            minDos += Character.toString(abcDE[i]);
+        //Eliminamos los espacios en vacios del alfabeto 
+        char[] abcDE = deleteSpaces(abc.toCharArray());
+        
+        String crypt; //Cadena donde se almacenará el cripto.
+        String strOne = "", strTwo = "";//Cadenas donde se almacenará la palabra clave y el alfabeto limpio(sin repeticiones ni espacios)
+        
+        //Convertimos el alfabeto limpio en un cadena.
+        for (int i = 0; i < keyWord.length; i++) {
+            strOne += Character.toString(keyWord[i]);
         }
-        for (int r = 0; r < aCharac.length; r++) {
-            minUno += Character.toString(aCharac[r]);
+        //Convertimos la palabra clave en un cadena.
+        for (int r = 0; r < abcDE.length; r++) {
+            strOne += Character.toString(abcDE[r]);
         }
-
-        crypt = minUno.concat(minDos);
+        //Concatenamos la palabra clave con el alfabeto limpio (sin repeticiones ni espacios).
+        crypt = strOne.concat(strTwo);
         textComplete = crypt.toCharArray();
         
         for (int i = 0; i < textComplete.length; i++) {
             txtCripto.append(Character.toString(textComplete[i]));
         }
         System.out.println(crypt.length());
-    }
+        }
 
     /*----------------------------------------------------------------------------------------------------------------*/
     /*-------------------------------------------------PROCESO DE CIFRADO---------------------------------------------*/
     
-    String findNumbers(String msj){
+    //Conversión de números y caracteres en cadenas
+    String Conversion(String msj){
         for(int i=0;i<msj.length();i++){
             String cadA;
             String cadB;
@@ -239,13 +240,13 @@ public class frmPersonalizar extends javax.swing.JFrame {
         return msj;  
     }
     
+    //
     String getMessage() {
-        return txtToEncrypt.getText();
+        String message = txtToEncrypt.getText();
+        //char[] msgInArray = message.toCharArray();
+       return message; 
     }
-    
-    char[] putMessageInArray(String mensaje){
-        return mensaje.toCharArray();
-    }
+
     char[] putCriptoInArray() {
         return txtCripto.getText().toCharArray();
     }
@@ -254,12 +255,14 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
         for (int i = 0; i < mensaje.length; i++) {            
             for (int j = 0; j < llano.length; j++) {
+                //Comprobando si es una letra mayúscula.
                 if(Character.isUpperCase(mensaje[i])){
+                    //Comprobando si son iguales.
                     if(Character.toString(mensaje[i]).equalsIgnoreCase(Character.toString(llano[j]))){
                         mensaje[i] = Character.toUpperCase(cripto[j]);
                         j = j + (llano.length - j);
                     }
-                    
+                 //Al no cumplirse la primera condición solo comprobamos si son iguales.   
                 }else if (mensaje[i] == llano[j]) {
                     mensaje[i] = cripto[j];                    
                     j = j + (llano.length - j);                    
@@ -279,10 +282,16 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
         for (int i = 0; i < message.length; i++) {
             for (int j = 0; j < cripto.length; j++) {
-                if (message[i] == cripto[j]) {
-                    message[i] = abc[j];
+                if(Character.isUpperCase(message[i])){
+                    if (Character.toString(message[i]).equalsIgnoreCase(Character.toString(cripto[j]))){
+                        message[i] = Character.toUpperCase(abc[j]);
                     j = j + (cripto.length - j);
+                    }
+                }else if(message[i] == cripto[j]){
+                        message[i] = abc[j];
+                        j = j + (cripto.length - j);
                 }
+                
             }
         }
         for (int k = 0; k < message.length; k++) {
@@ -784,17 +793,11 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         
-        String keyWord = getKeyWord();//OBTENEMOS LA PALABRA CLAVE
-        
-        /*SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
-        LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO*/
-        char[] keyWordInArray = putInArray(keyWord);
-        
-        char[] finalText = deleteRepeted(keyWordInArray);//BORRAMOS LOS CARACTERES REPETIDOS DE LA PALABRA CLAVE
-        char[] textOne = deleteSpaces(finalText);//BORRAR ESPACIOS VACIOS DESPUES DE ELIMINAR LAS REPETICIONES
-        String abc = alphabet();//OBTENEMOS EL ALFABETO EN MINUSCULAS
-        //String aBC = alphabetMay();//OBTENEMOS EL ALFABETO EN MAYUSCULAS
-        completarArray(textOne, abc); //INGRESAMOS LOS CARACTERES FALTANTES PARA OBTENER EL CRIPTO     
+        char[] keyWordInArray = getKeyWord();//Obtenemos la palabra clave para ponerla en un arreglo.   
+        char[] finalText = deleteRepeted(keyWordInArray);//Se eliminan las letras repetidas de la palabra clave.
+        char[] keyWord = deleteSpaces(finalText);//Se eliminan los espacios vacios de la palabra clave.
+        String abc = alphabet();//La estructura del alfabeto se almacena en la variable abc
+        completarArray(keyWord, abc); //Generamos el cripto.    
  
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -809,10 +812,9 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
         txtEncrypted.setText("");
         String message = getMessage();
-        char[] msgInArray = findNumbers(message).toCharArray();
+        char[] msgInArray = Conversion(message).toCharArray();
         char[] cripto = putCriptoInArray();
         char[] abc = alphabet().toCharArray();
-        
         encrypt(msgInArray, cripto, abc);
         
         btnSendToDecrypt.setEnabled(true);
