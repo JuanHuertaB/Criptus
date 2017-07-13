@@ -264,7 +264,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
                     }
                  //Al no cumplirse la primera condición solo comprobamos si son iguales.   
                 }else if (mensaje[i] == llano[j]) {
-                    mensaje[i] = cripto[j];                    
+                    mensaje[i] = cripto[j];
+                        //Llevamos el contador al limite para hacer pase a la siguiente letra.                    
                     j = j + (llano.length - j);                    
                 }
             }            
@@ -274,30 +275,36 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
     }
     
+    //Obtenemos el mensaje cifrado.
     char[] getEncripted() {
         return txtToDecrypt.getText().toCharArray();
     }
-    
+    //Método para descifrar el mensaje.
     void decrypt(char[] message, char[] cripto, char[] abc) {
         
         for (int i = 0; i < message.length; i++) {
             for (int j = 0; j < cripto.length; j++) {
+                //Comprueba si es una letra mayúscula.
                 if(Character.isUpperCase(message[i])){
+                    //Verifica si son iguales.
                     if (Character.toString(message[i]).equalsIgnoreCase(Character.toString(cripto[j]))){
+                        //Si son iguales, se reemplaza el caracter del mensaje por su correspondiente en el cripto pero en mayúscula.
                         message[i] = Character.toUpperCase(abc[j]);
                     j = j + (cripto.length - j);
                     }
+                    //Si no se cumple la condición anterior solo verifica si son iguales.
                 }else if(message[i] == cripto[j]){
                         message[i] = abc[j];
+                        //Llevamos el contador al limite para hacer pase a la siguiente letra.
                         j = j + (cripto.length - j);
-                }
-                
+                }  
             }
         }
         for (int k = 0; k < message.length; k++) {
             txtDecrypted.append(Character.toString(message[k]));
         }        
     }
+    //Método para guardar el mensaje cifrado.
     void grabar(){
             FileDialog da;
             da = new FileDialog(this,"Guardar como",FileDialog.SAVE);
