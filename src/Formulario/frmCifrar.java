@@ -184,17 +184,17 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1000, 30);
 
-        jLabel1.setFont(new java.awt.Font("Eras Light ITC", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Este es el mensaje cifrado");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 370, 270, 30);
+        jLabel1.setBounds(100, 370, 290, 30);
 
-        jLabel2.setFont(new java.awt.Font("Eras Light ITC", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese el mensaje que desea cifrar");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(90, 80, 360, 40);
+        jLabel2.setBounds(90, 80, 400, 40);
 
         txtCifrado.setBackground(new java.awt.Color(102, 102, 102));
         txtCifrado.setColumns(20);
@@ -250,8 +250,8 @@ public class frmCifrar extends javax.swing.JFrame {
         btnVolverC.setBounds(0, 40, 40, 30);
 
         btnEncrypt.setBackground(new java.awt.Color(0, 21, 29));
-        btnEncrypt.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        btnEncrypt.setForeground(new java.awt.Color(204, 204, 204));
+        btnEncrypt.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 15)); // NOI18N
+        btnEncrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnEncrypt.setText("Cifrar Mensaje");
         btnEncrypt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -286,8 +286,8 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlEncrypt.setBounds(420, 280, 170, 40);
 
         btnSaveCrypted.setBackground(new java.awt.Color(0, 21, 29));
-        btnSaveCrypted.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        btnSaveCrypted.setForeground(new java.awt.Color(204, 204, 204));
+        btnSaveCrypted.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 15)); // NOI18N
+        btnSaveCrypted.setForeground(new java.awt.Color(255, 255, 255));
         btnSaveCrypted.setText("Guardar Mensaje");
         btnSaveCrypted.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -302,9 +302,7 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlSave.setLayout(pnlSaveLayout);
         pnlSaveLayout.setHorizontalGroup(
             pnlSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSaveLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSaveCrypted, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnSaveCrypted, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
         pnlSaveLayout.setVerticalGroup(
             pnlSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,11 +312,11 @@ public class frmCifrar extends javax.swing.JFrame {
         );
 
         jPanel1.add(pnlSave);
-        pnlSave.setBounds(420, 570, 160, 40);
+        pnlSave.setBounds(420, 570, 170, 40);
 
         btnClear.setBackground(new java.awt.Color(0, 21, 29));
-        btnClear.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        btnClear.setForeground(new java.awt.Color(204, 204, 204));
+        btnClear.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 13)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Limpiar campos");
         btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -341,7 +339,7 @@ public class frmCifrar extends javax.swing.JFrame {
             pnlClearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClearLayout.createSequentialGroup()
                 .addComponent(btnClear)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.add(pnlClear);

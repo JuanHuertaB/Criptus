@@ -189,13 +189,13 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel3.setBounds(0, 0, 1000, 30);
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese el mensaje que desea descifrar");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(90, 60, 430, 40);
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Este es el mensaje descifrado");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(90, 330, 340, 32);
@@ -253,7 +253,7 @@ public class frmDescifrar extends javax.swing.JFrame {
 
         btnDecrypt.setBackground(new java.awt.Color(0, 21, 29));
         btnDecrypt.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        btnDecrypt.setForeground(new java.awt.Color(204, 204, 204));
+        btnDecrypt.setForeground(new java.awt.Color(255, 255, 255));
         btnDecrypt.setText("Descifrar Mensaje");
         btnDecrypt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -284,7 +284,7 @@ public class frmDescifrar extends javax.swing.JFrame {
 
         btnSaveDecrypted.setBackground(new java.awt.Color(0, 21, 29));
         btnSaveDecrypted.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        btnSaveDecrypted.setForeground(new java.awt.Color(204, 204, 204));
+        btnSaveDecrypted.setForeground(new java.awt.Color(255, 255, 255));
         btnSaveDecrypted.setText("Guardar Mensaje");
         btnSaveDecrypted.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -315,7 +315,7 @@ public class frmDescifrar extends javax.swing.JFrame {
 
         btnClear.setBackground(new java.awt.Color(0, 21, 29));
         btnClear.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
-        btnClear.setForeground(new java.awt.Color(204, 204, 204));
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Limpiar Campos");
         btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

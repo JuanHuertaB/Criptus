@@ -12,7 +12,6 @@ import java.awt.geom.RoundRectangle2D;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
-import javax.xml.ws.Service;
 
 public class frmPersonalizar extends javax.swing.JFrame {
     
@@ -57,20 +56,11 @@ public class frmPersonalizar extends javax.swing.JFrame {
     
         char[] textComplete = new char[27]; //Arreglo donde se guardará el cripto.
         String abc = ""; //Cadena donde se guardará el alfabeto.
-
-<<<<<<< HEAD
-        //CREANDO LA ESTRUCTURA DEL ALFABETO
-        String alphabet() {
-        
-        String cadena1 ;
-        String cadena2 ;
-=======
         //A través de este método se determina el tipo de alfabeto.
         String alphabet(){
->>>>>>> 0870a558b4f9c10e56cb0b1d779953a1e4ea2c40
-        
             String cadena1,cadena2;
             String letter = txtLetter.getText();//Obtenemos la letra inicial.
+            
         //Si el albafeto es ordenado y empieza por una letra en específico.
             if (rdoOrdenado.isSelected() && rdoLetter.isSelected()) {
             abc = "abcdefghijklmnñopqrstuvwxyz";
@@ -100,41 +90,96 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 }
         return abc;
     }
-<<<<<<< HEAD
-
-        void desordenar(char[] abc){
-            int der = Integer.parseInt(txtDerecha.getText());
-            int izq = Integer.parseInt(txtIzquierda.getText());
-            char temp[] = new char[26];
+               
+        void desordenar(String abc,int der){
+            char[] temp = new char[27];
+            char[] temp2 = new char[27];
+            char[] temp3 = new char[27];
+            char[] temp4 = new char[27];
+            char[] temp5 = new char[27];
+            char[] abcd = null ;
+            char[] abcde= null;
+            char[] abcdef= null;
+            char[] abcdefg= null;
+            char[] abcdefgh= null;
+            char[] abcdefghi= null;
+            String nAlf="";
             
-            for(int i = der;i<abc.length;i=i+2){
-                temp[i]=abc[i];
+            for(int i=0;i<abc.length();i++){
+                if(i<abc.length() && (der+i)%der != 0){
+                    nAlf += abc.charAt(i);
+                    abc = abc.replace(abc.charAt(i),' ');
+                }       
             }
+               abcd = deleteSpaces(abc.toCharArray());
+               System.out.println("primera cadena "+ nAlf);
+               for(int i=0;i<abcd.length;i++){
+                   System.out.println("cadena sobrante "+ abcd[i]);
+               }
+            for(int j=0;j<abcd.length;j++){
+                if(j<abcd.length && (der+j)%der == 0){
+                    nAlf += abcd[j];
+                    abcd[j] = ' '; 
+                }       
+            }
+            abcde = deleteSpaces(abcd);
+            
+            System.out.println("segunda cadena "+ nAlf);
+               for(int i=0;i<abcde.length;i++){
+                   System.out.println("cadena sobrante "+ abcde[i]);
+               }
+            for(int k=0;k<abcde.length;k++){
+                if(k<abcde.length && (der+k)%der == 0){
+                    nAlf += abcde[k];
+                    abcde[k] = ' '; 
+                }       
+            }
+            abcdef = deleteSpaces(abcde);
+             System.out.println("tercera cadena "+ nAlf);
+               for(int i=0;i<abcdef.length;i++){
+                   System.out.println("cadena sobrante "+ abcdef[i]);
+               }
+            for(int k=0;k<abcdef.length;k++){
+                if(k<abcdef.length && (der+k)%der != 0){
+                    nAlf += abcdef[k];
+                    abcdef[k] = ' '; 
+                }       
+            }
+            abcdefg = deleteSpaces(abcdef);
+             System.out.println("cuarta cadena "+ nAlf);
+               for(int i=0;i<abcdefg.length;i++){
+                   System.out.println("cadena sobrante "+ abcdefg[i]);
+               }
+            for(int k=0;k<abcdefg.length;k++){
+                if(k<abcdefg.length && (der+k)%der == 0){
+                    nAlf += abcdefg[k];
+                    abcdefg[k] = ' '; 
+                }       
+            }
+            abcdefgh = deleteSpaces(abcdefg);
+             System.out.println("quinta cadena "+ nAlf);
+               for(int i=0;i<abcdefgh.length;i++){
+                   System.out.println("cadena sobrante "+ abcdefgh[i]);
+               }
+            for(int k=0;k<abcdefgh.length;k++){
+                if(k<abcdefgh.length && (der+k)%der == 0){
+                    nAlf += abcdefgh[k];
+                    abcdefgh[k] = ' '; 
+                }       
+            }
+            abcdefghi = deleteSpaces(abcdefgh);
+             System.out.println("sexta cadena "+ nAlf);
+               for(int i=0;i<abcdefghi.length;i++){
+                   System.out.println("cadena sobrante "+ abcdefghi[i]);
+               }
         }
-        
-    //OBTENEMOS LA PALABRA CLAVE 
-    String getKeyWord() {
-        return txtKeyWord.getText().trim();
-    }
 
-    //PONER LA PALABRA CLAVE EN UN ARREGLO
-    char[] putInArray(String keyWord) {
-        char achar[] = keyWord.toCharArray();
-        return achar;
-    }
-
-    //BORRAR LETRAS REPETIDAS
-    char[] deleteRepeted(char[] keyWordInArray) {
-=======
-  
         //Obtenemos la palabra clave y la ingresa a un arreglo.
     char[] getKeyWord() {
            String keyWord = txtKeyWord.getText().trim();
            char[] kwInArray = keyWord.toCharArray();
          return kwInArray;
         }
->>>>>>> 0870a558b4f9c10e56cb0b1d779953a1e4ea2c40
-        
     //Borrar letras repetidas de la plabra clave. 
     char[] deleteRepeted(char[] keyWordInArray) {
         int longitud = keyWordInArray.length;
@@ -148,7 +193,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         return keyWordInArray;
     }
-    
     //Borrar espacios vacios de la palabra clave.
     char[] deleteSpaces(char[] keyWord) {
         
@@ -166,21 +210,19 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
        return keyWordFinal;        
     }
-
+   
     //Completar crpto con las letras faltantes.
     void completarArray(char[] keyWord, String abc) {
         //System.arraycopy(aCharac, 0, textComplete, 0, aCharac.length);
-        txtCripto.setText("");//Si se genera un nuevo cripto, el anterior es reemplazado.
-        
+            txtCripto.setText("");//Si se genera un nuevo cripto, el anterior es reemplazado.   
         //Reemplaza las repeticiones por espacios vacios en el alfabeto(abc) comparandolo con la palabra clave(keyWord).
-        for (int i = 0; i < keyWord.length; i++) {
-            for (int j = 0; j < abc.length(); j++) {
-                if (keyWord[i] == abc.charAt(j)) {
-                    abc = abc.replace(abc.charAt(j), ' ');
+            for (int i = 0; i < keyWord.length; i++) {
+                for (int j = 0; j < abc.length(); j++) {
+                    if (keyWord[i] == abc.charAt(j)) {
+                        abc = abc.replace(abc.charAt(j), ' ');
+                    }
                 }
             }
-        }
-        
         //Eliminamos los espacios en vacios del alfabeto 
         char[] abcDE = deleteSpaces(abc.toCharArray());
         
@@ -204,6 +246,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         System.out.println(crypt.length());
         }
+    
+    
 
     /*----------------------------------------------------------------------------------------------------------------*/
     /*-------------------------------------------------PROCESO DE CIFRADO---------------------------------------------*/
@@ -279,14 +323,12 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         return msj;  
     }
-    
-    //
+    //Obtenemos el mensaje a encriptar.
     String getMessage() {
         String message = txtToEncrypt.getText();
-        //char[] msgInArray = message.toCharArray();
        return message; 
     }
-
+    
     char[] putCriptoInArray() {
         return txtCripto.getText().toCharArray();
     }
@@ -378,10 +420,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         rdoLetter = new javax.swing.JRadioButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtDerecha = new javax.swing.JTextField();
-        txtIzquierda = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        rdoSaltos = new javax.swing.JRadioButton();
+        rdoDerecha = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -507,27 +546,15 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 210, 230, 150));
 
         txtDerecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 50, 30));
+        jPanel1.add(txtDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 40, 30));
 
-        txtIzquierda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 50, 30));
-
-        jLabel12.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Derecha");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 50, 30));
-
-        jLabel13.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Izquierda");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 160, 50, 30));
-
-        rdoSaltos.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
-        rdoSaltos.setForeground(new java.awt.Color(255, 255, 255));
-        rdoSaltos.setText("Incluir saltos");
-        jPanel1.add(rdoSaltos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 210, -1));
+        rdoDerecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        rdoDerecha.setForeground(new java.awt.Color(255, 255, 255));
+        rdoDerecha.setText("Derecha");
+        jPanel1.add(rdoDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 100, 30));
 
         jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 2, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("*Solo minusculas");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 115, 90, 20));
 
@@ -716,10 +743,10 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtCripto.setRows(5);
         jPanel4.add(txtCripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 420, 30));
 
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cripto");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, -1, 30));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 50, 30));
 
         jPanel2.setBackground(new java.awt.Color(0, 75, 91));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -839,26 +866,14 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        
-<<<<<<< HEAD
-        String keyWord = getKeyWord();//OBTENEMOS LA PALABRA CLAVE
-        
-        /*SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
-        LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO*/
-        char[] keyWordInArray = putInArray(keyWord);
-        
-        char[] finalText = deleteRepeted(keyWordInArray);//BORRAMOS LOS CARACTERES REPETIDOS DE LA PALABRA CLAVE
-        char[] textOne = deleteSpaces(finalText);//BORRAR ESPACIOS VACIOS DESPUES DE ELIMINAR LAS REPETICIONES
-        String abc = alphabet();//OBTENEMOS EL ALFABETO EN MINUSCULAS
-        //String aBC = alphabetMay();//OBTENEMOS EL ALFABETO EN MAYUSCULAS
-        completarArray(textOne, abc); //INGRESAMOS LOS CARACTERES FALTANTES PARA OBTENER EL CRIPTO     
-=======
+   
         char[] keyWordInArray = getKeyWord();//Obtenemos la palabra clave para ponerla en un arreglo.   
         char[] finalText = deleteRepeted(keyWordInArray);//Se eliminan las letras repetidas de la palabra clave.
         char[] keyWord = deleteSpaces(finalText);//Se eliminan los espacios vacios de la palabra clave.
         String abc = alphabet();//La estructura del alfabeto se almacena en la variable abc
-        completarArray(keyWord, abc); //Generamos el cripto.    
->>>>>>> 0870a558b4f9c10e56cb0b1d779953a1e4ea2c40
+        completarArray(keyWord, abc); //Generamos el cripto.
+        desordenar(abc, Integer.parseInt(txtDerecha.getText()));
+
  
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -876,10 +891,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         char[] msgInArray = Conversion(message).toCharArray();
         char[] cripto = putCriptoInArray();
         char[] abc = alphabet().toCharArray();
-<<<<<<< HEAD
-        
-=======
->>>>>>> 0870a558b4f9c10e56cb0b1d779953a1e4ea2c40
+
         encrypt(msgInArray, cripto, abc);
         
         btnSendToDecrypt.setEnabled(true);
@@ -920,11 +932,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_rdoLetterActionPerformed
 
     private void txtKeyWordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyTyped
-        
-            System.out.println(evt.getKeyChar());
-                
-                
-        
+  
     }//GEN-LAST:event_txtKeyWordKeyTyped
 
     private void txtKeyWordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyReleased
@@ -1112,8 +1120,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1137,15 +1143,14 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel pnlCerrar;
     private javax.swing.JPanel pnlMin;
+    private javax.swing.JRadioButton rdoDerecha;
     private javax.swing.JRadioButton rdoInverso;
     private javax.swing.JRadioButton rdoLetter;
     private javax.swing.JRadioButton rdoOrdenado;
-    private javax.swing.JRadioButton rdoSaltos;
     private javax.swing.JTextArea txtCripto;
     private javax.swing.JTextArea txtDecrypted;
     private javax.swing.JTextField txtDerecha;
     private javax.swing.JTextArea txtEncrypted;
-    private javax.swing.JTextField txtIzquierda;
     private javax.swing.JTextField txtKeyWord;
     private javax.swing.JTextField txtLetter;
     private javax.swing.JTextArea txtToDecrypt;
