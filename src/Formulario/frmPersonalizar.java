@@ -101,10 +101,10 @@ public class frmPersonalizar extends javax.swing.JFrame {
                     i=28;
                     continue;
                 }
-                if(abc.charAt(i)== ' '){
-                   // i++;
-                    continue;
-                }else cont++;
+                if(abc.charAt(i) != ' '){
+                   cont++;
+                    
+                } 
                 if(cont == der){
                     nAlf += abc.charAt(i);
                     abc = abc.replace(abc.charAt(i),' ');
