@@ -92,20 +92,19 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }
                
         void desordenar(String abc,int der){
-           
             int cont=0;
             String nAlf="";
             
-            
             for(int i=0;i<abc.length();i++){
-                cont++;
+                
                 if(nAlf.length()== 27 ){
                     i=28;
                     continue;
                 }
                 if(abc.charAt(i)== ' '){
-                    i++;
-                }
+                   // i++;
+                    continue;
+                }else cont++;
                 if(cont == der){
                     nAlf += abc.charAt(i);
                     abc = abc.replace(abc.charAt(i),' ');
