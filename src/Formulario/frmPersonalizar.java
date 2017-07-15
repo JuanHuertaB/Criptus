@@ -91,21 +91,18 @@ public class frmPersonalizar extends javax.swing.JFrame {
         return abc;
     }
                
-        void desordenar(String abc,int der){
+        void randomJumps(String abc,int sDer){
             int cont=0;
             String nAlf="";
-            
             for(int i=0;i<abc.length();i++){
-                
                 if(nAlf.length()== 27 ){
                     i=28;
                     continue;
                 }
                 if(abc.charAt(i) != ' '){
                    cont++;
-                    
                 } 
-                if(cont == der){
+                if(cont == sDer){
                     nAlf += abc.charAt(i);
                     abc = abc.replace(abc.charAt(i),' ');
                     cont=0;
@@ -816,7 +813,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         char[] keyWord = deleteSpaces(finalText);//Se eliminan los espacios vacios de la palabra clave.
         String abc = alphabet();//La estructura del alfabeto se almacena en la variable abc
         completarArray(keyWord, abc); //Generamos el cripto.
-        desordenar(abc, Integer.parseInt(txtDerecha.getText()));
+        randomJumps(abc, Integer.parseInt(txtDerecha.getText()));
 
  
     }//GEN-LAST:event_btnEnviarActionPerformed
