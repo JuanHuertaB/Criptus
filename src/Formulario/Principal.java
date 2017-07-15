@@ -27,7 +27,7 @@ public class Principal extends javax.swing.JFrame {
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
-        btnCifrar.setContentAreaFilled(false);
+        btnCifrar.setContentAreaFilled(true);
         btnDescifrar1.setContentAreaFilled(false);
         btnCustomize.setContentAreaFilled(false);
         
@@ -38,10 +38,10 @@ public class Principal extends javax.swing.JFrame {
         //EFECTOS BOTON MINIMIZAR
         pnlMin.setVisible(true);
         pnlMin.setBackground(null);
-        
-        pnlCifrar.setBackground(new Color(0, 39, 51));
-        pnlDecifrar.setBackground(new Color(0, 39, 51));
-        pnlPersonalizar.setBackground(new Color(0, 39, 51));
+        btnCifrar.setBorder(null);
+        pnlCifrar.setBackground(null);
+        pnlDecifrar.setBackground(null);
+        pnlPersonalizar.setBackground(new Color(5, 61, 72));
         
         
     }
@@ -65,13 +65,12 @@ public class Principal extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
         pnlCifrar = new javax.swing.JPanel();
-        btnCifrar = new javax.swing.JButton();
         pnlDecifrar = new javax.swing.JPanel();
         btnDescifrar1 = new javax.swing.JButton();
         pnlPersonalizar = new javax.swing.JPanel();
         btnCustomize = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
+        btnCifrar = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -100,15 +99,15 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 29, 48), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SISTEMA DE CIFRAMIENTO");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 380, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 400, 60));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("UTP CRIPTO");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, 40));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(0, 55, 59));
         jPanel3.setToolTipText("Criptus");
@@ -132,7 +131,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText(" CRIPTO");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 40, 16));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 50, 16));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -203,36 +202,15 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
 
-        btnCifrar.setBackground(new java.awt.Color(0, 39, 53));
-        btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
-        btnCifrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCifrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cifrar.png"))); // NOI18N
-        btnCifrar.setText("Cifrar");
-        btnCifrar.setBorder(null);
-        btnCifrar.setIconTextGap(8);
-        btnCifrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCifrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCifrarMouseExited(evt);
-            }
-        });
-        btnCifrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCifrarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlCifrarLayout = new javax.swing.GroupLayout(pnlCifrar);
         pnlCifrar.setLayout(pnlCifrarLayout);
         pnlCifrarLayout.setHorizontalGroup(
             pnlCifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCifrar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addGap(0, 200, Short.MAX_VALUE)
         );
         pnlCifrarLayout.setVerticalGroup(
             pnlCifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCifrar, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addGap(0, 80, Short.MAX_VALUE)
         );
 
         jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 200, 80));
@@ -242,7 +220,8 @@ public class Principal extends javax.swing.JFrame {
         btnDescifrar1.setForeground(new java.awt.Color(255, 255, 255));
         btnDescifrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/descifrar.png"))); // NOI18N
         btnDescifrar1.setText("Descifrar");
-        btnDescifrar1.setBorder(null);
+        btnDescifrar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
+        btnDescifrar1.setContentAreaFilled(false);
         btnDescifrar1.setIconTextGap(8);
         btnDescifrar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -308,13 +287,30 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 210, -1));
 
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 51, 51));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 20, 80));
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/utp.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 190, 70));
+
+        btnCifrar.setBackground(new java.awt.Color(26, 183, 49));
+        btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
+        btnCifrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCifrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cifrar.png"))); // NOI18N
+        btnCifrar.setText("Cifrar");
+        btnCifrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
+        btnCifrar.setIconTextGap(8);
+        btnCifrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCifrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCifrarMouseExited(evt);
+            }
+        });
+        btnCifrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCifrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 200, 80));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 460));
 
@@ -411,11 +407,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescifrar1MouseEntered
 
     private void btnCifrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCifrarMouseExited
-        pnlCifrar.setBackground(new Color(0, 39, 51));
+        pnlCifrar.setBackground(null);
     }//GEN-LAST:event_btnCifrarMouseExited
 
     private void btnDescifrar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDescifrar1MouseExited
-        pnlDecifrar.setBackground(new Color(0, 39, 51));
+        pnlDecifrar.setBackground(null);
     }//GEN-LAST:event_btnDescifrar1MouseExited
 
     private void btnCustomizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomizeMouseEntered
@@ -477,7 +473,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel pnlCerrar;
     private javax.swing.JPanel pnlCifrar;
