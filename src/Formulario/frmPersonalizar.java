@@ -92,86 +92,31 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }
                
         void desordenar(String abc,int der){
-            char[] temp = new char[27];
-            char[] temp2 = new char[27];
-            char[] temp3 = new char[27];
-            char[] temp4 = new char[27];
-            char[] temp5 = new char[27];
-            char[] abcd = null ;
-            char[] abcde= null;
-            char[] abcdef= null;
-            char[] abcdefg= null;
-            char[] abcdefgh= null;
-            char[] abcdefghi= null;
+           
+            int cont=0;
             String nAlf="";
             
+            
             for(int i=0;i<abc.length();i++){
-                if(i<abc.length() && (der+i)%der != 0){
+                cont++;
+                if(nAlf.length()== 27 ){
+                    i=28;
+                    continue;
+                }
+                if(abc.charAt(i)== ' '){
+                    i++;
+                }
+                if(cont == der){
                     nAlf += abc.charAt(i);
                     abc = abc.replace(abc.charAt(i),' ');
-                }       
+                    cont=0;
+                }
+                if(i==(abc.length()-1)){
+                    i=-1;
+                }
             }
-               abcd = deleteSpaces(abc.toCharArray());
-               System.out.println("primera cadena "+ nAlf);
-               for(int i=0;i<abcd.length;i++){
-                   System.out.println("cadena sobrante "+ abcd[i]);
-               }
-            for(int j=0;j<abcd.length;j++){
-                if(j<abcd.length && (der+j)%der == 0){
-                    nAlf += abcd[j];
-                    abcd[j] = ' '; 
-                }       
-            }
-            abcde = deleteSpaces(abcd);
-            
-            System.out.println("segunda cadena "+ nAlf);
-               for(int i=0;i<abcde.length;i++){
-                   System.out.println("cadena sobrante "+ abcde[i]);
-               }
-            for(int k=0;k<abcde.length;k++){
-                if(k<abcde.length && (der+k)%der == 0){
-                    nAlf += abcde[k];
-                    abcde[k] = ' '; 
-                }       
-            }
-            abcdef = deleteSpaces(abcde);
-             System.out.println("tercera cadena "+ nAlf);
-               for(int i=0;i<abcdef.length;i++){
-                   System.out.println("cadena sobrante "+ abcdef[i]);
-               }
-            for(int k=0;k<abcdef.length;k++){
-                if(k<abcdef.length && (der+k)%der != 0){
-                    nAlf += abcdef[k];
-                    abcdef[k] = ' '; 
-                }       
-            }
-            abcdefg = deleteSpaces(abcdef);
-             System.out.println("cuarta cadena "+ nAlf);
-               for(int i=0;i<abcdefg.length;i++){
-                   System.out.println("cadena sobrante "+ abcdefg[i]);
-               }
-            for(int k=0;k<abcdefg.length;k++){
-                if(k<abcdefg.length && (der+k)%der == 0){
-                    nAlf += abcdefg[k];
-                    abcdefg[k] = ' '; 
-                }       
-            }
-            abcdefgh = deleteSpaces(abcdefg);
-             System.out.println("quinta cadena "+ nAlf);
-               for(int i=0;i<abcdefgh.length;i++){
-                   System.out.println("cadena sobrante "+ abcdefgh[i]);
-               }
-            for(int k=0;k<abcdefgh.length;k++){
-                if(k<abcdefgh.length && (der+k)%der == 0){
-                    nAlf += abcdefgh[k];
-                    abcdefgh[k] = ' '; 
-                }       
-            }
-            abcdefghi = deleteSpaces(abcdefgh);
-             System.out.println("sexta cadena "+ nAlf);
-               for(int i=0;i<abcdefghi.length;i++){
-                   System.out.println("cadena sobrante "+ abcdefghi[i]);
-               }
+            System.out.println(nAlf);
+            System.out.println(nAlf.length());
         }
 
         //Obtenemos la palabra clave y la ingresa a un arreglo.
@@ -203,7 +148,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         //Eliminamos los espacios vacios.
         for (int i = 0; i < cadena.length(); i++) {
-            cadena = cadena.replace(" ", "");
+            cadena = cadena.replace(" ", "");             
         }
         //La palabra clave limpia(sin espacios en blanco) es ingresada a un arreglo.
         char[] keyWordFinal = cadena.toCharArray();
