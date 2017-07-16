@@ -108,9 +108,9 @@ public class frmCifrar extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("CRIPTO - CIFRAR");
+        jLabel5.setText("CIFRAR");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(460, 10, 80, 16);
+        jLabel5.setBounds(480, 10, 40, 16);
 
         pnlMin.setBackground(new java.awt.Color(204, 204, 204));
         pnlMin.setLayout(null);
@@ -184,26 +184,27 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1000, 30);
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Este es el mensaje cifrado");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 370, 290, 30);
+        jLabel1.setBounds(100, 340, 250, 40);
 
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese el mensaje que desea cifrar");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(90, 80, 400, 40);
+        jLabel2.setBounds(90, 80, 330, 40);
 
-        txtCifrado.setBackground(new java.awt.Color(102, 102, 102));
+        txtCifrado.setBackground(new java.awt.Color(0, 41, 60));
         txtCifrado.setColumns(20);
         txtCifrado.setForeground(new java.awt.Color(0, 0, 0));
         txtCifrado.setRows(5);
+        txtCifrado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 19, 35)));
         jScrollPane2.setViewportView(txtCifrado);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(100, 410, 820, 140);
+        jScrollPane2.setBounds(100, 380, 820, 170);
 
         txtMensaje.setBackground(new java.awt.Color(0, 41, 60));
         txtMensaje.setColumns(20);
@@ -213,7 +214,7 @@ public class frmCifrar extends javax.swing.JFrame {
         jScrollPane3.setViewportView(txtMensaje);
 
         jPanel1.add(jScrollPane3);
-        jScrollPane3.setBounds(90, 120, 830, 140);
+        jScrollPane3.setBounds(90, 120, 830, 150);
 
         lblAtrasCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         lblAtrasCifrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,7 +253,9 @@ public class frmCifrar extends javax.swing.JFrame {
         btnEncrypt.setBackground(new java.awt.Color(0, 21, 29));
         btnEncrypt.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 15)); // NOI18N
         btnEncrypt.setForeground(new java.awt.Color(255, 255, 255));
-        btnEncrypt.setText("Cifrar Mensaje");
+        btnEncrypt.setText("Cifrar mensaje");
+        btnEncrypt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
+        btnEncrypt.setContentAreaFilled(false);
         btnEncrypt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnEncryptMouseEntered(evt);
@@ -271,9 +274,9 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlEncrypt.setLayout(pnlEncryptLayout);
         pnlEncryptLayout.setHorizontalGroup(
             pnlEncryptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEncryptLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnEncrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlEncryptLayout.createSequentialGroup()
+                .addComponent(btnEncrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlEncryptLayout.setVerticalGroup(
             pnlEncryptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,9 +289,11 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlEncrypt.setBounds(420, 280, 170, 40);
 
         btnSaveCrypted.setBackground(new java.awt.Color(0, 21, 29));
-        btnSaveCrypted.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 15)); // NOI18N
+        btnSaveCrypted.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
         btnSaveCrypted.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCrypted.setText("Guardar Mensaje");
+        btnSaveCrypted.setText("Guardar mensaje");
+        btnSaveCrypted.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
+        btnSaveCrypted.setContentAreaFilled(false);
         btnSaveCrypted.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSaveCryptedMouseEntered(evt);
@@ -312,12 +317,14 @@ public class frmCifrar extends javax.swing.JFrame {
         );
 
         jPanel1.add(pnlSave);
-        pnlSave.setBounds(420, 570, 170, 40);
+        pnlSave.setBounds(430, 570, 170, 40);
 
         btnClear.setBackground(new java.awt.Color(0, 21, 29));
         btnClear.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 13)); // NOI18N
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Limpiar campos");
+        btnClear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
+        btnClear.setContentAreaFilled(false);
         btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnClearMouseEntered(evt);
@@ -337,13 +344,13 @@ public class frmCifrar extends javax.swing.JFrame {
         );
         pnlClearLayout.setVerticalGroup(
             pnlClearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlClearLayout.createSequentialGroup()
-                .addComponent(btnClear)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClearLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(pnlClear);
-        pnlClear.setBounds(830, 580, 150, 30);
+        pnlClear.setBounds(810, 580, 150, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
