@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Shape;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -487,6 +488,11 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
         txtDerecha.setForeground(new java.awt.Color(204, 204, 204));
         txtDerecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDerecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDerechaKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 40, 30));
 
         rdoDerecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
@@ -905,7 +911,12 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_rdoLetterActionPerformed
 
     private void txtKeyWordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyTyped
-  
+        char letra = evt.getKeyChar();
+        if((letra < 'a' || letra > 'z') && (letra != '\b') && (letra !=(char)KeyEvent.VK_SPACE)){
+        evt.consume();
+        JOptionPane.showMessageDialog(rootPane, "Solo se admiten letras en minúsculas");
+    }
+        
     }//GEN-LAST:event_txtKeyWordKeyTyped
 
     private void txtKeyWordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyReleased
@@ -1043,6 +1054,14 @@ public class frmPersonalizar extends javax.swing.JFrame {
         x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_jPanel5MousePressed
+
+    private void txtDerechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDerechaKeyTyped
+        char num = evt.getKeyChar();
+        if((num < '0' || num > '9') && (num != '\b')) {
+        evt.consume();
+        JOptionPane.showMessageDialog(rootPane, "Solo se admite datos numéricos");
+        } 
+    }//GEN-LAST:event_txtDerechaKeyTyped
 
     /**
      * @param args the command line arguments

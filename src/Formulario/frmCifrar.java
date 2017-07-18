@@ -44,9 +44,9 @@ public class frmCifrar extends javax.swing.JFrame {
         //EFECTOS BOTON VOLVER
         lblAtrasCifrar.setForeground(Color.gray);
         
-        pnlEncrypt.setBackground(new Color(0, 39, 51));
-        pnlSave.setBackground(new Color(0, 39, 51));
-        pnlClear.setBackground(new Color(0, 39, 51));
+        pnlEncrypt.setBackground(null);
+        pnlSave.setBackground(null);
+        pnlClear.setBackground(null);
    
     }
 
@@ -196,11 +196,13 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(90, 80, 330, 40);
 
+        txtCifrado.setEditable(false);
         txtCifrado.setBackground(new java.awt.Color(0, 41, 60));
         txtCifrado.setColumns(20);
         txtCifrado.setForeground(new java.awt.Color(0, 0, 0));
+        txtCifrado.setLineWrap(true);
         txtCifrado.setRows(5);
-        txtCifrado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 19, 35)));
+        txtCifrado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
         jScrollPane2.setViewportView(txtCifrado);
 
         jPanel1.add(jScrollPane2);
@@ -211,6 +213,8 @@ public class frmCifrar extends javax.swing.JFrame {
         txtMensaje.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
         txtMensaje.setForeground(new java.awt.Color(255, 255, 255));
         txtMensaje.setRows(5);
+        txtMensaje.setWrapStyleWord(true);
+        txtMensaje.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true)));
         jScrollPane3.setViewportView(txtMensaje);
 
         jPanel1.add(jScrollPane3);
@@ -472,15 +476,15 @@ public class frmCifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearMouseEntered
 
     private void btnEncryptMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEncryptMouseExited
-        pnlEncrypt.setBackground(new Color(0, 39, 51));
+        pnlEncrypt.setBackground(null);
     }//GEN-LAST:event_btnEncryptMouseExited
 
     private void btnSaveCryptedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveCryptedMouseExited
-        pnlSave.setBackground(new Color(0, 39, 51));
+        pnlSave.setBackground(null);
     }//GEN-LAST:event_btnSaveCryptedMouseExited
 
     private void btnClearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseExited
-        pnlClear.setBackground(new Color(0, 39, 51));
+        pnlClear.setBackground(null);
     }//GEN-LAST:event_btnClearMouseExited
 
     /**

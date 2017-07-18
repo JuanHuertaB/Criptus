@@ -275,7 +275,8 @@ public class Principal extends javax.swing.JFrame {
         btnCustomize.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
         btnCustomize.setForeground(new java.awt.Color(255, 255, 255));
         btnCustomize.setText("Personalizar Sistema de Ciframiento");
-        btnCustomize.setBorder(null);
+        btnCustomize.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(10, 121, 143), 1, true)));
+        btnCustomize.setContentAreaFilled(false);
         btnCustomize.setIconTextGap(8);
         btnCustomize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -415,7 +416,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCustomizeMouseEntered
 
     private void btnCustomizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomizeMouseExited
-        pnlPersonalizar.setBackground(new Color(0, 39, 51));
+        pnlPersonalizar.setBackground(null);
     }//GEN-LAST:event_btnCustomizeMouseExited
 
     

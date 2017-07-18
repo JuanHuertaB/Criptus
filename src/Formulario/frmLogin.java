@@ -62,19 +62,29 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2.setText("Contraseña");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        btnLogin.setFont(new java.awt.Font("Eras Light ITC", 0, 14)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(204, 204, 204));
         btnLogin.setText("Ingresar");
+        btnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(10, 121, 143), 1, true));
+        btnLogin.setContentAreaFilled(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 90, 30));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 90, 30));
 
+        txtUsuario.setBackground(new java.awt.Color(0, 41, 60));
         txtUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 200, 25));
 
+        txtPsw.setBackground(new java.awt.Color(0, 41, 60));
         txtPsw.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        txtPsw.setForeground(new java.awt.Color(204, 204, 204));
+        txtPsw.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtPsw.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
         jPanel1.add(txtPsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 25));
         txtPsw.getAccessibleContext().setAccessibleName("");
 
@@ -83,14 +93,17 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel3.setText("Iniciar Sesión");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 120, 32));
 
-        jButton1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(204, 204, 204));
         jButton1.setText("Cancelar");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(10, 121, 143), 1, true));
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 90, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 90, 30));
 
         lblLogin.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(153, 153, 153));

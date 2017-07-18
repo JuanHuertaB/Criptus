@@ -201,12 +201,13 @@ public class frmDescifrar extends javax.swing.JFrame {
         txtNoCifrado.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
         txtNoCifrado.setForeground(new java.awt.Color(204, 204, 204));
         txtNoCifrado.setRows(5);
-        txtNoCifrado.setBorder(null);
+        txtNoCifrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60)));
         jScrollPane2.setViewportView(txtNoCifrado);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(90, 120, 830, 150);
 
+        txtCifrado.setEditable(false);
         txtCifrado.setBackground(new java.awt.Color(0, 41, 60));
         txtCifrado.setColumns(20);
         txtCifrado.setForeground(new java.awt.Color(204, 204, 204));
