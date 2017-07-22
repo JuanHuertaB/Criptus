@@ -78,6 +78,7 @@ public class frmLogin extends javax.swing.JFrame {
         txtUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
         txtUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
+        txtUsuario.setCaretColor(new java.awt.Color(0, 110, 107));
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 200, 25));
 
         txtPsw.setBackground(new java.awt.Color(0, 41, 60));
@@ -85,6 +86,7 @@ public class frmLogin extends javax.swing.JFrame {
         txtPsw.setForeground(new java.awt.Color(204, 204, 204));
         txtPsw.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtPsw.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
+        txtPsw.setCaretColor(new java.awt.Color(0, 110, 107));
         jPanel1.add(txtPsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 25));
         txtPsw.getAccessibleContext().setAccessibleName("");
 

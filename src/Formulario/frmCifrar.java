@@ -199,10 +199,12 @@ public class frmCifrar extends javax.swing.JFrame {
         txtCifrado.setEditable(false);
         txtCifrado.setBackground(new java.awt.Color(0, 41, 60));
         txtCifrado.setColumns(20);
+        txtCifrado.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
         txtCifrado.setForeground(new java.awt.Color(0, 0, 0));
         txtCifrado.setLineWrap(true);
         txtCifrado.setRows(5);
         txtCifrado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
+        txtCifrado.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(txtCifrado);
 
         jPanel1.add(jScrollPane2);
@@ -210,17 +212,18 @@ public class frmCifrar extends javax.swing.JFrame {
 
         txtMensaje.setBackground(new java.awt.Color(0, 41, 60));
         txtMensaje.setColumns(20);
-        txtMensaje.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        txtMensaje.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         txtMensaje.setForeground(new java.awt.Color(255, 255, 255));
         txtMensaje.setRows(5);
         txtMensaje.setWrapStyleWord(true);
         txtMensaje.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true)));
+        txtMensaje.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane3.setViewportView(txtMensaje);
 
         jPanel1.add(jScrollPane3);
         jScrollPane3.setBounds(90, 120, 830, 150);
 
-        lblAtrasCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        lblAtrasCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         lblAtrasCifrar.setForeground(new java.awt.Color(255, 255, 255));
         lblAtrasCifrar.setText("Volver");
         lblAtrasCifrar.addMouseListener(new java.awt.event.MouseAdapter() {

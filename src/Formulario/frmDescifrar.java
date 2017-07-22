@@ -202,6 +202,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         txtNoCifrado.setForeground(new java.awt.Color(204, 204, 204));
         txtNoCifrado.setRows(5);
         txtNoCifrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60)));
+        txtNoCifrado.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(txtNoCifrado);
 
         jPanel1.add(jScrollPane2);
@@ -213,6 +214,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         txtCifrado.setForeground(new java.awt.Color(204, 204, 204));
         txtCifrado.setRows(5);
         txtCifrado.setBorder(null);
+        txtCifrado.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txtCifrado);
 
         jPanel1.add(jScrollPane1);

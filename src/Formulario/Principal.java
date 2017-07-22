@@ -99,12 +99,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SISTEMA DE CIFRAMIENTO");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 370, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 410, 60));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("CRIPTUS");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, 40));
+        jLabel2.setText("CRIPTus");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(0, 55, 59));
         jPanel3.setToolTipText("Criptus");
@@ -127,7 +127,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText(" CRIPTO");
+        jLabel5.setText(" CRIPTus");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 50, 16));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
