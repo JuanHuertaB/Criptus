@@ -203,11 +203,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         //Concatenamos la palabra clave con el alfabeto limpio (sin repeticiones ni espacios).
         crypt = strOne.concat(strTwo);
-        textComplete = crypt.toCharArray();
         txtCripto.setText(crypt);
-        /*for (int i = 0; i < textComplete.length; i++) {
-            txtCripto.(Character.toString(textComplete[i]));
-        }*/
+        textComplete = crypt.toCharArray();
         System.out.println(crypt.length());
         }
     
