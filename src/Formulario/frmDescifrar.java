@@ -28,7 +28,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
         setIconImage(icon);
         
-        
+        txtToDecode.requestFocus();
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
@@ -71,9 +71,9 @@ public class frmDescifrar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtNoCifrado = new javax.swing.JTextArea();
+        txtToDecode = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtCifrado = new javax.swing.JTextArea();
+        txtDecoded = new javax.swing.JTextArea();
         btnVolverC = new javax.swing.JButton();
         lblAtrasDescifrar = new javax.swing.JLabel();
         pnlDecrypt = new javax.swing.JPanel();
@@ -196,26 +196,26 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(100, 340, 340, 40);
 
-        txtNoCifrado.setBackground(new java.awt.Color(0, 41, 60));
-        txtNoCifrado.setColumns(20);
-        txtNoCifrado.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
-        txtNoCifrado.setForeground(new java.awt.Color(204, 204, 204));
-        txtNoCifrado.setRows(5);
-        txtNoCifrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60)));
-        txtNoCifrado.setCaretColor(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(txtNoCifrado);
+        txtToDecode.setBackground(new java.awt.Color(0, 41, 60));
+        txtToDecode.setColumns(20);
+        txtToDecode.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        txtToDecode.setForeground(new java.awt.Color(204, 204, 204));
+        txtToDecode.setRows(5);
+        txtToDecode.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60)));
+        txtToDecode.setCaretColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(txtToDecode);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(90, 120, 830, 150);
 
-        txtCifrado.setEditable(false);
-        txtCifrado.setBackground(new java.awt.Color(0, 41, 60));
-        txtCifrado.setColumns(20);
-        txtCifrado.setForeground(new java.awt.Color(204, 204, 204));
-        txtCifrado.setRows(5);
-        txtCifrado.setBorder(null);
-        txtCifrado.setCaretColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(txtCifrado);
+        txtDecoded.setEditable(false);
+        txtDecoded.setBackground(new java.awt.Color(0, 41, 60));
+        txtDecoded.setColumns(20);
+        txtDecoded.setForeground(new java.awt.Color(204, 204, 204));
+        txtDecoded.setRows(5);
+        txtDecoded.setBorder(null);
+        txtDecoded.setCaretColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(txtDecoded);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(100, 380, 820, 170);
@@ -364,8 +364,7 @@ public class frmDescifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarMouseExited
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        //frmCripto.setDefaultCloseOperation(frmCripto.EXIT_ON_CLOSE);
-        System.exit(0);
+       System.exit(0);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void pnlCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarMouseEntered
@@ -517,7 +516,7 @@ public class frmDescifrar extends javax.swing.JFrame {
     private javax.swing.JPanel pnlDecrypt;
     private javax.swing.JPanel pnlMin;
     private javax.swing.JPanel pnlSave;
-    private javax.swing.JTextArea txtCifrado;
-    private javax.swing.JTextArea txtNoCifrado;
+    private javax.swing.JTextArea txtDecoded;
+    private javax.swing.JTextArea txtToDecode;
     // End of variables declaration//GEN-END:variables
 }
