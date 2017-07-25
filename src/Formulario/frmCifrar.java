@@ -3,11 +3,15 @@ package Formulario;
 
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
+import java.awt.FileDialog;
 import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 public class frmCifrar extends javax.swing.JFrame {
 
@@ -17,12 +21,13 @@ public class frmCifrar extends javax.swing.JFrame {
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
         AWTUtilities.setWindowShape(this,forma);
         
-        txtCifrado.setEditable(false);
+        txtCoded.setEditable(false);
         txtMessage.requestFocus();
+        
         //CAMBIAR ICONO DE VENTANA
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
         setIconImage(icon);
-        txtCifrado.setEditable(false);
+        txtCoded.setEditable(false);
 
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
@@ -41,7 +46,8 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlMin.setBackground(null);
         
         //EFECTOS BOTON VOLVER
-        lblIrADescifrar.setForeground(Color.gray);
+        lblGoToDecode.setForeground(Color.gray);
+        lblGoToPrin.setForeground(Color.gray);
         
         pnlEncrypt.setBackground(null);
         pnlSave.setBackground(null);
@@ -52,6 +58,22 @@ public class frmCifrar extends javax.swing.JFrame {
              String message = txtMessage.getText();
             return message;
         }
+        void SaveCoded(){
+            FileDialog da;
+            da = new FileDialog(this,"Guardar como",FileDialog.SAVE);
+            da.show();
+            String file,directory;
+            file = da.getFile()+".txt"; 
+            directory = da.getDirectory();
+            
+        try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
+            
+            pw.println(txtCoded.getText().trim());
+            JOptionPane.showMessageDialog(null, "Mensaje Guardado");
+        }catch(Exception e){
+            
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,10 +96,10 @@ public class frmCifrar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtCifrado = new javax.swing.JTextArea();
+        txtCoded = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtMessage = new javax.swing.JTextArea();
-        lblIrADescifrar = new javax.swing.JLabel();
+        lblGoToDecode = new javax.swing.JLabel();
         btnVolverC = new javax.swing.JButton();
         pnlEncrypt = new javax.swing.JPanel();
         btnEncrypt = new javax.swing.JButton();
@@ -85,7 +107,7 @@ public class frmCifrar extends javax.swing.JFrame {
         btnSaveCrypted = new javax.swing.JButton();
         pnlClear = new javax.swing.JPanel();
         btnClear = new javax.swing.JButton();
-        lblAtrasCifrar1 = new javax.swing.JLabel();
+        lblGoToPrin = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,16 +223,16 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(90, 80, 330, 40);
 
-        txtCifrado.setEditable(false);
-        txtCifrado.setBackground(new java.awt.Color(0, 41, 60));
-        txtCifrado.setColumns(20);
-        txtCifrado.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
-        txtCifrado.setForeground(new java.awt.Color(255, 255, 255));
-        txtCifrado.setLineWrap(true);
-        txtCifrado.setRows(5);
-        txtCifrado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
-        txtCifrado.setCaretColor(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(txtCifrado);
+        txtCoded.setEditable(false);
+        txtCoded.setBackground(new java.awt.Color(0, 41, 60));
+        txtCoded.setColumns(20);
+        txtCoded.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        txtCoded.setForeground(new java.awt.Color(255, 255, 255));
+        txtCoded.setLineWrap(true);
+        txtCoded.setRows(5);
+        txtCoded.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
+        txtCoded.setCaretColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(txtCoded);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(100, 380, 820, 170);
@@ -221,29 +243,29 @@ public class frmCifrar extends javax.swing.JFrame {
         txtMessage.setForeground(new java.awt.Color(255, 255, 255));
         txtMessage.setRows(5);
         txtMessage.setWrapStyleWord(true);
-        txtMessage.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true)));
+        txtMessage.setBorder(null);
         txtMessage.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane3.setViewportView(txtMessage);
 
         jPanel1.add(jScrollPane3);
         jScrollPane3.setBounds(90, 120, 830, 150);
 
-        lblIrADescifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
-        lblIrADescifrar.setForeground(new java.awt.Color(255, 255, 255));
-        lblIrADescifrar.setText("Ir a descifrar");
-        lblIrADescifrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblGoToDecode.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        lblGoToDecode.setForeground(new java.awt.Color(255, 255, 255));
+        lblGoToDecode.setText("Ir a descifrar");
+        lblGoToDecode.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblIrADescifrarMouseEntered(evt);
+                lblGoToDecodeMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblIrADescifrarMouseExited(evt);
+                lblGoToDecodeMouseExited(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                lblIrADescifrarMouseReleased(evt);
+                lblGoToDecodeMouseReleased(evt);
             }
         });
-        jPanel1.add(lblIrADescifrar);
-        lblIrADescifrar.setBounds(880, 40, 80, 30);
+        jPanel1.add(lblGoToDecode);
+        lblGoToDecode.setBounds(880, 40, 80, 30);
 
         btnVolverC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Left_arrow_2202280.png"))); // NOI18N
         btnVolverC.setBorder(null);
@@ -262,7 +284,7 @@ public class frmCifrar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnVolverC);
-        btnVolverC.setBounds(10, 40, 40, 30);
+        btnVolverC.setBounds(10, 40, 50, 30);
 
         btnEncrypt.setBackground(new java.awt.Color(0, 21, 29));
         btnEncrypt.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 15)); // NOI18N
@@ -316,6 +338,11 @@ public class frmCifrar extends javax.swing.JFrame {
                 btnSaveCryptedMouseExited(evt);
             }
         });
+        btnSaveCrypted.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCryptedActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSaveLayout = new javax.swing.GroupLayout(pnlSave);
         pnlSave.setLayout(pnlSaveLayout);
@@ -366,26 +393,42 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(pnlClear);
         pnlClear.setBounds(810, 580, 150, 30);
 
-        lblAtrasCifrar1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
-        lblAtrasCifrar1.setForeground(new java.awt.Color(255, 255, 255));
-        lblAtrasCifrar1.setText("Ir a principal");
-        lblAtrasCifrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblGoToPrin.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        lblGoToPrin.setForeground(new java.awt.Color(255, 255, 255));
+        lblGoToPrin.setText("Ir a Inicio");
+        lblGoToPrin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGoToPrinMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAtrasCifrar1MouseEntered(evt);
+                lblGoToPrinMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblAtrasCifrar1MouseExited(evt);
+                lblGoToPrinMouseExited(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                lblAtrasCifrar1MouseReleased(evt);
+                lblGoToPrinMouseReleased(evt);
             }
         });
-        jPanel1.add(lblAtrasCifrar1);
-        lblAtrasCifrar1.setBounds(40, 40, 80, 30);
+        jPanel1.add(lblGoToPrin);
+        lblGoToPrin.setBounds(40, 40, 60, 30);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Right_arrow_2202241.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(940, 40, 50, 30);
 
@@ -463,6 +506,7 @@ public class frmCifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel3MousePressed
 
     private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
+        txtCoded.setText("");
         frmPersonalizar p = new frmPersonalizar();
         String message = getMessage();
         
@@ -470,32 +514,33 @@ public class frmCifrar extends javax.swing.JFrame {
         char[] cripto = "juancrloshikmñpqtvwxyzbdefg".toCharArray();
         char[] abc = "hijklmnñopqrstuvwxyzabcdefg".toCharArray();
         String encrypted = p.encrypt(msgInArray, cripto, abc);
-        txtCifrado.setText(encrypted);
+        txtCoded.setText(encrypted);
         
     }//GEN-LAST:event_btnEncryptActionPerformed
 
-    private void lblIrADescifrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIrADescifrarMouseEntered
-        lblIrADescifrar.setForeground(Color.white);
-    }//GEN-LAST:event_lblIrADescifrarMouseEntered
+    private void lblGoToDecodeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToDecodeMouseEntered
+        lblGoToDecode.setForeground(Color.white);
+    }//GEN-LAST:event_lblGoToDecodeMouseEntered
 
-    private void lblIrADescifrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIrADescifrarMouseExited
-        lblIrADescifrar.setForeground(Color.gray);
-    }//GEN-LAST:event_lblIrADescifrarMouseExited
+    private void lblGoToDecodeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToDecodeMouseExited
+        lblGoToDecode.setForeground(Color.gray);
+    }//GEN-LAST:event_lblGoToDecodeMouseExited
 
-    private void lblIrADescifrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIrADescifrarMouseReleased
-        Principal prn = new Principal();
-        prn.setVisible(true);
+    private void lblGoToDecodeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToDecodeMouseReleased
+        frmDescifrar dec = new frmDescifrar();
+        dec.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblIrADescifrarMouseReleased
+    }//GEN-LAST:event_lblGoToDecodeMouseReleased
 
     private void btnVolverCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverCMouseEntered
         //pnlVolverC.setBackground(Color.gray);
-        lblIrADescifrar.setForeground(Color.white);
+        lblGoToPrin.setForeground(Color.white);
     }//GEN-LAST:event_btnVolverCMouseEntered
 
     private void btnVolverCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverCMouseExited
         //pnlVolverC.setBackground(null);
-        lblIrADescifrar.setForeground(Color.gray);
+        lblGoToPrin.setForeground(Color.gray);
+        
     }//GEN-LAST:event_btnVolverCMouseExited
 
     private void btnVolverCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCActionPerformed
@@ -528,17 +573,41 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlClear.setBackground(null);
     }//GEN-LAST:event_btnClearMouseExited
 
-    private void lblAtrasCifrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasCifrar1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblAtrasCifrar1MouseEntered
+    private void lblGoToPrinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToPrinMouseEntered
+       lblGoToPrin.setForeground(Color.white);
+    }//GEN-LAST:event_lblGoToPrinMouseEntered
 
-    private void lblAtrasCifrar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasCifrar1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblAtrasCifrar1MouseExited
+    private void lblGoToPrinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToPrinMouseExited
+        lblGoToPrin.setForeground(Color.gray);
+    }//GEN-LAST:event_lblGoToPrinMouseExited
 
-    private void lblAtrasCifrar1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasCifrar1MouseReleased
+    private void lblGoToPrinMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToPrinMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblAtrasCifrar1MouseReleased
+    }//GEN-LAST:event_lblGoToPrinMouseReleased
+
+    private void lblGoToPrinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToPrinMouseClicked
+        Principal prn = new Principal();
+        prn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblGoToPrinMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        frmDescifrar dec = new frmDescifrar();
+        dec.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        lblGoToDecode.setForeground(Color.white);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        lblGoToDecode.setForeground(Color.gray);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void btnSaveCryptedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCryptedActionPerformed
+        SaveCoded();
+    }//GEN-LAST:event_btnSaveCryptedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -592,14 +661,14 @@ public class frmCifrar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblAtrasCifrar1;
-    private javax.swing.JLabel lblIrADescifrar;
+    private javax.swing.JLabel lblGoToDecode;
+    private javax.swing.JLabel lblGoToPrin;
     private javax.swing.JPanel pnlCerrar;
     private javax.swing.JPanel pnlClear;
     private javax.swing.JPanel pnlEncrypt;
     private javax.swing.JPanel pnlMin;
     private javax.swing.JPanel pnlSave;
-    private javax.swing.JTextArea txtCifrado;
+    private javax.swing.JTextArea txtCoded;
     private javax.swing.JTextArea txtMessage;
     // End of variables declaration//GEN-END:variables
 }

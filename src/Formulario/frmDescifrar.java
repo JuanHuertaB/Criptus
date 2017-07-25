@@ -7,11 +7,15 @@ package Formulario;
 
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
+import java.awt.FileDialog;
 import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,6 +58,28 @@ public class frmDescifrar extends javax.swing.JFrame {
         pnlSave.setBackground(new Color(0, 39, 51));
 
     }
+    
+    void SaveDecoded(){
+            FileDialog da;
+            da = new FileDialog(this,"Guardar como",FileDialog.SAVE);
+            da.show();
+            String file,directory;
+            file = da.getFile()+".txt"; 
+            directory = da.getDirectory();
+            
+        try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
+            
+            pw.println(txtDecoded.getText().trim());
+            JOptionPane.showMessageDialog(null, "Mensaje Guardado");
+        }catch(Exception e){
+            
+        }
+    }
+    
+        String getMessage(){
+            String message = txtToDecode.getText();
+            return message;
+        }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -82,6 +108,8 @@ public class frmDescifrar extends javax.swing.JFrame {
         btnSaveDecrypted = new javax.swing.JButton();
         pnlClear = new javax.swing.JPanel();
         btnClear = new javax.swing.JButton();
+        lblGoToCode = new javax.swing.JLabel();
+        btnGoToCode = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -220,7 +248,9 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(100, 380, 820, 170);
 
-        btnVolverC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1499157285_Left_arrow.png"))); // NOI18N
+        btnVolverC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Left_arrow_2202280.png"))); // NOI18N
+        btnVolverC.setBorder(null);
+        btnVolverC.setContentAreaFilled(false);
         btnVolverC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnVolverCMouseEntered(evt);
@@ -235,11 +265,11 @@ public class frmDescifrar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnVolverC);
-        btnVolverC.setBounds(0, 40, 40, 30);
+        btnVolverC.setBounds(10, 40, 50, 30);
 
-        lblAtrasDescifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        lblAtrasDescifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         lblAtrasDescifrar.setForeground(new java.awt.Color(255, 255, 255));
-        lblAtrasDescifrar.setText("Volver");
+        lblAtrasDescifrar.setText("Ir a Inicio");
         lblAtrasDescifrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblAtrasDescifrarMouseEntered(evt);
@@ -252,7 +282,7 @@ public class frmDescifrar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblAtrasDescifrar);
-        lblAtrasDescifrar.setBounds(40, 40, 40, 30);
+        lblAtrasDescifrar.setBounds(40, 40, 60, 30);
 
         pnlDecrypt.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -268,6 +298,11 @@ public class frmDescifrar extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnDecryptMouseExited(evt);
+            }
+        });
+        btnDecrypt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDecryptActionPerformed(evt);
             }
         });
         pnlDecrypt.add(btnDecrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 40));
@@ -287,6 +322,11 @@ public class frmDescifrar extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnSaveDecryptedMouseExited(evt);
+            }
+        });
+        btnSaveDecrypted.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveDecryptedActionPerformed(evt);
             }
         });
 
@@ -320,6 +360,11 @@ public class frmDescifrar extends javax.swing.JFrame {
                 btnClearMouseExited(evt);
             }
         });
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlClearLayout = new javax.swing.GroupLayout(pnlClear);
         pnlClear.setLayout(pnlClearLayout);
@@ -334,6 +379,34 @@ public class frmDescifrar extends javax.swing.JFrame {
 
         jPanel1.add(pnlClear);
         pnlClear.setBounds(810, 580, 150, 30);
+
+        lblGoToCode.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        lblGoToCode.setForeground(new java.awt.Color(255, 255, 255));
+        lblGoToCode.setText("Ir a cifrar");
+        lblGoToCode.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblGoToCodeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblGoToCodeMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblGoToCodeMouseReleased(evt);
+            }
+        });
+        jPanel1.add(lblGoToCode);
+        lblGoToCode.setBounds(900, 40, 60, 30);
+
+        btnGoToCode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Right_arrow_2202241.png"))); // NOI18N
+        btnGoToCode.setBorder(null);
+        btnGoToCode.setContentAreaFilled(false);
+        btnGoToCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoToCodeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGoToCode);
+        btnGoToCode.setBounds(940, 40, 50, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -459,6 +532,46 @@ public class frmDescifrar extends javax.swing.JFrame {
         pnlClear.setBackground(new Color(0, 39, 51));
     }//GEN-LAST:event_btnClearMouseExited
 
+    private void lblGoToCodeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToCodeMouseEntered
+        lblGoToCode.setForeground(Color.white);
+    }//GEN-LAST:event_lblGoToCodeMouseEntered
+
+    private void lblGoToCodeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToCodeMouseExited
+        lblGoToCode.setForeground(Color.gray);
+    }//GEN-LAST:event_lblGoToCodeMouseExited
+
+    private void lblGoToCodeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToCodeMouseReleased
+        frmCifrar cif = new frmCifrar();
+        cif.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblGoToCodeMouseReleased
+
+    private void btnGoToCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToCodeActionPerformed
+        frmCifrar cif = new frmCifrar();
+        cif.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnGoToCodeActionPerformed
+
+    private void btnSaveDecryptedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDecryptedActionPerformed
+        SaveDecoded();
+    }//GEN-LAST:event_btnSaveDecryptedActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtDecoded.setText("");
+        txtToDecode.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
+        frmPersonalizar p = new frmPersonalizar();
+        String message = getMessage();
+        
+        char[] messageInArray = p.Conversion(message).toCharArray();
+        char[] cripto = "juancrloshikmñpqtvwxyzbdefg".toCharArray();
+        char[] abc = "hijklmnñopqrstuvwxyzabcdefg".toCharArray();
+        String encrypted = p.decrypt(messageInArray, cripto, abc);
+        txtDecoded.setText(encrypted);
+    }//GEN-LAST:event_btnDecryptActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -498,6 +611,7 @@ public class frmDescifrar extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDecrypt;
+    private javax.swing.JButton btnGoToCode;
     private javax.swing.JButton btnMinimizar;
     private javax.swing.JButton btnSaveDecrypted;
     private javax.swing.JButton btnVolverC;
@@ -511,6 +625,7 @@ public class frmDescifrar extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAtrasDescifrar;
+    private javax.swing.JLabel lblGoToCode;
     private javax.swing.JPanel pnlCerrar;
     private javax.swing.JPanel pnlClear;
     private javax.swing.JPanel pnlDecrypt;

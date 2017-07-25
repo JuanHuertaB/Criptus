@@ -103,7 +103,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("CRIPTus");
+        jLabel2.setText("My Cypher");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(0, 55, 59));
@@ -127,7 +127,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText(" CRIPTus");
+        jLabel5.setText("My Cypher");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 50, 16));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));

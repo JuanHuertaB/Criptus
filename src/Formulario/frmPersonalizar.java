@@ -23,7 +23,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         
         txtKeyWord.requestFocus();//El campo para la palabra clave está seleccionada por defecto       
         txtLlano.setEditable(false);//Deshabilitar la edición del cripto
-        txtEncrypted.setEditable(false);//Deshabilitar la edición del mensaje cifrado
+        txtCoded.setEditable(false);//Deshabilitar la edición del mensaje cifrado
         txtLetter.setEnabled(false);//Esta deshabilitado por defecto. Se activa si se selecciona su boton asociado.(rdoLetter)       
         
         //Deshabilitar botones al iniciar
@@ -214,79 +214,80 @@ public class frmPersonalizar extends javax.swing.JFrame {
     /*-------------------------------------------------PROCESO DE CIFRADO---------------------------------------------*/
     
     //Conversión de números y caracteres en cadenas
-    String Conversion(String msj){
-        for(int i=0;i<msj.length();i++){
+    String Conversion(String message){
+        for(int i=0;i<message.length();i++){
             String cadA;
             String cadB;
-           switch(msj.charAt(i)){
+           switch(message.charAt(i)){
                case '0':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("cero"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("cero"+cadB); break; 
                case '1': 
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("uno"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("uno"+cadB); break; 
                case '2':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("dos"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("dos"+cadB); break; 
                case '3':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("tres"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("tres"+cadB); break; 
                case '4':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("cuatro"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("cuatro"+cadB); break; 
                case '5':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("cinco"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("cinco"+cadB); break; 
                case '6':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("seis"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("seis"+cadB); break; 
                case '7':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("siete"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("siete"+cadB); break; 
                case '8':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("ocho"+cadB); break; 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("ocho"+cadB); break; 
                case '9':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("nueve"+cadB); break;
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("nueve"+cadB); break;
                case '@':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("arroba"+cadB); break;
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("arroba"+cadB); break;
                case '.':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("punto"+cadB); break;
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("punto"+cadB); break;
                case ',':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("coma"+cadB); break;
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("coma"+cadB); break;
                case ';':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("punto y coma"+cadB); break;
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("punto y coma"+cadB); break;
                case '-':
-                   cadA= msj.substring(0,i);
-                   cadB= msj.substring(i+1,msj.length());
-                   msj = cadA.concat("guion"+cadB); break;
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("guion"+cadB); break;
     
            }
         }
-        return msj;  
+        return message;  
     }
+    
     //Obtenemos el mensaje a encriptar.
     String getMessage() {
-        String message = txtToEncrypt.getText();
+        String message = txtToEncode.getText();
        return message; 
     }
     
@@ -321,7 +322,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
     
     //Obtenemos el mensaje cifrado.
     char[] getEncripted() {
-        return txtToDecrypt.getText().toCharArray();
+        return txtToDecode.getText().toCharArray();
     }
     //Método para descifrar el mensaje.
     String decrypt(char[] message, char[] cripto, char[] abc) {
@@ -361,7 +362,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
             
         try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
             
-            pw.println(txtEncrypted.getText().trim());
+            pw.println(txtCoded.getText().trim());
             JOptionPane.showMessageDialog(null, "Mensaje Guardado");
         }catch(Exception e){
             
@@ -398,18 +399,21 @@ public class frmPersonalizar extends javax.swing.JFrame {
         rdoInverso = new javax.swing.JRadioButton();
         txtLetter = new javax.swing.JTextField();
         rdoLetter = new javax.swing.JRadioButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
         txtDerecha = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        txtCripto = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtLlano = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnDecrypt = new javax.swing.JButton();
         btnCleanDecrypt = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txtToDecrypt = new javax.swing.JTextArea();
+        txtToDecode = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtDecoded = new javax.swing.JTextArea();
@@ -424,26 +428,22 @@ public class frmPersonalizar extends javax.swing.JFrame {
         pnlMin = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btnEncrypt = new javax.swing.JButton();
         btnCleanEncrypt = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtEncrypted = new javax.swing.JTextArea();
+        txtCoded = new javax.swing.JTextArea();
         btnSendToDecrypt = new javax.swing.JButton();
         btnSaveEncrypted = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        txtToEncrypt = new javax.swing.JTextArea();
+        txtToEncode = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         lblVolver = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        txtCripto = new javax.swing.JTextField();
-        txtLlano = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personalizar");
@@ -466,7 +466,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
         txtKeyWord.setBackground(new java.awt.Color(7, 64, 77));
         txtKeyWord.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
-        txtKeyWord.setForeground(new java.awt.Color(204, 204, 204));
+        txtKeyWord.setForeground(new java.awt.Color(153, 153, 153));
         txtKeyWord.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtKeyWord.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
         txtKeyWord.setCaretColor(new java.awt.Color(0, 204, 255));
@@ -483,10 +483,10 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel1.add(txtKeyWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 380, 34));
 
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Seleccionar tipo de alfabeto");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 117, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, 30));
 
         rdoOrdenado.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         rdoOrdenado.setForeground(new java.awt.Color(255, 255, 255));
@@ -497,7 +497,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 rdoOrdenadoActionPerformed(evt);
             }
         });
-        jPanel1.add(rdoOrdenado, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 80, -1));
+        jPanel1.add(rdoOrdenado, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 113, 80, 30));
 
         rdoInverso.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         rdoInverso.setForeground(new java.awt.Color(255, 255, 255));
@@ -508,7 +508,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 rdoInversoActionPerformed(evt);
             }
         });
-        jPanel1.add(rdoInverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 120, 80, -1));
+        jPanel1.add(rdoInverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 113, 80, 30));
 
         txtLetter.setBackground(new java.awt.Color(7, 64, 77));
         txtLetter.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
@@ -518,7 +518,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         txtLetter.setCaretColor(new java.awt.Color(0, 204, 255));
         jPanel1.add(txtLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, 50, 30));
 
-        rdoLetter.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        rdoLetter.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         rdoLetter.setForeground(new java.awt.Color(255, 255, 255));
         rdoLetter.setText("Letra inicial para el alfabeto y llano (opcional)");
         rdoLetter.setContentAreaFilled(false);
@@ -536,7 +536,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rdoLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, 30));
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 210, 230, 150));
 
         txtDerecha.setBackground(new java.awt.Color(7, 64, 77));
         txtDerecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
@@ -556,7 +555,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jLabel14.setText("*Solo minusculas");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 30));
 
-        jLabel12.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Número de saltos a la derecha (obligatorio)");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 260, 30));
@@ -577,7 +576,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 110, 30));
+        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 120, 30));
 
         btnLimpiar.setBackground(new java.awt.Color(0, 51, 51));
         btnLimpiar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
@@ -590,9 +589,33 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 110, 30));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 120, 30));
 
-        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 970, 200));
+        txtCripto.setBackground(new java.awt.Color(7, 64, 77));
+        txtCripto.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtCripto.setForeground(new java.awt.Color(153, 153, 153));
+        txtCripto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCripto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        jPanel1.add(txtCripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 370, 30));
+
+        jLabel16.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Cripto");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 50, 30));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Llano");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 50, 30));
+
+        txtLlano.setBackground(new java.awt.Color(7, 64, 77));
+        txtLlano.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtLlano.setForeground(new java.awt.Color(153, 153, 153));
+        txtLlano.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtLlano.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        jPanel1.add(txtLlano, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 420, 30));
+
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 970, 250));
 
         jPanel3.setBackground(new java.awt.Color(0, 75, 91));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -629,17 +652,17 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel3.add(btnCleanDecrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 107, 30));
 
-        txtToDecrypt.setBackground(new java.awt.Color(7, 64, 77));
-        txtToDecrypt.setColumns(20);
-        txtToDecrypt.setForeground(new java.awt.Color(204, 204, 204));
-        txtToDecrypt.setRows(5);
-        txtToDecrypt.setCaretColor(new java.awt.Color(0, 204, 255));
-        txtToDecrypt.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtToDecode.setBackground(new java.awt.Color(7, 64, 77));
+        txtToDecode.setColumns(20);
+        txtToDecode.setForeground(new java.awt.Color(204, 204, 204));
+        txtToDecode.setRows(5);
+        txtToDecode.setCaretColor(new java.awt.Color(0, 204, 255));
+        txtToDecode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtToDecryptKeyReleased(evt);
+                txtToDecodeKeyReleased(evt);
             }
         });
-        jScrollPane4.setViewportView(txtToDecrypt);
+        jScrollPane4.setViewportView(txtToDecode);
 
         jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 430, 100));
 
@@ -684,10 +707,11 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel3.add(btnCleanDecrypted, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 100, 30));
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 480, 370));
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 480, 370));
 
         btnVolverP.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
-        btnVolverP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1499157285_Left_arrow.png"))); // NOI18N
+        btnVolverP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Left_arrow_2202280.png"))); // NOI18N
+        btnVolverP.setBorder(null);
         btnVolverP.setContentAreaFilled(false);
         btnVolverP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -795,11 +819,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 30));
 
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Llano");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, 50, 30));
-
         jPanel2.setBackground(new java.awt.Color(0, 75, 91));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -840,17 +859,17 @@ public class frmPersonalizar extends javax.swing.JFrame {
         jLabel4.setText("Este es su mensaje cifrado");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 160, 30));
 
-        txtEncrypted.setBackground(new java.awt.Color(7, 64, 77));
-        txtEncrypted.setColumns(20);
-        txtEncrypted.setForeground(new java.awt.Color(204, 204, 204));
-        txtEncrypted.setRows(5);
-        txtEncrypted.setCaretColor(new java.awt.Color(0, 204, 204));
-        txtEncrypted.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCoded.setBackground(new java.awt.Color(7, 64, 77));
+        txtCoded.setColumns(20);
+        txtCoded.setForeground(new java.awt.Color(204, 204, 204));
+        txtCoded.setRows(5);
+        txtCoded.setCaretColor(new java.awt.Color(0, 204, 204));
+        txtCoded.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtEncryptedKeyReleased(evt);
+                txtCodedKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(txtEncrypted);
+        jScrollPane2.setViewportView(txtCoded);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 440, 100));
 
@@ -880,31 +899,32 @@ public class frmPersonalizar extends javax.swing.JFrame {
         });
         jPanel2.add(btnSaveEncrypted, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 120, 30));
 
-        txtToEncrypt.setBackground(new java.awt.Color(7, 64, 77));
-        txtToEncrypt.setColumns(20);
-        txtToEncrypt.setForeground(new java.awt.Color(204, 204, 204));
-        txtToEncrypt.setRows(5);
-        txtToEncrypt.setBorder(null);
-        txtToEncrypt.setCaretColor(new java.awt.Color(0, 204, 255));
-        txtToEncrypt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtToEncrypt.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtToEncode.setBackground(new java.awt.Color(7, 64, 77));
+        txtToEncode.setColumns(20);
+        txtToEncode.setForeground(new java.awt.Color(204, 204, 204));
+        txtToEncode.setRows(5);
+        txtToEncode.setBorder(null);
+        txtToEncode.setCaretColor(new java.awt.Color(0, 204, 255));
+        txtToEncode.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtToEncode.setHighlighter(null);
+        txtToEncode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtToEncryptKeyReleased(evt);
+                txtToEncodeKeyReleased(evt);
             }
         });
-        jScrollPane6.setViewportView(txtToEncrypt);
+        jScrollPane6.setViewportView(txtToEncode);
 
         jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 440, 100));
 
         jLabel10.setText("jLabel10");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, -220, -1, -1));
 
-        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 490, 370));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 490, 370));
 
         jLabel11.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("DESCIFRAR");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 340, 80, 30));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 80, 30));
 
         jSeparator2.setOpaque(true);
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 322, 1080, 0));
@@ -923,27 +943,12 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 lblVolverMouseExited(evt);
             }
         });
-        jPanel4.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 40, 30));
+        jPanel4.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 30));
 
         jLabel13.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("CIFRAR");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 50, 30));
-
-        jLabel16.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Cripto");
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 50, 30));
-
-        txtCripto.setBackground(new java.awt.Color(0, 75, 91));
-        txtCripto.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
-        txtCripto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
-        jPanel4.add(txtCripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 370, 30));
-
-        txtLlano.setBackground(new java.awt.Color(0, 75, 91));
-        txtLlano.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
-        txtLlano.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
-        jPanel4.add(txtLlano, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 420, 30));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 50, 30));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 780));
 
@@ -965,21 +970,21 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtLlano.setText("");
-        txtToEncrypt.setText("");
+        txtToEncode.setText("");
         txtKeyWord.setText("");
         txtLetter.setText("");
         txtKeyWord.requestFocus();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
-        txtEncrypted.setText("");
+        txtCoded.setText("");
         String message = getMessage();
         char[] msgInArray = Conversion(message).toCharArray();
         char[] cripto = putCriptoInArray();
         char[] abc = alphabet().toCharArray();
 
         String encrypted = encrypt(msgInArray, cripto, abc);
-        txtEncrypted.setText(encrypted);
+        txtCoded.setText(encrypted);
         
         
         
@@ -1017,8 +1022,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDecryptActionPerformed
 
     private void btnCleanDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanDecryptActionPerformed
-        txtToDecrypt.setText("");
-        txtToDecrypt.requestFocus();
+        txtToDecode.setText("");
+        txtToDecode.requestFocus();
         btnDecrypt.setEnabled(false);
         btnDecrypt.setForeground(Color.gray);
         btnCleanDecrypt.setEnabled(false);
@@ -1077,8 +1082,8 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }//GEN-LAST:event_rdoLetterMouseClicked
 
     private void btnSendToDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendToDecryptActionPerformed
-        String mensaje = txtEncrypted.getText();
-        txtToDecrypt.setText(mensaje);
+        String mensaje = txtCoded.getText();
+        txtToDecode.setText(mensaje);
         btnDecrypt.setEnabled(true);
         btnDecrypt.setForeground(Color.white);
         btnCleanDecrypt.setEnabled(true);
@@ -1103,35 +1108,35 @@ public class frmPersonalizar extends javax.swing.JFrame {
         btnCleanDecrypted.setForeground(Color.gray);
     }//GEN-LAST:event_btnCleanDecryptedActionPerformed
 
-    private void txtToEncryptKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtToEncryptKeyReleased
+    private void txtToEncodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtToEncodeKeyReleased
         btnEncrypt.setEnabled(true);
         btnEncrypt.setForeground(Color.white);
         btnCleanEncrypt.setEnabled(true);
         btnCleanEncrypt.setForeground(Color.white);
-        int longitud = txtToEncrypt.getText().length();
+        int longitud = txtToEncode.getText().length();
         if (longitud == 0) {
             btnEncrypt.setEnabled(false);
             btnEncrypt.setForeground(Color.gray);
             btnCleanEncrypt.setEnabled(false);
             btnCleanEncrypt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtToEncryptKeyReleased
+    }//GEN-LAST:event_txtToEncodeKeyReleased
 
-    private void txtToDecryptKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtToDecryptKeyReleased
+    private void txtToDecodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtToDecodeKeyReleased
         btnEnviar.setEnabled(true);
-        int longitud = txtToDecrypt.getText().length();
+        int longitud = txtToDecode.getText().length();
         if (longitud == 0) {
             btnDecrypt.setEnabled(false);
             btnDecrypt.setForeground(Color.gray);
             btnCleanDecrypt.setEnabled(false);
             btnCleanDecrypt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtToDecryptKeyReleased
+    }//GEN-LAST:event_txtToDecodeKeyReleased
 
     private void btnCleanEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanEncryptActionPerformed
-        txtToEncrypt.setText("");
-        txtEncrypted.setText("");
-        txtToEncrypt.requestFocus();
+        txtToEncode.setText("");
+        txtCoded.setText("");
+        txtToEncode.requestFocus();
         btnSaveEncrypted.setEnabled(false);
         btnSaveEncrypted.setForeground(Color.gray);
         btnSendToDecrypt.setForeground(Color.gray);
@@ -1141,18 +1146,18 @@ public class frmPersonalizar extends javax.swing.JFrame {
         btnCleanEncrypt.setForeground(Color.gray);
     }//GEN-LAST:event_btnCleanEncryptActionPerformed
 
-    private void txtEncryptedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEncryptedKeyReleased
+    private void txtCodedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodedKeyReleased
        btnEnviar.setEnabled(true);
        btnEnviar.setForeground(Color.white);
        btnSaveEncrypted.setEnabled(true);
        btnSaveEncrypted.setForeground(Color.white);
        
-        int longitud = txtToDecrypt.getText().length();
+        int longitud = txtToDecode.getText().length();
         if (longitud == 0) {
             btnDecrypt.setEnabled(false);
             
         }
-    }//GEN-LAST:event_txtEncryptedKeyReleased
+    }//GEN-LAST:event_txtCodedKeyReleased
 
     private void btnVolverPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverPActionPerformed
         Principal prin = new Principal();
@@ -1316,7 +1321,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -1327,14 +1331,14 @@ public class frmPersonalizar extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdoInverso;
     private javax.swing.JRadioButton rdoLetter;
     private javax.swing.JRadioButton rdoOrdenado;
+    private javax.swing.JTextArea txtCoded;
     private javax.swing.JTextField txtCripto;
     private javax.swing.JTextArea txtDecoded;
     private javax.swing.JTextField txtDerecha;
-    private javax.swing.JTextArea txtEncrypted;
     private javax.swing.JTextField txtKeyWord;
     private javax.swing.JTextField txtLetter;
     private javax.swing.JTextField txtLlano;
-    private javax.swing.JTextArea txtToDecrypt;
-    private javax.swing.JTextArea txtToEncrypt;
+    private javax.swing.JTextArea txtToDecode;
+    private javax.swing.JTextArea txtToEncode;
     // End of variables declaration//GEN-END:variables
 }
