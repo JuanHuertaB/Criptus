@@ -26,6 +26,7 @@ public class Principal extends javax.swing.JFrame {
         btnMinimizar.setContentAreaFilled(false);
         btnCerrar.setContentAreaFilled(false);
         btnCifrar.setBackground(null);
+       // btnCifrar.setForeground(new Color(10,121,143));
         btnDescifrar1.setContentAreaFilled(false);
         btnCustomize.setContentAreaFilled(false);
         
@@ -96,10 +97,10 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 29, 48), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SISTEMA DE CIFRAMIENTO");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 410, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 390, 60));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,8 +128,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("My Cypher");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 50, 16));
+        jLabel5.setText("Criptus");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 40, 16));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -200,7 +201,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
 
         btnCifrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 24)); // NOI18N
+        btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
         btnCifrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCifrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cifrar.png"))); // NOI18N
         btnCifrar.setText("Cifrar");
@@ -237,7 +238,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 200, 80));
 
         btnDescifrar1.setBackground(new java.awt.Color(0, 39, 53));
-        btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 24)); // NOI18N
+        btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
         btnDescifrar1.setForeground(new java.awt.Color(255, 255, 255));
         btnDescifrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/descifrar.png"))); // NOI18N
         btnDescifrar1.setText("Descifrar");
@@ -396,7 +397,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescifrar1ActionPerformed
 
     private void btnCifrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCifrarMouseEntered
-        pnlCifrar.setBackground(new Color(7, 97, 104));   
+        pnlCifrar.setBackground(new Color(7, 97, 104));
+        //btnCifrar.setBackground(new Color(0, 255, 255));
+        btnCifrar.setForeground(Color.white);
     }//GEN-LAST:event_btnCifrarMouseEntered
 
     private void btnDescifrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDescifrar1MouseEntered
