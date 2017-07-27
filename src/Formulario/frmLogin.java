@@ -25,7 +25,6 @@ public class frmLogin extends javax.swing.JFrame {
         btnCerrarLogin.setContentAreaFilled(false);
         pnlCerrarLogin.setBackground(new Color(102,0,0));
         lblLogin.setVisible(false);
-        
         pnlCancel.setBackground(null);
         pnlLogin.setBackground(null);
         
