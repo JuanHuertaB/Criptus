@@ -53,9 +53,9 @@ public class frmDescifrar extends javax.swing.JFrame {
         
         lblAtrasDescifrar.setForeground(Color.gray);
         
-        pnlDecrypt.setBackground(new Color(0, 39, 51));
-        pnlClear.setBackground(new Color(0, 39, 51));
-        pnlSave.setBackground(new Color(0, 39, 51));
+        pnlDecrypt.setBackground(null);
+        pnlClear.setBackground(null);
+        pnlSave.setBackground(null);
 
     }
     
@@ -521,15 +521,15 @@ public class frmDescifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearMouseEntered
 
     private void btnDecryptMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDecryptMouseExited
-        pnlDecrypt.setBackground(new Color(0, 39, 51));
+        pnlDecrypt.setBackground(null);
     }//GEN-LAST:event_btnDecryptMouseExited
 
     private void btnSaveDecryptedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveDecryptedMouseExited
-        pnlSave.setBackground(new Color(0, 39, 51));
+        pnlSave.setBackground(null);
     }//GEN-LAST:event_btnSaveDecryptedMouseExited
 
     private void btnClearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseExited
-        pnlClear.setBackground(new Color(0, 39, 51));
+        pnlClear.setBackground(null);
     }//GEN-LAST:event_btnClearMouseExited
 
     private void lblGoToCodeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoToCodeMouseEntered

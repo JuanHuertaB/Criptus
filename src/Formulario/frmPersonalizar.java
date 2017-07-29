@@ -310,7 +310,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         return txtCripto.getText().toCharArray();
     }
     
-    String encrypt(char[] mensaje, char[] cripto, char[] llano) {
+   /* String encrypt(char[] mensaje, char[] cripto, char[] llano) {
         String msgEncrypted="";
         for (int i = 0; i < mensaje.length; i++) {            
             for (int j = 0; j < llano.length; j++) {
@@ -333,6 +333,47 @@ public class frmPersonalizar extends javax.swing.JFrame {
             msgEncrypted += Character.toString(mensaje[k]);
         }
        return msgEncrypted;
+    }*/
+   String encrypt(char[] mensaje, char[] cripto, char[] abc) {
+        String msgEncrypted="";
+        for (int i = 0; i < abc.length; i++) {            
+            for (int j = 0; j < cripto.length; j++) {
+                     if(abc[i] == 'a' && cripto[j] == 't'){
+                         //System.out.println("i="+i);
+                         //System.out.println("j="+j);
+                        int pos = j;    
+                         for(int m = 0; m<mensaje.length;m++ ){
+                             for (int a = 0;a<abc.length;a++){
+                                 if(pos>=cripto.length){
+                                         pos=0;
+                                  }if(mensaje[m] == abc[a] && (a+pos)>=cripto.length){
+                                     System.out.println("-------------------");
+                                     System.out.println("posicion del caracter a sustituir" +((a+pos)-cripto.length ));
+                                     System.out.println("a: "+a);
+                                     System.out.println("pos: "+pos);
+                                     mensaje[m] = cripto[(a+pos)-cripto.length];
+                                     System.out.println("cripto: "+ ((a+pos)- cripto.length)+cripto[(a+pos)-cripto.length]+" "+ mensaje[m]);
+                                     pos++;
+                                     a=30;
+                                 }else if(mensaje[m] == abc[a] && (a+pos)< cripto.length){
+                                     System.out.println("-------------------");
+                                     System.out.println(m);
+                                     System.out.println("pos: "+pos);
+                                     System.out.println("a: "+a);
+                                     
+                                     mensaje[m] = cripto[a+pos];
+                                     pos++;
+                                     a=30;
+                                 }
+                             }
+                         }   
+                     }     
+                }               
+        }        
+        for (int k = 0; k < mensaje.length; k++) {
+            msgEncrypted += Character.toString(mensaje[k]);
+        }
+       return msgEncrypted;
     }
     
     //Obtenemos el mensaje cifrado.
@@ -340,7 +381,7 @@ public class frmPersonalizar extends javax.swing.JFrame {
         return txtToDecode.getText().toCharArray();
     }
     //Método para descifrar el mensaje.
-    String decrypt(char[] message, char[] cripto, char[] abc) {
+    /*String decrypt(char[] message, char[] cripto, char[] abc) {
         
         String msgDecrypted="";
         for (int i = 0; i < message.length; i++) {
@@ -361,6 +402,48 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 }  
             }
         }
+        for (int k = 0; k < message.length; k++) {
+            msgDecrypted += Character.toString(message[k]);
+        }
+        return msgDecrypted;
+    }*/
+    
+    String decrypt(char[] message, char[] cripto, char[] abc) {
+        
+        String msgDecrypted="";
+                            
+            for (int i = 0; i < abc.length; i++) {            
+            for (int j = 0; j < cripto.length; j++) {
+                     if(abc[i] == 'a' && cripto[j] == 't'){
+                         System.out.println("i="+i);
+                         System.out.println("j="+j);
+                         
+                         
+                         
+                        int pos = j;    
+                         for(int m = 0; m<message.length;m++ ){
+                             for (int c = 0;c<cripto.length;c++){
+                                 if(pos>=cripto.length){
+                                         pos=0;
+                                  }if(message[m] == cripto[c] && pos<=c){
+                                     
+                                     System.out.println("posicion del caracter a sustituir " +((c-pos)));
+                                     System.out.println("c: "+c);
+                                     System.out.println("pos: "+pos);
+                                     message[m] = abc[c-pos];
+                                     System.out.println("decripto: "+ ((cripto.length+c)-cripto.length));
+                                     pos++;
+                                     c=30;
+                                 }else if(message[m] == cripto[c] && pos > c){
+                                     message[m] = abc[(cripto.length+c)-pos];
+                                     pos++;
+                                     c=30;
+                                 }
+                             }
+                         }   
+                     }     
+                }
+            }
         for (int k = 0; k < message.length; k++) {
             msgDecrypted += Character.toString(message[k]);
         }
