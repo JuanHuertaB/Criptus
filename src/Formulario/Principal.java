@@ -19,7 +19,7 @@ public class Principal extends javax.swing.JFrame {
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
 
         AWTUtilities.setWindowShape(this,forma);
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Mercury.png"));
         setIconImage(icon);
         
         //BOTONES TRANSPARENTES
@@ -55,12 +55,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         pnlCerrar = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JButton();
         pnlMin = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         pnlCifrar = new javax.swing.JPanel();
         btnCifrar = new javax.swing.JButton();
         pnlDecifrar = new javax.swing.JPanel();
@@ -98,8 +98,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 39)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SISTEMA DE CIFRAMIENTO");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 870, 60));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Mercury_1715798 (2).png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 870, 100));
 
         jPanel3.setBackground(new java.awt.Color(0, 55, 59));
         jPanel3.setToolTipText("Criptus");
@@ -115,16 +115,10 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Neptune.png"))); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Mercury.png"))); // NOI18N
         jLabel4.setToolTipText("");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
-
-        jLabel5.setBackground(new java.awt.Color(101, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("encryptUs");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 690, 30));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,12 +187,19 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 50, 30));
 
+        jLabel5.setBackground(new java.awt.Color(101, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("encryptUs");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 30));
+
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
 
         btnCifrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
+        btnCifrar.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 24)); // NOI18N
         btnCifrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCifrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cifrar.png"))); // NOI18N
+        btnCifrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Venus_1715802.png"))); // NOI18N
         btnCifrar.setText("Cifrar");
         btnCifrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(10, 121, 143), 1, true));
         btnCifrar.setContentAreaFilled(false);
@@ -221,9 +222,7 @@ public class Principal extends javax.swing.JFrame {
         pnlCifrar.setLayout(pnlCifrarLayout);
         pnlCifrarLayout.setHorizontalGroup(
             pnlCifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCifrarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCifrar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnCifrar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         pnlCifrarLayout.setVerticalGroup(
             pnlCifrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,12 +231,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnCifrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 200, 80));
+        jPanel2.add(pnlCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 200, 80));
 
         btnDescifrar1.setBackground(new java.awt.Color(0, 39, 53));
-        btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
+        btnDescifrar1.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 24)); // NOI18N
         btnDescifrar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnDescifrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/descifrar.png"))); // NOI18N
+        btnDescifrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Neptune_big.png"))); // NOI18N
         btnDescifrar1.setText("Descifrar");
         btnDescifrar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
         btnDescifrar1.setContentAreaFilled(false);
@@ -271,7 +270,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnDescifrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(pnlDecifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, 80));
+        jPanel2.add(pnlDecifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, 80));
 
         btnCustomize.setBackground(new java.awt.Color(0, 39, 53));
         btnCustomize.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
@@ -311,12 +310,11 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 210, -1));
 
-        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 35)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 69)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Neptune_big.png"))); // NOI18N
         jLabel3.setText("encryptUs");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 780, 60));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 870, 140));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 460));
 
@@ -385,6 +383,7 @@ public class Principal extends javax.swing.JFrame {
             cifrar.setLocationRelativeTo(null) ;
             cifrar.setSize(996,630);
             this.setVisible(false);
+            
     }//GEN-LAST:event_btnCifrarActionPerformed
 
     private void btnCustomizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomizeActionPerformed

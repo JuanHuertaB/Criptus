@@ -18,16 +18,14 @@ public class frmCifrar extends javax.swing.JFrame {
     
     public frmCifrar() {
         initComponents();
+        this.setLocationRelativeTo(null);
         Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
         AWTUtilities.setWindowShape(this,forma);
         
-        txtCoded.setEditable(false);
-        txtMessage.requestFocus();
-        
+        txtToEncode.requestFocus();
         //CAMBIAR ICONO DE VENTANA
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
         setIconImage(icon);
-        txtCoded.setEditable(false);
 
         //BOTONES TRANSPARENTES
         btnMinimizar.setContentAreaFilled(false);
@@ -55,7 +53,7 @@ public class frmCifrar extends javax.swing.JFrame {
    
     }
         String getMessage(){
-             String message = txtMessage.getText();
+             String message = txtToEncode.getText();
             return message;
         }
         void SaveCoded(){
@@ -87,18 +85,16 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         pnlMin = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnMinimizar = new javax.swing.JButton();
         pnlCerrar = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtCoded = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtMessage = new javax.swing.JTextArea();
         lblGoToDecode = new javax.swing.JLabel();
         btnVolverC = new javax.swing.JButton();
         pnlEncrypt = new javax.swing.JPanel();
@@ -109,6 +105,8 @@ public class frmCifrar extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         lblGoToPrin = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtToEncode = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -116,7 +114,7 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(7, 64, 77));
         jPanel1.setLayout(null);
 
-        jPanel3.setBackground(new java.awt.Color(24, 51, 55));
+        jPanel3.setBackground(new java.awt.Color(0, 55, 59));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -129,16 +127,10 @@ public class frmCifrar extends javax.swing.JFrame {
         });
         jPanel3.setLayout(null);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Neptune.png"))); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Venus_1715802 (1).png"))); // NOI18N
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(0, 0, 20, 30);
-
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Cifrar");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(90, 6, 810, 20);
+        jLabel4.setBounds(0, 0, 30, 30);
 
         pnlMin.setBackground(new java.awt.Color(204, 204, 204));
         pnlMin.setLayout(null);
@@ -209,6 +201,13 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel3.add(pnlCerrar);
         pnlCerrar.setBounds(950, 0, 50, 30);
 
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Cifrar");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(0, 0, 1000, 30);
+
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1000, 30);
 
@@ -229,7 +228,6 @@ public class frmCifrar extends javax.swing.JFrame {
         txtCoded.setColumns(20);
         txtCoded.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
         txtCoded.setForeground(new java.awt.Color(255, 255, 255));
-        txtCoded.setLineWrap(true);
         txtCoded.setRows(5);
         txtCoded.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 41, 60), 1, true));
         txtCoded.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -237,19 +235,6 @@ public class frmCifrar extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(100, 380, 820, 170);
-
-        txtMessage.setBackground(new java.awt.Color(0, 41, 60));
-        txtMessage.setColumns(20);
-        txtMessage.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
-        txtMessage.setForeground(new java.awt.Color(255, 255, 255));
-        txtMessage.setRows(5);
-        txtMessage.setWrapStyleWord(true);
-        txtMessage.setBorder(null);
-        txtMessage.setCaretColor(new java.awt.Color(255, 255, 255));
-        jScrollPane3.setViewportView(txtMessage);
-
-        jPanel1.add(jScrollPane3);
-        jScrollPane3.setBounds(90, 120, 830, 150);
 
         lblGoToDecode.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
         lblGoToDecode.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,6 +278,7 @@ public class frmCifrar extends javax.swing.JFrame {
         btnEncrypt.setText("Cifrar mensaje");
         btnEncrypt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
         btnEncrypt.setContentAreaFilled(false);
+        btnEncrypt.setFocusPainted(false);
         btnEncrypt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnEncryptMouseEntered(evt);
@@ -433,6 +419,20 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(940, 40, 50, 30);
 
+        txtToEncode.setBackground(new java.awt.Color(0, 41, 60));
+        txtToEncode.setColumns(20);
+        txtToEncode.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        txtToEncode.setForeground(new java.awt.Color(204, 204, 204));
+        txtToEncode.setRows(5);
+        txtToEncode.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60), new java.awt.Color(0, 41, 60)));
+        txtToEncode.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtToEncode.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtToEncode.setRequestFocusEnabled(false);
+        jScrollPane3.setViewportView(txtToEncode);
+
+        jPanel1.add(jScrollPane3);
+        jScrollPane3.setBounds(90, 120, 830, 150);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -448,8 +448,7 @@ public class frmCifrar extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(996, 630));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
@@ -670,6 +669,6 @@ public class frmCifrar extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMin;
     private javax.swing.JPanel pnlSave;
     private javax.swing.JTextArea txtCoded;
-    private javax.swing.JTextArea txtMessage;
+    private javax.swing.JTextArea txtToEncode;
     // End of variables declaration//GEN-END:variables
 }
