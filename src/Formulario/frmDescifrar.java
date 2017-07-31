@@ -17,10 +17,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author JuanCarlos
- */
+
 public class frmDescifrar extends javax.swing.JFrame {
     
     public frmDescifrar() {
@@ -134,11 +131,12 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel3.add(jLabel4);
         jLabel4.setBounds(0, 0, 20, 30);
 
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 10)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("DESCIFRAR");
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Descifrar");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(470, 10, 60, 16);
+        jLabel5.setBounds(80, 6, 820, 20);
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -239,6 +237,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         txtDecoded.setEditable(false);
         txtDecoded.setBackground(new java.awt.Color(0, 41, 60));
         txtDecoded.setColumns(20);
+        txtDecoded.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
         txtDecoded.setForeground(new java.awt.Color(204, 204, 204));
         txtDecoded.setRows(5);
         txtDecoded.setBorder(null);
@@ -284,6 +283,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel1.add(lblAtrasDescifrar);
         lblAtrasDescifrar.setBounds(40, 40, 60, 30);
 
+        pnlDecrypt.setOpaque(false);
         pnlDecrypt.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDecrypt.setBackground(new java.awt.Color(0, 21, 29));
@@ -310,6 +310,8 @@ public class frmDescifrar extends javax.swing.JFrame {
         jPanel1.add(pnlDecrypt);
         pnlDecrypt.setBounds(420, 280, 170, 40);
 
+        pnlSave.setOpaque(false);
+
         btnSaveDecrypted.setBackground(new java.awt.Color(0, 21, 29));
         btnSaveDecrypted.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 14)); // NOI18N
         btnSaveDecrypted.setForeground(new java.awt.Color(255, 255, 255));
@@ -334,7 +336,7 @@ public class frmDescifrar extends javax.swing.JFrame {
         pnlSave.setLayout(pnlSaveLayout);
         pnlSaveLayout.setHorizontalGroup(
             pnlSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSaveDecrypted, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+            .addComponent(btnSaveDecrypted, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
         pnlSaveLayout.setVerticalGroup(
             pnlSaveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,6 +347,8 @@ public class frmDescifrar extends javax.swing.JFrame {
 
         jPanel1.add(pnlSave);
         pnlSave.setBounds(430, 570, 170, 40);
+
+        pnlClear.setOpaque(false);
 
         btnClear.setBackground(new java.awt.Color(0, 21, 29));
         btnClear.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 13)); // NOI18N
@@ -370,11 +374,15 @@ public class frmDescifrar extends javax.swing.JFrame {
         pnlClear.setLayout(pnlClearLayout);
         pnlClearLayout.setHorizontalGroup(
             pnlClearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClearLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlClearLayout.setVerticalGroup(
             pnlClearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClearLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(pnlClear);

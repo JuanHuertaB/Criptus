@@ -133,11 +133,12 @@ public class frmCifrar extends javax.swing.JFrame {
         jPanel3.add(jLabel4);
         jLabel4.setBounds(0, 0, 20, 30);
 
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 10)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("CIFRAR");
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Cifrar");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(480, 10, 40, 16);
+        jLabel5.setBounds(90, 6, 810, 20);
 
         pnlMin.setBackground(new java.awt.Color(204, 204, 204));
         pnlMin.setLayout(null);
@@ -239,7 +240,7 @@ public class frmCifrar extends javax.swing.JFrame {
 
         txtMessage.setBackground(new java.awt.Color(0, 41, 60));
         txtMessage.setColumns(20);
-        txtMessage.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtMessage.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
         txtMessage.setForeground(new java.awt.Color(255, 255, 255));
         txtMessage.setRows(5);
         txtMessage.setWrapStyleWord(true);
@@ -606,7 +607,7 @@ public class frmCifrar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseExited
 
     private void btnSaveCryptedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCryptedActionPerformed
-        SaveCoded();
+        //SaveCoded();
     }//GEN-LAST:event_btnSaveCryptedActionPerformed
 
     /**

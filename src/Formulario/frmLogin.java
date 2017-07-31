@@ -59,12 +59,12 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 63, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 20));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 80, 20));
 
         txtUsuario.setBackground(new java.awt.Color(0, 41, 60));
         txtUsuario.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N

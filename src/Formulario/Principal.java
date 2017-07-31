@@ -93,7 +93,6 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(7, 64, 77));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 29, 48), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_BOTTOM));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 39)); // NOI18N
@@ -122,10 +121,10 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("encryptUs");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 680, 30));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 690, 30));
 
         pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
         pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
