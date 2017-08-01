@@ -5,6 +5,7 @@
  */
 package dialogos;
 
+import Formulario.frmPersonalizar;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Shape;
@@ -14,12 +15,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author JuanCarlos
  */
-public class dlgNoCriptoLlano extends java.awt.Dialog {
+public class dlgParametrosCambiados extends java.awt.Dialog {
 
     /**
      * Creates new form dlgNoParameters
      */
-    public dlgNoCriptoLlano(java.awt.Frame parent, boolean modal) {
+    public dlgParametrosCambiados(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -47,6 +48,7 @@ public class dlgNoCriptoLlano extends java.awt.Dialog {
         pnlOk = new javax.swing.JPanel();
         btnOk = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -65,19 +67,19 @@ public class dlgNoCriptoLlano extends java.awt.Dialog {
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Advertencia");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 20));
+        jLabel3.setText("Nueva configuración asignada");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 20));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 20));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_101_Warning_183416.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 60, 60));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 60));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Es necesario el cripto y llano para cifrar y descifrar.");
+        jLabel2.setText("por defecto.");
         jLabel2.setToolTipText("");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 260, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 310, 30));
 
         pnlOk.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,15 +103,21 @@ public class dlgNoCriptoLlano extends java.awt.Dialog {
         });
         pnlOk.add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
 
-        jPanel1.add(pnlOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 90, 30));
+        jPanel1.add(pnlOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, 30));
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Aún no ha configurado el sistema.");
+        jLabel4.setText("El sistema ha sido configurado exitosamente.");
         jLabel4.setToolTipText("");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 240, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 310, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 160));
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Al cerrar el programa se reasignarán los valores ");
+        jLabel5.setToolTipText("");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 310, 20));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 160));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,6 +140,7 @@ public class dlgNoCriptoLlano extends java.awt.Dialog {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         this.setVisible(false);
+  
     }//GEN-LAST:event_btnOkActionPerformed
 
     /**
@@ -140,7 +149,7 @@ public class dlgNoCriptoLlano extends java.awt.Dialog {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                dlgNoCriptoLlano dialog = new dlgNoCriptoLlano(new java.awt.Frame(), true);
+                dlgParametrosCambiados dialog = new dlgParametrosCambiados(new java.awt.Frame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
@@ -158,6 +167,7 @@ public class dlgNoCriptoLlano extends java.awt.Dialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel pnlOk;

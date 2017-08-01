@@ -99,10 +99,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Mercury_1715798 (2).png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 870, 100));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 870, 130));
 
         jPanel3.setBackground(new java.awt.Color(0, 55, 59));
-        jPanel3.setToolTipText("Criptus");
+        jPanel3.setToolTipText("");
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -132,7 +132,7 @@ public class Principal extends javax.swing.JFrame {
         pnlCerrar.setLayout(null);
 
         btnCerrar.setBackground(new java.awt.Color(126, 0, 0));
-        btnCerrar.setFont(new java.awt.Font("Microsoft JhengHei", 1, 16)); // NOI18N
+        btnCerrar.setFont(new java.awt.Font("Eras Light ITC", 1, 18)); // NOI18N
         btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("X");
         btnCerrar.setToolTipText("Cerrar");
@@ -164,7 +164,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel6.setBounds(660, 0, 50, 30);
 
         btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
-        btnMinimizar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 36)); // NOI18N
+        btnMinimizar.setFont(new java.awt.Font("Eras Light ITC", 0, 48)); // NOI18N
         btnMinimizar.setForeground(new java.awt.Color(204, 204, 204));
         btnMinimizar.setText("-");
         btnMinimizar.setToolTipText("Minimizar");
@@ -188,11 +188,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 50, 30));
 
         jLabel5.setBackground(new java.awt.Color(101, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("encryptUs");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 30));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 810, 30));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
 

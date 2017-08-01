@@ -43,11 +43,14 @@ public class dlgNoKW extends java.awt.Dialog {
         btnOk = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(350, 160));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
             }
         });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 58, 68));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,7 +71,7 @@ public class dlgNoKW extends java.awt.Dialog {
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Este parámetro incrementa la seguridad");
+        jLabel2.setText("Este parámetro es obligatorio.");
         jLabel2.setToolTipText("");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 260, 30));
 
@@ -102,7 +105,7 @@ public class dlgNoKW extends java.awt.Dialog {
         jLabel4.setToolTipText("");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 240, 20));
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 352, 160));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
