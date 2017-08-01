@@ -1,280 +1,654 @@
 
 package Formulario;
 
-public class frmPersonalizar extends javax.swing.JFrame {
 
+import dialogos.dlgValidaValorSaltos;
+import dialogos.dlgSoloLetrasKW;
+import dialogos.dlgSaltosNoIngresado;
+import com.sun.awt.AWTUtilities;
+import dialogos.dlgCantLetras;
+import dialogos.dlgNoKW;
+import dialogos.dlgParametrosCambiados;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.MouseInfo;
+import java.awt.Shape;
+import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
+
+
+public class frmPersonalizar extends javax.swing.JFrame {
+    
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public frmPersonalizar() {
         
         initComponents();
-        txtKeyWord.requestFocus();
-        txtCripto.setEditable(false);
-        txtEncrypted.setEditable(false);  
-        rdoOrdenado.setSelected(true);     
-        btnEnviar.setEnabled(false);       
-    }
-
-    char[] textComplete = new char[26];
-    String abc = "";
-    
-    //PONER EL ABECEDARIO EN UN ARREGLO
-    String abcInArray(){
-        String cadena1 = "";
-        String cadena2 = "";
         
-        if(rdoOrdenado.isSelected() && rdoLetter.isSelected()){
-            String letter = txtLetter.getText();
-            abc = "abcdefghijklmnopqrstuvwxyz";
+        //CRIPTO Y LLANO POR DEFECTO
+
+        txtKeyWord.requestFocus();//El campo para la palabra clave está seleccionada por defecto       
+        txtLlano.setEditable(false);//Deshabilitar la edición del cripto
+        //txtCoded.setEditable(false);//Deshabilitar la edición del mensaje cifrado
+        txtLetter.setEnabled(true);//Esta deshabilitado por defecto. Se activa si se selecciona su boton asociado.(rdoLetter) 
+        txtLetter.setEditable(false);
+        txtLetter.setBackground(new Color(7,64,77));
+        
+        pnlUsarAsDefault.setBackground(null);
+        btnAsDefault.setContentAreaFilled(false);
+        btnAsDefault.enable(false);
+        btnAsDefault.setForeground(Color.gray);
+        
+        //Deshabilitar botones al iniciar
+        btnGenerarCripto.setEnabled(false);
+        btnGenerarCripto.setForeground(Color.gray);
+        
+        btnLimpiar.setEnabled(false);
+        btnLimpiar.setForeground(Color.gray);
+        
+        /*btnCleanEncoded.setEnabled(false);
+        btnCleanEncoded.setForeground(Color.gray);
+        
+        btnCleanDecrypt.setEnabled(false);
+        btnCleanDecrypt.setForeground(Color.gray);
+        
+        btnCleanDecrypted.setEnabled(false);
+        btnCleanDecrypted.setForeground(Color.gray);
+        
+        btnEncrypt.setEnabled(false);
+        btnEncrypt.setForeground(Color.gray);
+        
+        btnDecrypt.setEnabled(false);
+        btnDecrypt.setForeground(Color.gray);
+        
+        btnSendToDecrypt.setEnabled(false);
+        btnSendToDecrypt.setForeground(Color.gray);
+        
+        btnCleanEncrypt.setEnabled(false);
+        btnCleanEncrypt.setForeground(Color.gray);
+        */
+        //Efectos con los paneles
+         pnlGenerarCripto.setBackground(null);
+         pnlLimpiarCampos.setBackground(null);
+         //pnlCleanDecoded.setBackground(null);
+//         pnlCleanEncode.setBackground(null);
+//         pnlCleanEncoded.setBackground(null);
+//         pnlCleanDecode.setBackground(null);
+//         pnlDecode.setBackground(null);
+//         pnlEncode.setBackground(null);
+//         pnlSendToDecode.setBackground(null);
+         
+        
+        rdoOrdenado.setSelected(true);//Por defecto se usa el alfabeto ordenado
+        rdoLetter.setForeground(Color.gray);
+        lbl1.setForeground(Color.gray);
+        //Transparencia en los botones y paneles
+        btnMinimizar.setContentAreaFilled(false);
+        btnCerrar.setContentAreaFilled(false);
+        pnlCerrar.setBackground(null);
+        pnlMin.setBackground(null);
+        lblVolver.setForeground(Color.gray);
+       
+        //Ventanas con bordes redondeados 
+        @SuppressWarnings("OverridableMethodCallInConstructor")
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15,15);
+        AWTUtilities.setWindowShape(this,forma);
+        
+        //Icono de las ventanas.
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/Neptune.png"));
+        setIconImage(icon); 
+        }
+    
+        char[] textComplete = new char[27]; //Arreglo donde se guardará el cripto.
+        String abc = ""; //Cadena donde se guardará el alfabeto.
+        //A través de este método se determina el tipo de alfabeto.
+        
+        String alphabet(){
+            String cadena1,cadena2;
+            String letter = txtLetter.getText().toLowerCase();//Obtenemos la letra inicial.
             
-            for(int i=0;i<abc.length();i++){
-                if(letter.equals(Character.toString(abc.charAt(i)))){
+        //Si el albafeto es ordenado y empieza por una letra en específico.
+            if (rdoOrdenado.isSelected() && rdoLetter.isSelected()) {
+            abc = "abcdefghijklmnñopqrstuvwxyz";
+             for (int i = 0; i < abc.length(); i++) {
+                if (letter.equals(Character.toString(abc.charAt(i)))) {
                     cadena1 = abc.substring(i, abc.length());
                     cadena2 = abc.substring(0, i);
-                    abc=cadena1.concat(cadena2);
+                    abc = cadena1.concat(cadena2);
                 }
-            }  
-        }else if(rdoInverso.isSelected() && rdoLetter.isSelected()){
-            String letter = txtLetter.getText();
-            abc = "zyxwvutsrqponmlkjihgfedcba";
-            
-            for(int j=0;j<abc.length();j++){
-                if(letter.equals(Character.toString(abc.charAt(j)))){
+              }            
+            } //Si el albafeto es inverso y empieza por una letra en específico.
+          else if (rdoInverso.isSelected() && rdoLetter.isSelected()) {
+            abc = "zyxwvutsrqpoñnmlkjihgfedcba";
+            for (int j = 0; j < abc.length(); j++) {
+                if (letter.equals(Character.toString(abc.charAt(j)))) {
                     cadena1 = abc.substring(j, abc.length());
                     cadena2 = abc.substring(0, j);
-                    abc=cadena1.concat(cadena2);
+                    abc = cadena1.concat(cadena2);
+                  }
+               }
+            }//Si solo se elige un alfabeto ordenado.
+          else if (rdoOrdenado.isSelected()) {
+                   abc = "abcdefghijklmnñopqrstuvwxyz";
+           }//Si solo se elige un alfabeto inverso.
+           else {
+                   abc = "zyxwvutsrqpoñnmlkjihgfedcba";
+                }
+            txtLlano.setText(abc);
+            return abc;
+        
+    }
+               
+        String randomJumps(String abc,int sDer){
+            int cont=0;
+            String nAlf="";
+            for(int i=0;i<abc.length();i++){
+                if(nAlf.length()== 27 ){
+                    i=28;
+                    continue;
+                }
+                if(abc.charAt(i) != ' '){
+                   cont++;
+                } 
+                if(cont == sDer){
+                    nAlf += abc.charAt(i);
+                    abc = abc.replace(abc.charAt(i),' ');
+                    cont=0;
+                }
+                if(i==(abc.length()-1)){
+                    i=-1;
                 }
             }
-        }else if(rdoOrdenado.isSelected()){
-            abc = "abcdefghijklmnopqrstuvwxyz";
-        }else{
-            abc = "zyxwvutsrqponmlkjihgfedcba";
+            return nAlf;
         }
-             return abc;
-    }  
-    
-    //OBTENEMOS EL TEXTO 
-    String getKeyWord(){
-        return txtKeyWord.getText().trim();
-    }
-    
-    //PONEMOS LA PALABRA CLAVE EN UN ARREGLO
-    char[] putInArray(String keyWord){
-        char achar[] = keyWord.toCharArray();
-        return achar;
-    }  
-    
-    //BORRAR LETRAS REPETIDAS
-    char[] deleteRepeted(char[] keyWordInArray){
-       
+
+        //Obtenemos la palabra clave y la ingresa a un arreglo.
+    char[] getKeyWord() {
+           String keyWord = txtKeyWord.getText().trim().toLowerCase();
+           System.out.println(keyWord);
+           char[] kwInArray = keyWord.toCharArray();
+         return kwInArray;
+        }
+    //Borrar letras repetidas de la plabra clave. 
+    char[] deleteRepeted(char[] keyWordInArray) {
         int longitud = keyWordInArray.length;
         
-        for(int i=0;i<longitud;i++){
-            for(int j=1;j<longitud;j++){
-                if(keyWordInArray[i] == keyWordInArray[j] && i!=j ){                 
-                        keyWordInArray[j] = ' ';
+        for (int i = 0; i < longitud; i++) {
+            for (int j = 1; j < longitud; j++) {
+                if (keyWordInArray[i] == keyWordInArray[j] && i != j) {                    
+                    keyWordInArray[j] = ' ';
                 }
-            }   
+            }            
         }
         return keyWordInArray;
     }
-    //BORRAR ESPACIOS EN BLANCO
-   char[] deleteSpaces(char[] text){
-       
+    //Borrar espacios vacios de la palabra clave.
+    char[] deleteSpaces(char[] keyWord) {
+        
         String cadena = "";
-          for(int i=0;i<text.length;i++){
-             cadena += Character.toString(text[i]);
-          }
-          for(int i=0;i<cadena.length();i++){
-              cadena = cadena.replace(" ", "");
-          }
-          char[] aCaracteres = cadena.toCharArray();
-          
-         return aCaracteres; 
-      }
-
-    //COMPLETAR TEXTO CON LAS LETRAS FALTANTES
-       void completarArray(char[] aCharac, String abc){         
+        //Convertir la palabra clave en cadena.
+        for (int i = 0; i < keyWord.length; i++) {
+            cadena += Character.toString(keyWord[i]);
+        }
+        //Eliminamos los espacios vacios.
+        for (int i = 0; i < cadena.length(); i++) {
+            cadena = cadena.replace(" ", "");             
+        }
+        //La palabra clave limpia(sin espacios en blanco) es ingresada a un arreglo.
+        char[] keyWordFinal = cadena.toCharArray();
+        
+       return keyWordFinal;        
+    }
+   
+    //Completar crpto con las letras faltantes.
+    void completarArray(char[] keyWord, String abc) {
         //System.arraycopy(aCharac, 0, textComplete, 0, aCharac.length);
-            txtCripto.setText("");
-            for(int i=0;i<aCharac.length;i++){
-            for(int j=0;j<abc.length();j++){
-                if(aCharac[i]==abc.charAt(j)){
-                    abc = abc.replace(abc.charAt(j) ,' ');
+            txtCripto.setText("");//Si se genera un nuevo cripto, el anterior es reemplazado.   
+        //Reemplaza las repeticiones por espacios vacios en el alfabeto(abc) comparandolo con la palabra clave(keyWord).
+            for (int i = 0; i < keyWord.length; i++) {
+                for (int j = 0; j < abc.length(); j++) {
+                    if (keyWord[i] == abc.charAt(j)) {
+                        abc = abc.replace(abc.charAt(j), ' ');
                     }
-                 }
-             }
-            char[] abcde = deleteSpaces(putInArray(abc));
-        
-            String cadenaUno="",cadenaDos="",cadenaFinal;
-            for(int i=0;i<abcde.length;i++){
-          cadenaUno += Character.toString(abcde[i]);
+                }
             }
+        //Eliminamos los espacios en vacios del alfabeto 
+        char[] abcDE = deleteSpaces(abc.toCharArray());
         
-             for(int r=0;r<aCharac.length;r++){
-          cadenaDos += Character.toString(aCharac[r]);
-            }
+        String crypt; //Cadena donde se almacenará el cripto.
+        String strOne = "", strTwo = "";//Cadenas donde se almacenará la palabra clave y el alfabeto limpio(sin repeticiones ni espacios)
         
-            cadenaFinal = cadenaDos.concat(cadenaUno);
-            textComplete = cadenaFinal.toCharArray();
+        //Convertimos el alfabeto limpio en un cadena.
+        for (int i = 0; i < keyWord.length; i++) {
+            strOne += Character.toString(keyWord[i]);
+        }
+        //Convertimos la palabra clave en un cadena.
+        for (int r = 0; r < abcDE.length; r++) {
+            strOne += Character.toString(abcDE[r]);
+        }
+        //Concatenamos la palabra clave con el alfabeto limpio (sin repeticiones ni espacios).
+        crypt = strOne.concat(strTwo);
+        txtCripto.setText(crypt);
+        textComplete = crypt.toCharArray();
+        System.out.println(crypt.length());
+        }
 
-            for(int i=0;i<textComplete.length;i++)
-           txtCripto.append(Character.toString(textComplete[i]));
-            }
+    String getJumps(){
+        return txtDerecha.getText();
+    }
 
-/*--------------------------------------------------------------------------------------------------------*/       
-    /*PROCESO DE CIFRADO*/
-       
-       char[] getMessageInArray(){
-           return txtToEncrypt.getText().toCharArray();
-       }
-       
-       char[] getCriptoInArray(){
-           return txtCripto.getText().toCharArray();
-       }
-       
-       void encrypt(char[] mensaje, char[] cripto,char[] llano){
-           
-           for(int i=0;i<mensaje.length;i++){  
-               for(int j=0;j<llano.length;j++){                  
-                   if(mensaje[i] == llano[j] ){
-                       mensaje[i] = cripto[j];                     
-                       j = j+(llano.length-j); 
-                   }
-               }    
-           }          
-           for(int k=0;k<mensaje.length;k++){
-               txtEncrypted.append(Character.toString(mensaje[k]));
+    String valida(){
+        if(getJumps().equals(" ")){
+            txtDerecha.requestFocus();
+            return "Número de Saltos";
+        }if(txtKeyWord.getText().equals("")){
+            return "Palabra clave";
+        }
+            return " ";
+        
+    }
+    /*----------------------------------------------------------------------------------------------------------------*/
+    /*-------------------------------------------------PROCESO DE CIFRADO---------------------------------------------*/
+    
+    //Conversión de números y caracteres en cadenas
+    String Conversion(String message){
+        for(int i=0;i<message.length();i++){
+            String cadA;
+            String cadB;
+           switch(message.charAt(i)){
+               case '0':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("cero"+cadB); break; 
+               case '1': 
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("uno"+cadB); break; 
+               case '2':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("dos"+cadB); break; 
+               case '3':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("tres"+cadB); break; 
+               case '4':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("cuatro"+cadB); break; 
+               case '5':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("cinco"+cadB); break; 
+               case '6':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("seis"+cadB); break; 
+               case '7':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("siete"+cadB); break; 
+               case '8':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("ocho"+cadB); break; 
+               case '9':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("nueve"+cadB); break;
+               case '@':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("arroba"+cadB); break;
+               case '.':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("punto"+cadB); break;
+               case ',':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("coma"+cadB); break;
+               case ';':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("punto y coma"+cadB); break;
+               case '-':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("guion"+cadB); break;
+               case ':':
+                   cadA= message.substring(0,i);
+                   cadB= message.substring(i+1,message.length());
+                   message = cadA.concat("dospuntos"+cadB); break;
+    
            }
-       }
+        }
+        return message;  
+    }
+    
+    //Obtenemos el mensaje a encriptar.
+   /* String getMessage() {
+        //String message = txtToEncode.getText();
+       return message; 
+    }*/
+    char[] putCriptoInArray() {
+        return txtCripto.getText().toCharArray();
+    }
+    
+   /* String encrypt(char[] mensaje, char[] cripto, char[] llano) {
+        String msgEncrypted="";
+        for (int i = 0; i < mensaje.length; i++) {            
+            for (int j = 0; j < llano.length; j++) {
+                //Comprobando si es una letra mayúscula.
+                if(Character.isUpperCase(mensaje[i])){
+                    //Comprobando si son iguales.
+                    if(Character.toString(mensaje[i]).equalsIgnoreCase(Character.toString(llano[j]))){
+                        mensaje[i] = Character.toUpperCase(cripto[j]);
+                        j = j + (llano.length - j);
+                    }
+                 //Al no cumplirse la primera condición solo comprobamos si son iguales.   
+                }else if (mensaje[i] == llano[j]) {
+                    mensaje[i] = cripto[j];
+                        //Llevamos el contador al limite para hacer pase a la siguiente letra.                    
+                    j = j + (llano.length - j);                    
+                }
+            }            
+        }        
+        for (int k = 0; k < mensaje.length; k++) {
+            msgEncrypted += Character.toString(mensaje[k]);
+        }
+       return msgEncrypted;
+    }*/
+   String encrypt(char[] mensaje, char[] cripto, char[] abc) {
+        String msgEncrypted="";
+        for (int i = 0; i < abc.length; i++) {            
+            for (int j = 0; j < cripto.length; j++) {
+                     if(abc[i] == 'a' && cripto[j] == 't'){
+                        int pos = j;    
+                         for(int m = 0; m<mensaje.length;m++ ){
+                             for (int a = 0;a<abc.length;a++){
+                                 if(pos>=cripto.length){
+                                         pos=0;
+                                  }if(Character.isUpperCase(mensaje[m])){
+                                      if((Character.toString(mensaje[m]).equalsIgnoreCase(Character.toString(abc[a])) && ((a+pos)>=cripto.length))){
+                                           mensaje[m] = Character.toUpperCase(cripto[(a+pos)-cripto.length]);
+                                           pos++;
+                                           a=30;
+                                      }else if((Character.toString(mensaje[m]).equalsIgnoreCase(Character.toString(abc[a])) && ((a+pos) < cripto.length))){
+                                           mensaje[m] = Character.toUpperCase(cripto[a+pos]);
+                                           pos++;
+                                           a=30;
+                                      }
+                                  }else if(mensaje[m] == abc[a] && (a+pos)>=cripto.length){
+                                     mensaje[m] = cripto[(a+pos)-cripto.length];
+                                     pos++;
+                                     a=30;
+                                 }else if(mensaje[m] == abc[a] && (a+pos)< cripto.length){
+                                     mensaje[m] = cripto[a+pos];
+                                     pos++;
+                                     a=30;
+                                 }
+                             }
+                         }   
+                     }     
+                }               
+        }        
+        for (int k = 0; k < mensaje.length; k++) {
+            msgEncrypted += Character.toString(mensaje[k]);
+        }
+       return msgEncrypted;
+    }
+    
+    //Obtenemos el mensaje cifrado.
+    /*char[] getEncripted() {
+        return txtToDecode.getText().toCharArray();
+    }*/
+    //Método para descifrar el mensaje.
+    /*String decrypt(char[] message, char[] cripto, char[] abc) {
+        
+        String msgDecrypted="";
+        for (int i = 0; i < message.length; i++) {
+            for (int j = 0; j < cripto.length; j++) {
+                //Comprueba si es una letra mayúscula.
+                if(Character.isUpperCase(message[i])){
+                    //Verifica si son iguales.
+                    if (Character.toString(message[i]).equalsIgnoreCase(Character.toString(cripto[j]))){
+                        //Si son iguales, se reemplaza el caracter del mensaje por su correspondiente en el cripto pero en mayúscula.
+                        message[i] = Character.toUpperCase(abc[j]);
+                    j = j + (cripto.length - j);
+                    }
+                    //Si no se cumple la condición anterior solo verifica si son iguales.
+                }else if(message[i] == cripto[j]){
+                        message[i] = abc[j];
+                        //Llevamos el contador al limite para hacer pase a la siguiente letra.
+                        j = j + (cripto.length - j);
+                }  
+            }
+        }
+        for (int k = 0; k < message.length; k++) {
+            msgDecrypted += Character.toString(message[k]);
+        }
+        return msgDecrypted;
+    }*/
+    
+    
+   String decrypt(char[] message, char[] cripto, char[] abc) {  
+        String msgDecrypted="";                 
+            for (int i = 0; i < abc.length; i++) {            
+            for (int j = 0; j < cripto.length; j++) {
+                     if(abc[i] == 'a' && cripto[j] == 't'){
+                        int pos = j;    
+                         for(int m = 0; m<message.length;m++ ){
+                             for (int c = 0;c<cripto.length;c++){
+                                 if(pos>=cripto.length){
+                                         pos=0;
+                                  }
+                                 if(Character.isUpperCase(message[m])){
+                                     if((Character.toString(message[m]).equalsIgnoreCase(Character.toString(cripto[c]))) && ( pos<=c) ){
+                                         message[m] = Character.toUpperCase(abc[c-pos]);
+                                         pos++;
+                                         c=30;   
+                                     }else if((Character.toString(message[m]).equalsIgnoreCase(Character.toString(cripto[c]))) && (pos>c)){
+                                         message[m] = Character.toUpperCase(abc[(cripto.length+c)-pos]);
+                                         pos++;
+                                         c=30;
+                                     }
+                                 }else if(message[m] == cripto[c] && pos<=c){
+                                     message[m] = abc[c-pos];
+                                     pos++;
+                                     c=30;
+                                 }else if(message[m] == cripto[c] && pos > c){
+                                     message[m] = abc[(cripto.length+c)-pos];
+                                     pos++;
+                                     c=30;
+                                 }
+                             }
+                         }   
+                     }     
+                }
+            }
+        for (int k = 0; k < message.length; k++) {
+            msgDecrypted += Character.toString(message[k]);
+        }
+        return msgDecrypted;
+    }
+    //Método para guardar el mensaje cifrado.
+   /* void grabarEncrypted(){
+            FileDialog da;
+            da = new FileDialog(this,"Guardar como",FileDialog.SAVE);
+            da.show();
+            String file,directory;
+            file = da.getFile()+".txt"; 
+            directory = da.getDirectory();
+            
+        try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
+            
+            pw.println(txtCoded.getText().replace("\n", "\r\n"));
+            JOptionPane.showMessageDialog(null, "Mensaje Guardado");
+        }catch(Exception e){
+            
+        }
+    }*/
 
-       char[] getEncripted(){
-            return txtToDecrypt.getText().toCharArray();
-       }
-       
-       void decrypt(char[] message,char[] cripto,char[] abc){
-           
-           for(int i=0;i<message.length;i++){
-               for(int j=0;j<cripto.length;j++){
-                   if(message[i] == cripto[j]){
-                       message[i] = abc[j];
-                       j = j+(cripto.length - j);
-                   }
-               }
-           }
-           for(int k=0;k<message.length;k++){
-               txtDecrypted.append(Character.toString(message[k]));
-           } 
-       }
+   /* void grabarDecrypted(){
+            FileDialog da;
+            da = new FileDialog(this,"Guardar como",FileDialog.SAVE);
+            da.show();
+            String file,directory;
+            file = da.getFile(); 
+            directory = da.getDirectory();
+            
+        try(PrintWriter pw = new PrintWriter( new FileWriter(directory+file))) {
+            if(file != ""){
+                pw.println(txtDecoded.getText().replace("\n", "\r\n"));
+                JOptionPane.showMessageDialog(null, "Mensaje Guardado");
+                System.out.println(file);
+            }else{
+                JOptionPane.showMessageDialog(null, "Mensaje No Guardado");
+            }
+                
+        }catch(Exception e){
+            
+        }
+    }*/
+    
+    //public boolean pDefault=false;
+    //public String criptoDefault = null;
+    //public String llanoDefault = null;
+    
+    
+    /*String setCripto(){
 
+        if(pDefault==true){
+           criptoDefault = "juancrloshikmñpqtvwxyzbdefg";
+        }else{                
+           criptoDefault = txtCripto.getText();
+        }
+        return criptoDefault;
+    }
+    
+    String setLlano(){
+
+        if(pDefault==true){
+           llanoDefault = "hijklmnñopqrstuvwxyzabcdefg";
+        }else{                
+            llanoDefault = txtLlano.getText();
+        }
+        return llanoDefault;
+    }
+*/
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtKeyWord = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         rdoOrdenado = new javax.swing.JRadioButton();
         rdoInverso = new javax.swing.JRadioButton();
-        btnEnviar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtCripto = new javax.swing.JTextArea();
         txtLetter = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         rdoLetter = new javax.swing.JRadioButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        btnEncrypt = new javax.swing.JButton();
-        btnCleanDecrypt = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtToEncrypt = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtEncrypted = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        btnDecrypt = new javax.swing.JButton();
-        btnLimpiar3 = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtToDecrypt = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txtDecrypted = new javax.swing.JTextArea();
+        txtDerecha = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        lbl1 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        pnlGenerarCripto = new javax.swing.JPanel();
+        btnGenerarCripto = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnVolverP = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        pnlMin = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        btnMinimizar = new javax.swing.JButton();
+        pnlCerrar = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        lblVolver = new javax.swing.JLabel();
+        txtKeyWord = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        txtCripto = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtLlano = new javax.swing.JTextField();
+        pnlUsarAsDefault = new javax.swing.JPanel();
+        btnAsDefault = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        pnlLimpiarCampos = new javax.swing.JPanel();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Personalizar");
         setBackground(new java.awt.Color(35, 86, 104));
+        setName("Personalizar"); // NOI18N
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 204), null, null));
+        jPanel4.setBackground(new java.awt.Color(7, 64, 77));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 75, 91));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 51), 1, true));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Palabra clave");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
-
-        txtKeyWord.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtKeyWordKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtKeyWordKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtKeyWordKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtKeyWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 350, 34));
-
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Seleccionar tipo de alfabeto");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 240, 30));
 
+        rdoOrdenado.setBackground(new java.awt.Color(102, 102, 102));
+        rdoOrdenado.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        rdoOrdenado.setForeground(new java.awt.Color(255, 255, 255));
         rdoOrdenado.setText("Ordenado");
+        rdoOrdenado.setContentAreaFilled(false);
+        rdoOrdenado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rdoOrdenado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdoOrdenadoActionPerformed(evt);
             }
         });
-        jPanel1.add(rdoOrdenado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
+        jPanel1.add(rdoOrdenado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 90, 40));
 
+        rdoInverso.setBackground(new java.awt.Color(102, 102, 102));
+        rdoInverso.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        rdoInverso.setForeground(new java.awt.Color(255, 255, 255));
         rdoInverso.setText("Inverso");
+        rdoInverso.setContentAreaFilled(false);
+        rdoInverso.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rdoInverso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdoInversoActionPerformed(evt);
             }
         });
-        jPanel1.add(rdoInverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 70, -1));
+        jPanel1.add(rdoInverso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 90, 40));
 
-        btnEnviar.setText("Enviar");
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
+        txtLetter.setEditable(false);
+        txtLetter.setBackground(new java.awt.Color(7, 64, 77));
+        txtLetter.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtLetter.setForeground(new java.awt.Color(204, 204, 204));
+        txtLetter.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtLetter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        txtLetter.setCaretColor(new java.awt.Color(0, 204, 255));
+        txtLetter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLetterKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLetterKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLetterKeyTyped(evt);
             }
         });
-        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 140, 90, -1));
+        jPanel1.add(txtLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 50, 30));
 
-        btnLimpiar.setText("Limpiar");
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 91, -1));
-
-        jLabel2.setText("Cripto");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
-
-        txtCripto.setBackground(new java.awt.Color(204, 204, 204));
-        txtCripto.setColumns(20);
-        txtCripto.setRows(5);
-        jScrollPane3.setViewportView(txtCripto);
-
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 423, 35));
-        jPanel1.add(txtLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 50, 30));
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 10, 60));
-
-        rdoLetter.setText("Elegir letra inicial del alfabeto");
+        rdoLetter.setBackground(new java.awt.Color(102, 102, 102));
+        rdoLetter.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        rdoLetter.setForeground(new java.awt.Color(255, 255, 255));
+        rdoLetter.setText("Letra inicial para el alfabeto y llano ");
+        rdoLetter.setContentAreaFilled(false);
+        rdoLetter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         rdoLetter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rdoLetterMouseClicked(evt);
@@ -288,172 +662,397 @@ public class frmPersonalizar extends javax.swing.JFrame {
                 rdoLetterActionPerformed(evt);
             }
         });
-        jPanel1.add(rdoLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
+        jPanel1.add(rdoLetter, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 290, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 870, 180));
-
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 204), null, null));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setText("Mensaje ");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, -1));
-
-        btnEncrypt.setText("Enviar");
-        btnEncrypt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEncryptActionPerformed(evt);
+        txtDerecha.setBackground(new java.awt.Color(7, 64, 77));
+        txtDerecha.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtDerecha.setForeground(new java.awt.Color(255, 255, 255));
+        txtDerecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDerecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        txtDerecha.setCaretColor(new java.awt.Color(0, 204, 255));
+        txtDerecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDerechaKeyTyped(evt);
             }
         });
-        jPanel2.add(btnEncrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 113, -1));
+        jPanel1.add(txtDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 50, 30));
 
-        btnCleanDecrypt.setText("Limpiar");
-        btnCleanDecrypt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCleanDecryptActionPerformed(evt);
+        jLabel12.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Número de saltos a la derecha ");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 250, 30));
+
+        lbl1.setFont(new java.awt.Font("Microsoft JhengHei UI", 2, 13)); // NOI18N
+        lbl1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl1.setText("(opcional)");
+        lbl1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 210, 30));
+
+        jLabel18.setFont(new java.awt.Font("Microsoft JhengHei UI", 2, 13)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("(obligatorio)");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 210, 30));
+
+        pnlGenerarCripto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnGenerarCripto.setBackground(new java.awt.Color(0, 51, 51));
+        btnGenerarCripto.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 13)); // NOI18N
+        btnGenerarCripto.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerarCripto.setText("GENERAR CRIPTO");
+        btnGenerarCripto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(10, 121, 143), 2, true));
+        btnGenerarCripto.setContentAreaFilled(false);
+        btnGenerarCripto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGenerarCriptoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGenerarCriptoMouseExited(evt);
             }
         });
-        jPanel2.add(btnCleanDecrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 107, -1));
-
-        txtToEncrypt.setColumns(20);
-        txtToEncrypt.setRows(5);
-        jScrollPane1.setViewportView(txtToEncrypt);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 426, 58));
-
-        jLabel4.setText("Mensaje Encriptado");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
-
-        txtEncrypted.setBackground(new java.awt.Color(204, 204, 204));
-        txtEncrypted.setColumns(20);
-        txtEncrypted.setRows(5);
-        jScrollPane2.setViewportView(txtEncrypted);
-
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 426, 90));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 460, 330));
-
-        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 204), null, null));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setText("Mensaje");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 52, -1));
-
-        btnDecrypt.setText("Enviar");
-        btnDecrypt.addActionListener(new java.awt.event.ActionListener() {
+        btnGenerarCripto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDecryptActionPerformed(evt);
+                btnGenerarCriptoActionPerformed(evt);
             }
         });
-        jPanel3.add(btnDecrypt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 113, -1));
+        pnlGenerarCripto.add(btnGenerarCripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 40));
 
-        btnLimpiar3.setText("Limpiar");
-        btnLimpiar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar3ActionPerformed(evt);
+        jPanel1.add(pnlGenerarCripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 260, 40));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PARÁMETROS PARA GENERAR EL CRIPTO Y LLANO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 50));
+
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 590, 280));
+
+        btnVolverP.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        btnVolverP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/if_Right_arrow_2202241.png"))); // NOI18N
+        btnVolverP.setBorder(null);
+        btnVolverP.setContentAreaFilled(false);
+        btnVolverP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverPMouseExited(evt);
             }
         });
-        jPanel3.add(btnLimpiar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 107, -1));
+        btnVolverP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverPActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnVolverP, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 40, 40, 30));
 
-        txtToDecrypt.setColumns(20);
-        txtToDecrypt.setRows(5);
-        jScrollPane4.setViewportView(txtToDecrypt);
+        jPanel5.setBackground(new java.awt.Color(0, 55, 59));
+        jPanel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel5MouseDragged(evt);
+            }
+        });
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel5MousePressed(evt);
+            }
+        });
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 426, 58));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Mercury.png"))); // NOI18N
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
-        jLabel8.setText("Mensaje Desencriptado");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        pnlMin.setBackground(new java.awt.Color(204, 204, 204));
+        pnlMin.setLayout(null);
 
-        txtDecrypted.setBackground(new java.awt.Color(204, 204, 204));
-        txtDecrypted.setColumns(20);
-        txtDecrypted.setRows(5);
-        jScrollPane5.setViewportView(txtDecrypted);
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setLayout(null);
+        pnlMin.add(jPanel6);
+        jPanel6.setBounds(660, 0, 50, 30);
 
-        jPanel3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 426, 90));
+        btnMinimizar.setBackground(new java.awt.Color(12, 23, 30));
+        btnMinimizar.setFont(new java.awt.Font("Eras Light ITC", 0, 48)); // NOI18N
+        btnMinimizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnMinimizar.setText("-");
+        btnMinimizar.setToolTipText("Minimizar");
+        btnMinimizar.setBorder(null);
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinimizarActionPerformed(evt);
+            }
+        });
+        pnlMin.add(btnMinimizar);
+        btnMinimizar.setBounds(0, 0, 50, 30);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 460, 330));
+        jPanel5.add(pnlMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 50, 30));
+
+        pnlCerrar.setBackground(new java.awt.Color(204, 0, 0));
+        pnlCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlCerrarMouseExited(evt);
+            }
+        });
+        pnlCerrar.setLayout(null);
+
+        btnCerrar.setBackground(new java.awt.Color(102, 0, 0));
+        btnCerrar.setFont(new java.awt.Font("Eras Light ITC", 1, 18)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setText("X");
+        btnCerrar.setToolTipText("Cerrar");
+        btnCerrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 39, 60), 0, true));
+        btnCerrar.setName(""); // NOI18N
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseExited(evt);
+            }
+        });
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        pnlCerrar.add(btnCerrar);
+        btnCerrar.setBounds(0, 0, 50, 30);
+
+        jPanel5.add(pnlCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 30));
+
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Personalizar");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 30));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 30));
+
+        jSeparator2.setOpaque(true);
+        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 322, 1080, 0));
+
+        lblVolver.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 13)); // NOI18N
+        lblVolver.setForeground(new java.awt.Color(204, 204, 204));
+        lblVolver.setText("Ir a principal");
+        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblVolverMouseExited(evt);
+            }
+        });
+        jPanel4.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 40, 80, 30));
+
+        txtKeyWord.setBackground(new java.awt.Color(0, 75, 91));
+        txtKeyWord.setColumns(2);
+        txtKeyWord.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtKeyWord.setForeground(new java.awt.Color(204, 204, 204));
+        txtKeyWord.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtKeyWord.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        txtKeyWord.setCaretColor(new java.awt.Color(0, 204, 255));
+        txtKeyWord.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtKeyWordKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKeyWordKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtKeyWordKeyTyped(evt);
+            }
+        });
+        jPanel4.add(txtKeyWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 390, 34));
+
+        jPanel7.setBackground(new java.awt.Color(0, 75, 91));
+        jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 51), 1, true));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Cripto");
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 90, 30));
+
+        txtCripto.setEditable(false);
+        txtCripto.setBackground(new java.awt.Color(7, 64, 77));
+        txtCripto.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtCripto.setForeground(new java.awt.Color(204, 204, 204));
+        txtCripto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCripto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        jPanel7.add(txtCripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 330, 30));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Llano");
+        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 90, 30));
+
+        txtLlano.setBackground(new java.awt.Color(7, 64, 77));
+        txtLlano.setColumns(2);
+        txtLlano.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 13)); // NOI18N
+        txtLlano.setForeground(new java.awt.Color(204, 204, 204));
+        txtLlano.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtLlano.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        jPanel7.add(txtLlano, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 330, 30));
+
+        pnlUsarAsDefault.setBackground(new java.awt.Color(102, 0, 0));
+        pnlUsarAsDefault.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnAsDefault.setBackground(new java.awt.Color(0, 51, 51));
+        btnAsDefault.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 11)); // NOI18N
+        btnAsDefault.setForeground(new java.awt.Color(255, 255, 255));
+        btnAsDefault.setText("ASINGNAR CONFIGURACIÓN AL SISTEMA");
+        btnAsDefault.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 0), 2, true));
+        btnAsDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAsDefaultMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAsDefaultMouseExited(evt);
+            }
+        });
+        btnAsDefault.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsDefaultActionPerformed(evt);
+            }
+        });
+        pnlUsarAsDefault.add(btnAsDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 40));
+
+        jPanel7.add(pnlUsarAsDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 260, 40));
+
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 590, 220));
+
+        jLabel15.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 15)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("INGRESE LA PALABRA CLAVE");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1020, 50));
+
+        pnlLimpiarCampos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnLimpiar.setBackground(new java.awt.Color(0, 51, 51));
+        btnLimpiar.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 11)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar campos");
+        btnLimpiar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(10, 121, 143)));
+        btnLimpiar.setContentAreaFilled(false);
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
+            }
+        });
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        pnlLimpiarCampos.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 30));
+
+        jPanel4.add(pnlLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 640, 140, 30));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 690));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        
-        //OBTENEMOS LA PALABRA CLAVE
-        String keyWord = getKeyWord(); 
-        
-        /*
-        SE ENVIA LA PALABRA CLAVE A METODO QUE LO PONDRÁ EN UN ARRAY DE CARACTERES 
-        LUEGO SE GUARDA EL ARREGLO PARA ENVIARLO AL SIGUIENTE MÉTODO
-        */
-        char[] keyWordInArray = putInArray(keyWord);
-                          
-        char[] finalText = deleteRepeted(keyWordInArray);
-        
-        char[] textOne = deleteSpaces(finalText);
-        
-        String abc = abcInArray();
-        
-        completarArray(textOne,abc);    
-    }//GEN-LAST:event_btnEnviarActionPerformed
+    private void btnGenerarCriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarCriptoActionPerformed
+           if(getJumps().equals("")){
+               dlgSaltosNoIngresado v = new dlgSaltosNoIngresado(this,true);
+               v.setVisible(true);
+               txtDerecha.requestFocus();
+          }else if(txtKeyWord.getText().equals("")){
+               dlgNoKW noKW = new dlgNoKW(this, true);
+               noKW.setVisible(true);
+               txtKeyWord.requestFocus();
+          }else{
+            txtCripto.setText("");
+            char[] keyWordInArray = getKeyWord();//Obtenemos la palabra clave para ponerla en un arreglo.   
+            char[] finalText = deleteRepeted(keyWordInArray);//Se eliminan las letras repetidas de la palabra clave.
+            char[] keyWord = deleteSpaces(finalText);//Se eliminan los espacios vacios de la palabra clave.
+            String abc = alphabet();//La estructura del alfabeto se almacena en la variable abc.
+            String nAlf = randomJumps(abc, Integer.parseInt(txtDerecha.getText()));//Aplicamos saltos al alfabeto.
+            completarArray(keyWord, nAlf); //Generamos el cripto.
+            btnAsDefault.enable(true);
+            btnAsDefault.setForeground(Color.white);
+          }
+           
+    }//GEN-LAST:event_btnGenerarCriptoActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        txtCripto.setText("");
-        txtToEncrypt.setText("");
+        txtLlano.setText("");
         txtKeyWord.setText("");
+        txtLetter.setText("");
+        txtCripto.setText("");
+        txtDerecha.setText("");
+        btnAsDefault.enable(true);
+        btnGenerarCripto.setForeground(Color.gray);
+        if(txtCripto.getText().equals("") || txtLlano.getText().equals("")){
+            btnAsDefault.setForeground(Color.gray);
+        }else{
+            pnlUsarAsDefault.setBackground(new Color(102,0,0));
+            btnAsDefault.setForeground(Color.white);
+        }
         txtKeyWord.requestFocus();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnEncryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptActionPerformed
-         
-        char[] message = getMessageInArray();
-        char[] cripto = getCriptoInArray();
-        char[] abc = abcInArray().toCharArray();
-         
-        encrypt(message, cripto, abc);
-    }//GEN-LAST:event_btnEncryptActionPerformed
-
-    private void btnCleanDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanDecryptActionPerformed
-        txtToEncrypt.setText("");
-        txtEncrypted.setText("");
-        txtToEncrypt.requestFocus();
-    }//GEN-LAST:event_btnCleanDecryptActionPerformed
-
     private void rdoOrdenadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoOrdenadoActionPerformed
-            rdoInverso.setSelected(false);
+        rdoInverso.setSelected(false);
     }//GEN-LAST:event_rdoOrdenadoActionPerformed
 
     private void rdoInversoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoInversoActionPerformed
-            rdoOrdenado.setSelected(false);
+        rdoOrdenado.setSelected(false);
     }//GEN-LAST:event_rdoInversoActionPerformed
 
-    private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
-        char[] message = getEncripted();
-        char[] cripto = getCriptoInArray();
-        char[] abc = abcInArray().toCharArray();
-         
-        decrypt(message, cripto, abc);
-    }//GEN-LAST:event_btnDecryptActionPerformed
-
-    private void btnLimpiar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar3ActionPerformed
-        txtToDecrypt.setText("");
-        txtDecrypted.setText("");
-    }//GEN-LAST:event_btnLimpiar3ActionPerformed
-
     private void rdoLetterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoLetterActionPerformed
-
-        
-        
+        if(rdoLetter.isSelected()){
+            txtLetter.setEditable(true);
+            rdoLetter.setForeground(Color.white);
+            lbl1.setForeground(Color.white);
+        }else{
+            txtLetter.setEditable(false);
+            rdoLetter.setForeground(Color.gray);
+            lbl1.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_rdoLetterActionPerformed
 
     private void txtKeyWordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyTyped
+        char letra = evt.getKeyChar();
+        if((letra < 'A' || letra > 'Z') &&(letra < 'a' || letra > 'z') && (letra != '\b')){
+        evt.consume();
+        dlgSoloLetrasKW w = new dlgSoloLetrasKW(this,true);
+        w.setVisible(true);     
+    }
         
     }//GEN-LAST:event_txtKeyWordKeyTyped
 
     private void txtKeyWordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyWordKeyReleased
-        btnEnviar.setEnabled(true);
+        btnGenerarCripto.setEnabled(true);
+        btnGenerarCripto.setForeground(Color.white);
+        btnLimpiar.setEnabled(true);
+        btnLimpiar.setForeground(Color.white);
         int longitud = txtKeyWord.getText().length();
-        if(longitud  == 0){
-            btnEnviar.setEnabled(false);
+        if (longitud == 0) {
+            btnGenerarCripto.setEnabled(false);
+            btnGenerarCripto.setForeground(Color.gray);
+            btnLimpiar.setEnabled(false);
+            btnLimpiar.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtKeyWordKeyReleased
 
@@ -463,18 +1062,205 @@ public class frmPersonalizar extends javax.swing.JFrame {
 
     private void rdoLetterMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdoLetterMouseReleased
         
-        
     }//GEN-LAST:event_rdoLetterMouseReleased
 
     private void rdoLetterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdoLetterMouseClicked
-       
+        
     }//GEN-LAST:event_rdoLetterMouseClicked
+
+    private void btnVolverPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverPActionPerformed
+        Principal prin = new Principal();
+        prin.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnVolverPActionPerformed
+
+    private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
+        btnMinimizar.setContentAreaFilled(false);
+        pnlMin.setVisible(true);
+        pnlMin.setBackground(new Color(12,23,30));
+    }//GEN-LAST:event_btnMinimizarMouseEntered
+
+    private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
+        btnMinimizar.setContentAreaFilled(false);
+        pnlMin.setVisible(true);
+        pnlMin.setBackground(null);
+    }//GEN-LAST:event_btnMinimizarMouseExited
+
+    private void btnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizarActionPerformed
+        this.setExtendedState(ICONIFIED); //Minimizar ventana
+    }//GEN-LAST:event_btnMinimizarActionPerformed
+
+    private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
+        pnlCerrar.setVisible(true);
+        pnlCerrar.setBackground(Color.red);
+    }//GEN-LAST:event_btnCerrarMouseEntered
+
+    private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
+        pnlCerrar.setBackground(null);
+        btnCerrar.setVisible(true);
+    }//GEN-LAST:event_btnCerrarMouseExited
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        //frmCripto.setDefaultCloseOperation(frmCripto.EXIT_ON_CLOSE);
+        System.exit(0);
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void pnlCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarMouseEntered
+
+    }//GEN-LAST:event_pnlCerrarMouseEntered
+
+    private void pnlCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlCerrarMouseExited
+
+    }//GEN-LAST:event_pnlCerrarMouseExited
+        private int x;
+        private int y;
+        
+    private void jPanel5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseDragged
+        //MODIFICAR LA POSICION DEL FRAME
+        java.awt.Point point = MouseInfo.getPointerInfo().getLocation();
+        setLocation(point.x - x , point.y-y);
+    }//GEN-LAST:event_jPanel5MouseDragged
+
+    private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
+        //OBTENER LA POSICIÓN DEL FRAME
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jPanel5MousePressed
+
+    private void txtDerechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDerechaKeyTyped
+        char num = evt.getKeyChar();
+        if((num < '1' || num > '9') && (num != '\b')) {
+        evt.consume();
+        dlgValidaValorSaltos vs = new dlgValidaValorSaltos(this, true);
+        vs.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtDerechaKeyTyped
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+        Principal prin = new Principal();
+        prin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblVolverMouseClicked
+
+    private void btnVolverPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverPMouseEntered
+        lblVolver.setForeground(Color.white);
+    }//GEN-LAST:event_btnVolverPMouseEntered
+
+    private void btnVolverPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverPMouseExited
+        lblVolver.setForeground(Color.gray);
+    }//GEN-LAST:event_btnVolverPMouseExited
+
+    private void lblVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseEntered
+        lblVolver.setForeground(Color.white);
+    }//GEN-LAST:event_lblVolverMouseEntered
+
+    private void lblVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseExited
+        lblVolver.setForeground(Color.gray);
+    }//GEN-LAST:event_lblVolverMouseExited
+
+    private void btnGenerarCriptoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarCriptoMouseEntered
+        
+        if(!("").equals(txtKeyWord.getText())||(!("").equals(txtKeyWord.getText()))){
+            pnlGenerarCripto.setBackground(new Color(10, 121, 143));
+            btnGenerarCripto.setForeground(Color.white);
+        }
+        
+    }//GEN-LAST:event_btnGenerarCriptoMouseEntered
+
+    private void txtLetterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLetterKeyTyped
+        char let = evt.getKeyChar();
+        if((let < 'a' || let > 'z') && (let < 'A' || let > 'Z') && (let != '\b')) {
+        evt.consume();
+        dlgSoloLetrasKW w = new dlgSoloLetrasKW(this, true);
+        w.setVisible(true);
+        } 
+        int l = 0;
+        if(rdoLetter.isSelected()&& txtLetter.getText().length()>l){
+            dlgCantLetras cant = new dlgCantLetras(this, true);
+            cant.setVisible(true);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtLetterKeyTyped
+
+    
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        pnlLimpiarCampos.setBackground(new Color(7, 97, 104));
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    private void btnGenerarCriptoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarCriptoMouseExited
+        pnlGenerarCripto.setBackground(null);
+    }//GEN-LAST:event_btnGenerarCriptoMouseExited
+
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        pnlLimpiarCampos.setBackground(null);
+    }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void txtLetterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLetterKeyPressed
+       /*    char let = evt.getKeyChar();
+        if((let < 'a' || let > 'z') && (let < 'A' || let > 'Z') && (let != '\b')) {
+        evt.consume();
+        dlgSoloLetrasKW w = new dlgSoloLetrasKW(this, true);
+        w.setVisible(true);
+        } 
+        int l = txtLetter.getText().length();
+        if(rdoLetter.isSelected()&& l>=1){
+            dlgCantLetras cant = new dlgCantLetras(this, true);
+            cant.setVisible(true);
+            System.out.println(l);
+            String cad = Character.toString(txtLetter.getText().charAt(0));
+            System.out.println(cad);
+            txtLetter.setText("");
+            System.out.println(cad);
+            txtLetter.setText(cad);
+        }    */
+    }//GEN-LAST:event_txtLetterKeyPressed
+
+    private void txtLetterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLetterKeyReleased
+        
+    }//GEN-LAST:event_txtLetterKeyReleased
+
+    private void btnAsDefaultMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsDefaultMouseEntered
+        if(txtCripto.getText().equals("") || txtLlano.getText().equals("")){
+            btnAsDefault.setForeground(Color.gray);
+        }else{
+        pnlUsarAsDefault.setBackground(new Color(102,0,0));
+        btnAsDefault.setForeground(Color.white);
+        }
+    }//GEN-LAST:event_btnAsDefaultMouseEntered
+
+    private void btnAsDefaultMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsDefaultMouseExited
+        pnlUsarAsDefault.setBackground(null);
+    }//GEN-LAST:event_btnAsDefaultMouseExited
+
+    private void btnAsDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsDefaultActionPerformed
+
+        frmCifrar c = new frmCifrar();
+        frmDescifrar d = new frmDescifrar();
+
+        if((!"".equals(txtCripto.getText()))|| (!"".equals(txtLlano.getText()))){
+              c.criptoCustom=txtCripto.getText();
+              c.llanoCustom=txtLlano.getText();
+              c.defaultP=true;
+        
+              d.criptoCustom=txtCripto.getText();
+              d.llanoCustom=txtLlano.getText();
+              d.defaultP=true;
+            
+            dlgParametrosCambiados pc = new dlgParametrosCambiados(this, true);
+            pc.setVisible(true); 
+            txtKeyWord.requestFocus();
+        }
+        
+        
+
+    }//GEN-LAST:event_btnAsDefaultActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
- 
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -493,8 +1279,6 @@ public class frmPersonalizar extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -505,37 +1289,41 @@ public class frmPersonalizar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCleanDecrypt;
-    private javax.swing.JButton btnDecrypt;
-    private javax.swing.JButton btnEncrypt;
-    private javax.swing.JButton btnEnviar;
+    private javax.swing.JButton btnAsDefault;
+    private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnGenerarCripto;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnLimpiar3;
+    private javax.swing.JButton btnMinimizar;
+    private javax.swing.JButton btnVolverP;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JPanel pnlCerrar;
+    private javax.swing.JPanel pnlGenerarCripto;
+    private javax.swing.JPanel pnlLimpiarCampos;
+    private javax.swing.JPanel pnlMin;
+    private javax.swing.JPanel pnlUsarAsDefault;
     private javax.swing.JRadioButton rdoInverso;
     private javax.swing.JRadioButton rdoLetter;
     private javax.swing.JRadioButton rdoOrdenado;
-    private javax.swing.JTextArea txtCripto;
-    private javax.swing.JTextArea txtDecrypted;
-    private javax.swing.JTextArea txtEncrypted;
+    private javax.swing.JTextField txtCripto;
+    private javax.swing.JTextField txtDerecha;
     private javax.swing.JTextField txtKeyWord;
     private javax.swing.JTextField txtLetter;
-    private javax.swing.JTextArea txtToDecrypt;
-    private javax.swing.JTextArea txtToEncrypt;
+    private javax.swing.JTextField txtLlano;
     // End of variables declaration//GEN-END:variables
 }
