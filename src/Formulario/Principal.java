@@ -272,6 +272,8 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.add(pnlDecifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, 80));
 
+        pnlPersonalizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnCustomize.setBackground(new java.awt.Color(0, 39, 53));
         btnCustomize.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
         btnCustomize.setForeground(new java.awt.Color(255, 255, 255));
@@ -292,23 +294,9 @@ public class Principal extends javax.swing.JFrame {
                 btnCustomizeActionPerformed(evt);
             }
         });
+        pnlPersonalizar.add(btnCustomize, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 40));
 
-        javax.swing.GroupLayout pnlPersonalizarLayout = new javax.swing.GroupLayout(pnlPersonalizar);
-        pnlPersonalizar.setLayout(pnlPersonalizarLayout);
-        pnlPersonalizarLayout.setHorizontalGroup(
-            pnlPersonalizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPersonalizarLayout.createSequentialGroup()
-                .addComponent(btnCustomize, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        pnlPersonalizarLayout.setVerticalGroup(
-            pnlPersonalizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPersonalizarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCustomize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 210, -1));
+        jPanel2.add(pnlPersonalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 220, 40));
 
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 69)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

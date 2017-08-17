@@ -312,8 +312,8 @@ public class frmCifrar extends javax.swing.JFrame {
         pnlEncryptLayout.setHorizontalGroup(
             pnlEncryptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEncryptLayout.createSequentialGroup()
-                .addComponent(btnEncrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnEncrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlEncryptLayout.setVerticalGroup(
             pnlEncryptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +323,7 @@ public class frmCifrar extends javax.swing.JFrame {
         );
 
         jPanel1.add(pnlEncrypt);
-        pnlEncrypt.setBounds(420, 280, 170, 40);
+        pnlEncrypt.setBounds(420, 290, 170, 40);
 
         btnClear.setBackground(new java.awt.Color(0, 21, 29));
         btnClear.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 15)); // NOI18N
